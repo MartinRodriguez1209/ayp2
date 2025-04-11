@@ -1,3 +1,0 @@
-C:\Users\User\Documents\ayp2\practico 2\ejercicio 9\src\main.adb:57:04: warning: variable "cola_pila_vectores" is never read and never assigned [-gnatwv]
-C:\Users\User\Documents\ayp2\practico 2\ejercicio 9\src\main.adb:58:04: warning: variable "pila_vectores" is never read and never assigned [-gnatwv]
-C:\Users\User\Documents\ayp2\practico 2\ejercicio 9\src\main.adb:59:04: warning: variable "vectores" is never read and never assigned [-gnatwv]

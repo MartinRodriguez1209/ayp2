@@ -65,4 +65,21 @@ package body vector is
       end if;
 
    end comparacion;
+
+   procedure mayor (vec : in VecGeneric; posicion : out Integer) is
+      aux : Tipodato;
+   begin
+      for j in vec'Range loop
+         if j = 1 then
+            aux := vec (j);
+            posicion := Integer (j);
+         else
+            if vec (j) > aux then
+               aux := vec (j);
+               posicion := Integer (j);
+            end if;
+         end if;
+      end loop;
+   end mayor;
+
 end vector;

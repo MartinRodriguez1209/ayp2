@@ -31,10 +31,12 @@ package body ada_main is
    E121 : Short_Integer; pragma Import (Ada, E121, "system__finalization_root_E");
    E119 : Short_Integer; pragma Import (Ada, E119, "ada__finalization_E");
    E118 : Short_Integer; pragma Import (Ada, E118, "system__file_io_E");
+   E158 : Short_Integer; pragma Import (Ada, E158, "ada__calendar_E");
    E094 : Short_Integer; pragma Import (Ada, E094, "ada__text_io_E");
+   E156 : Short_Integer; pragma Import (Ada, E156, "system__random_seed_E");
    E148 : Short_Integer; pragma Import (Ada, E148, "packagecola_E");
    E150 : Short_Integer; pragma Import (Ada, E150, "packagepila_E");
-   E152 : Short_Integer; pragma Import (Ada, E152, "vector_E");
+   E167 : Short_Integer; pragma Import (Ada, E167, "vector_E");
 
    Sec_Default_Sized_Stacks : array (1 .. 1) of aliased System.Secondary_Stack.SS_Stack (System.Parameters.Runtime_Default_Sec_Stack_Size);
 
@@ -211,12 +213,17 @@ package body ada_main is
       E119 := E119 + 1;
       System.File_Io'Elab_Body;
       E118 := E118 + 1;
+      Ada.Calendar'Elab_Spec;
+      Ada.Calendar'Elab_Body;
+      E158 := E158 + 1;
       Ada.Text_Io'Elab_Spec;
       Ada.Text_Io'Elab_Body;
       E094 := E094 + 1;
+      System.Random_Seed'Elab_Body;
+      E156 := E156 + 1;
       E148 := E148 + 1;
       E150 := E150 + 1;
-      E152 := E152 + 1;
+      E167 := E167 + 1;
    end adainit;
 
    procedure Ada_Main_Program;

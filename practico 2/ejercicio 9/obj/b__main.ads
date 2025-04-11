@@ -40,7 +40,7 @@ package ada_main is
    pragma Export (C, main, "main");
 
    type Version_32 is mod 2 ** 32;
-   u00001 : constant Version_32 := 16#22d2bfb5#;
+   u00001 : constant Version_32 := 16#248579b0#;
    pragma Export (C, u00001, "mainB");
    u00002 : constant Version_32 := 16#2e11c0b1#;
    pragma Export (C, u00002, "system__standard_libraryB");
@@ -340,14 +340,44 @@ package ada_main is
    pragma Export (C, u00149, "packagepilaB");
    u00150 : constant Version_32 := 16#be0839e1#;
    pragma Export (C, u00150, "packagepilaS");
-   u00151 : constant Version_32 := 16#45a2407c#;
-   pragma Export (C, u00151, "vectorB");
-   u00152 : constant Version_32 := 16#d71e37f5#;
-   pragma Export (C, u00152, "vectorS");
-   u00153 : constant Version_32 := 16#eca5ecae#;
-   pragma Export (C, u00153, "system__memoryB");
-   u00154 : constant Version_32 := 16#76873720#;
-   pragma Export (C, u00154, "system__memoryS");
+   u00151 : constant Version_32 := 16#fd83e873#;
+   pragma Export (C, u00151, "system__concat_2B");
+   u00152 : constant Version_32 := 16#2d5a86c4#;
+   pragma Export (C, u00152, "system__concat_2S");
+   u00153 : constant Version_32 := 16#0774605b#;
+   pragma Export (C, u00153, "system__random_numbersB");
+   u00154 : constant Version_32 := 16#19a1600c#;
+   pragma Export (C, u00154, "system__random_numbersS");
+   u00155 : constant Version_32 := 16#15692802#;
+   pragma Export (C, u00155, "system__random_seedB");
+   u00156 : constant Version_32 := 16#c3b30278#;
+   pragma Export (C, u00156, "system__random_seedS");
+   u00157 : constant Version_32 := 16#48583e4e#;
+   pragma Export (C, u00157, "ada__calendarB");
+   u00158 : constant Version_32 := 16#31350a81#;
+   pragma Export (C, u00158, "ada__calendarS");
+   u00159 : constant Version_32 := 16#24ec69e6#;
+   pragma Export (C, u00159, "system__os_primitivesB");
+   u00160 : constant Version_32 := 16#280734e2#;
+   pragma Export (C, u00160, "system__os_primitivesS");
+   u00161 : constant Version_32 := 16#2f9cb76c#;
+   pragma Export (C, u00161, "system__arith_64B");
+   u00162 : constant Version_32 := 16#9d9eabfb#;
+   pragma Export (C, u00162, "system__arith_64S");
+   u00163 : constant Version_32 := 16#05c60a38#;
+   pragma Export (C, u00163, "system__task_lockB");
+   u00164 : constant Version_32 := 16#4e70667a#;
+   pragma Export (C, u00164, "system__task_lockS");
+   u00165 : constant Version_32 := 16#b8c476a4#;
+   pragma Export (C, u00165, "system__win32__extS");
+   u00166 : constant Version_32 := 16#79e70b31#;
+   pragma Export (C, u00166, "vectorB");
+   u00167 : constant Version_32 := 16#4ebb6ee6#;
+   pragma Export (C, u00167, "vectorS");
+   u00168 : constant Version_32 := 16#eca5ecae#;
+   pragma Export (C, u00168, "system__memoryB");
+   u00169 : constant Version_32 := 16#76873720#;
+   pragma Export (C, u00169, "system__memoryS");
 
    --  BEGIN ELABORATION ORDER
    --  ada%s
@@ -391,6 +421,8 @@ package ada_main is
    --  system.wch_jis%b
    --  system.wch_cnv%s
    --  system.wch_cnv%b
+   --  system.concat_2%s
+   --  system.concat_2%b
    --  system.exn_flt%s
    --  system.traceback%s
    --  system.traceback%b
@@ -474,6 +506,8 @@ package ada_main is
    --  ada.strings.text_buffers%b
    --  ada.strings.text_buffers.utils%s
    --  ada.strings.text_buffers.utils%b
+   --  system.arith_64%s
+   --  system.arith_64%b
    --  system.fat_flt%s
    --  ada.numerics.elementary_functions%s
    --  ada.numerics.elementary_functions%b
@@ -487,16 +521,27 @@ package ada_main is
    --  ada.finalization%s
    --  system.file_io%s
    --  system.file_io%b
+   --  system.task_lock%s
+   --  system.task_lock%b
    --  system.val_lllu%s
    --  system.val_llli%s
    --  system.val_uns%s
    --  system.val_int%s
+   --  system.win32.ext%s
+   --  system.os_primitives%s
+   --  system.os_primitives%b
+   --  ada.calendar%s
+   --  ada.calendar%b
    --  ada.text_io%s
    --  ada.text_io%b
    --  ada.text_io.generic_aux%s
    --  ada.text_io.generic_aux%b
    --  ada.integer_text_io%s
    --  ada.integer_text_io%b
+   --  system.random_seed%s
+   --  system.random_seed%b
+   --  system.random_numbers%s
+   --  system.random_numbers%b
    --  packagecola%s
    --  packagecola%b
    --  packagepila%s

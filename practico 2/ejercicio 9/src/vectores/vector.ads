@@ -22,4 +22,5 @@ is
       Posi       : out Integer);
    procedure Ordenamiento (Vec : in out Vecgeneric);
    procedure comparacion (vec1, vec2 : in vecgeneric; compa : out boolean);
+   procedure mayor (vec : in VecGeneric; posicion : out Integer);
 end Vector;
