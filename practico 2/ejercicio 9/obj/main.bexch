@@ -1,0 +1,23 @@
+[GENERATED OBJECT FILE]
+b__main.o
+[PROJECT FILES]
+C:\Users\User\Documents\ayp2\practico 2\ejercicio 9\ejercicio6.gpr
+20250411212214 e6e05d3078038f30891b99f6c8b85543
+[BOUND OBJECT FILES]
+C:\Users\User\Documents\ayp2\practico 2\ejercicio 9\obj\packageCola.o
+C:\Users\User\Documents\ayp2\practico 2\ejercicio 9\obj\packagePila.o
+C:\Users\User\Documents\ayp2\practico 2\ejercicio 9\obj\vector.o
+C:\Users\User\Documents\ayp2\practico 2\ejercicio 9\obj\main.o
+[GENERATED SOURCE FILES]
+b__main.ads
+b__main.adb
+b__main.ali
+[RESULTING OPTIONS]
+-LC:\Users\User\Documents\ayp2\practico 2\ejercicio 9\obj\
+-LC:\Users\User\Documents\ayp2\practico 2\ejercicio 9\obj\
+-LC:/gnat/2021/lib/gcc/x86_64-w64-mingw32/10.3.1/adalib/
+-static
+-static-libgcc
+C:/gnat/2021/lib/gcc/x86_64-w64-mingw32/10.3.1/adalib/libgnat.a
+-lm
+-Wl,--stack=0x2000000

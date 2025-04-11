@@ -1,4 +1,4 @@
-package body Pila is
+package body packagePila is
    procedure Limpiar (Pila : in out TipoPila) is
    begin
       Pila.cabeza := 0;
@@ -30,4 +30,4 @@ package body Pila is
          raise UNDERFLOW;
       end if;
    end Sacar;
-end Pila;
+end packagePila;

@@ -1,0 +1,46 @@
+V "GNAT Lib v2021"
+A -O0
+A -gnatA
+A -g
+A -mtune=generic
+A -march=x86-64
+P ZX
+
+RN
+RV NO_EXCEPTIONS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U pila%b		pila.adb		7e6071fb NE OO PK GE
+
+U pila%s		pila.ads		0f59d0cb BN EE NE OO PK GE
+
+D pila.ads		20250411201258 0f59d0cb pila%s
+D pila.adb		20250408214114 7139a130 pila%b
+D system.ads		20210520051136 2ffa5114 system%s
+G a e
+G c Z s b [pila standard 5 9 none]
+X 1 pila.ads
+3+9 TipoElemento 11r64 12r66 15r53 2|14r64 23r66
+5k9*Pila 3z9 15E9 20l5 20e9 2|1b14 33l5 33t9
+6R9*TipoPila 6d19 8r37 9r30 10r30 11r35 12r35 16c9 19e14 2|2r37 6r30 10r30
+. 14r35 23r35
+6i19 Max{positive} 16r19 18r37 2|12r33
+7X4*UNDERFLOW 2|30r16
+7X15*OVERFLOW 2|20r16
+8U14*Limpiar 8=23 2|2b14 5l8 5t15
+8r23 Pila{6R9} 2|2b23 4m7
+9V13*Vacia{boolean} 9>20 2|6b13 9l8 9t13 26s14
+9r20 Pila{6R9} 2|6b20 8r14
+10V13*Llena{boolean} 10>20 2|10b13 13l8 13t13 16s14
+10r20 Pila{6R9} 2|10b20 12r14 12r28
+11U14*Meter 11=21 11>45 2|14b14 22l8 22t13
+11r21 Pila{6R9} 2|14b21 16r21 17m10 17r25 18m10 18r26
+11*45 NuevoElemento{3+9} 2|14b45 18r42
+12U14*Sacar 12=21 12<45 2|23b14 32l8 32t13
+12r21 Pila{6R9} 2|23b21 26r21 27r28 27r44 28m10 28r25
+12*45 ElementoSacado{3+9} 2|23b45 27m10
+15A9 ArregloPila(3+9)<integer> 18r19
+17i7 cabeza{natural} 2|4m12 8r19 12r19 17m15 17r30 18r31 27r49 28m15 28r30
+18a7 Elementos{15A9} 2|18m15 27r33
+

@@ -1,0 +1,49 @@
+V "GNAT Lib v2021"
+A -O0
+A -gnatA
+A -g
+A -mtune=generic
+A -march=x86-64
+P ZX
+
+RN
+RV NO_EXCEPTIONS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U packagecola%b		packagecola.adb		0eb3a0da NE OO PK GE
+
+U packagecola%s		packagecola.ads		14d0b365 BN EE NE OO PK GE
+
+D packagecola.ads	20250411201910 14d0b365 packagecola%s
+D packagecola.adb	20250411201948 1a6313bf packagecola%b
+D system.ads		20210520051136 2ffa5114 system%s
+G a e
+G c Z s b [packagecola standard 4 9 none]
+X 1 packagecola.ads
+3+9 TipoElemento 9r50 11r51 16r53 2|3r67 15r51
+4k9*packageCola 3z9 16E9 26l5 26e16 2|1b14 47l5 47t16
+5R9*TipoCola 5d19 7r37 9r21 11r21 12r30 13r30 17c9 25e14 2|3r38 15r21 25r30
+. 36r30 41r37
+5i19 Max{positive} 18r7 21r37 23r9 24r31 2|9r44 20r46 28r28 43r27 44r26
+6X4*OVERFLOW 2|7r16
+6X14*UNDERFLOW 2|18r16
+7U14*Limpiar 7=23 2|41b14 45l8 45t15
+7r23 Cola{5R9} 2|41b23 43m7 43r22 44m7 44r21
+8U14*Insertar 9=7 9>31 2|3b14 12l8 12t16
+9r7 Cola{5R9} 2|3b24 6r17 9m10 9r24 9r39 10m10 10r26
+9*31 nuevoElemento{3+9} 2|3b48 10r41
+10U14*Suprimir 11=7 11<31 2|14b14 23l8 23t16
+11r7 Cola{5R9} 2|15b7 17r17 20m10 20r25 20r41 21r27 21r43
+11*31 ElemSuprimido{3+9} 2|15b31 21m10
+12V13*Llena{boolean} 12>20 2|6s10 25b13 34l8 34t13
+12r20 Cola{5R9} 2|25b20 28r10 28r23 31r23 33r26
+13V13*Vacia{boolean} 13>20 2|17s10 36b13 39l8 39t13
+13r20 Cola{5R9} 2|36b20 38r14 38r28
+16A9 ArregloCola(3+9)<integer> 21r19
+21a7 Elementos{16A9} 2|10m15 21r32
+22i7 Frente{positive} 2|20m15 20r30 21r48 33r31 38r19 43m12
+24i7 Final{positive} 2|9m15 9r29 10r31 28r15 31r28 38r33 44m12
+X 2 packagecola.adb
+26i7 siguiente{positive} 29m10 31m10 33r14
+

@@ -1,6 +1,7 @@
-generic -- archivo .ads, especificación del paquete genérico Cola.
+generic
+   -- archivo .ads, especificación del paquete genérico Cola.
    type TipoElemento is private;
-package Cola is
+package packageCola is
    type TipoCola (Max : Positive) is private;
    OVERFLOW, UNDERFLOW : exception;
    procedure Limpiar (Cola : in out TipoCola);
@@ -13,7 +14,8 @@ package Cola is
 
 private
    type ArregloCola is array (Positive range <>) of TipoElemento;
-   type TipoCola (Max : Positive)
+   type TipoCola
+     (Max : Positive)
    is --cuando instanciamos lo hacemos con Max + 1
    record
       Elementos : ArregloCola (1 .. Max);
@@ -21,4 +23,4 @@ private
         Max; --el frente debe indicar la posición que precede al primero
       Final     : Positive := Max;
    end record;
-end Cola;
+end packageCola;

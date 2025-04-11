@@ -1,0 +1,76 @@
+V "GNAT Lib v2021"
+A -O0
+A -gnatA
+A -g
+A -mtune=generic
+A -march=x86-64
+P ZX
+
+RN
+RV NO_FLOATING_POINT
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U vector%b		vector.adb		45a2407c NE OO PK GE IL
+
+U vector%s		vector.ads		d71e37f5 BN EE NE OO PK GE
+
+D system.ads		20210520051136 2ffa5114 system%s
+D vector.ads		20250411195116 d71e37f5 vector%s
+D vector.adb		20250411193404 92bc7789 vector%b
+G a e
+G c Z s b [vector standard 13 9 none]
+X 2 vector.ads
+2+9 Tipodato 4r19 5r33 5r50 6r33 6r50 7r33 7r50 8r33 9r31 10r31 11r32 15r41
+. 20r23 3|18r23 33r13 49r22
+3I9 Indice 15r30 3|35r16 36r19 36r35 36r48 38r31 40r32 41r21 53r16
+4*4 Valorinicial{2+9} 3|49r34
+5V19 "+"{2+9} 5>23 5>26 3|54s39 55s39
+5*23 A{2+9}
+5*26 B{2+9}
+6V19 "*"{2+9} 6>23 6>26 3|54s28 55s28
+6*23 A{2+9}
+6*26 B{2+9}
+7V19 "-"{2+9} 7>23 7>26
+7*23 A{2+9}
+7*26 B{2+9}
+8V19 ">"{boolean} 8>23 8>26 3|38s24
+8*23 A{2+9}
+8*26 B{2+9}
+9V18 Raiz{float} 9>24 3|58s16 59s16
+9*24 A{2+9}
+10U19 Put 10>24 3|12s10
+10*24 A{2+9}
+11U19 get 11<24 3|5s10
+11*24 A{2+9}
+13k9*Vector 2z9 3z9 4z4 5z19 6z19 7z19 8z19 9z18 10z19 11z19 25l5 25e11 3|1b14
+. 68l5 68t11
+15A9*VecGeneric(2+9)<3I9> 16r30 17r33 19r23 23r41 24r43 3|2r30 9r33 17r23
+. 32r41 48r43
+16U14*Leer 16<20 3|2b14 7l8 7t12
+16a20 Vec{15A9} 3|2b20 4r16 5m15 5r15
+17U14*Imprimir 17>24 3|9b14 14l8 14t16
+17a24 Vec{15A9} 3|9b24 11r16 12r15
+18U14*Busqueda 19>7 20>7 21<7 22<7 3|16b14 30l8 30t16
+19a7 Vec{15A9} 3|17b7 24r16 25r13
+20*7 A{2+9} 3|18b7 25r23
+21b7 Encontrado{boolean} 3|19b7 23m7 26m13
+22i7 Posi{integer} 3|20b7 27m13
+23U14*Ordenamiento 23=28 3|32b14 46l8 46t20
+23a28 Vec{15A9} 3|32b28 38r16 38r26 39r23 40m16 40r27 41m16
+24U14*comparacion 24>27 24>33 24<55 3|48b14 67l8 67t19
+24a27 vec1{15A9} 3|48b27 54r19 54r30
+24a33 vec2{15A9} 3|48b33 55r19 55r30
+24b55 compa{boolean} 3|48b55 62m10 64m10
+X 3 vector.adb
+4i11 I 5r20
+11i11 I 12r20
+24i11 I 25r18 27r30
+33*7 Aux{2|2+9} 39m16 41r41
+35*11 I{2|3I9}
+36i14 J 38r21 38r44 39r28 40r21 40r45 41r34
+49*7 Acum1{2|2+9} 54m10 54r41 58r22
+49*14 Acum2{2|2+9} 55m10 55r41 59r22
+50f7 raiz1{float} 58m7 61r10
+50f14 raiz2{float} 59m7 61r18
+53*11 I{2|3I9} 54r25 54r36 55r25 55r36
+
