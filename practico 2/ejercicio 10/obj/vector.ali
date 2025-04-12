@@ -1,0 +1,63 @@
+V "GNAT Lib v2021"
+A -O0
+A -gnatA
+A -g
+A -mtune=generic
+A -march=x86-64
+P ZX
+
+RN
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U vector%b		vector.adb		9a0b6269 NE OO PK GE IL
+
+U vector%s		vector.ads		0983fd34 BN EE NE OO PK GE
+
+D system.ads		20210520051136 2ffa5114 system%s
+D vector.ads		20250412202308 0983fd34 vector%s
+D vector.adb		20250412202258 93889f5d vector%b
+G a e
+G c Z s b [vector standard 9 9 none]
+X 2 vector.ads
+2+9 Tipodato 4r19 5r33 6r31 7r32 11r41 16r23 3|18r23 33r13 60r13
+3I9 Indice 11r30 3|35r16 36r19 36r35 36r48 38r31 40r32 41r21 51r16
+4*4 Valorinicial{2+9}
+5V19 ">"{boolean} 5>23 5>26 3|38s24 65s21
+5*23 A{2+9}
+5*26 B{2+9}
+6U19 Put 6>24 3|12s10
+6*24 A{2+9}
+7U19 get 7<24 3|5s10
+7*24 A{2+9}
+9k9*Vector 2z9 3z9 4z4 5z19 6z19 7z19 22l5 22e11 3|1b14 72l5 72t11
+11A9*VecGeneric(2+9)<3I9> 12r30 13r33 15r23 19r41 20r43 21r30 3|2r30 9r33
+. 17r23 32r41 48r43 59r30
+12U14*Leer 12<20 3|2b14 7l8 7t12
+12a20 Vec{11A9} 3|2b20 4r16 5m15 5r15
+13U14*Imprimir 13>24 3|9b14 14l8 14t16
+13a24 Vec{11A9} 3|9b24 11r16 12r15
+14U14*Busqueda 15>7 16>7 17<7 18<7 3|16b14 30l8 30t16
+15a7 Vec{11A9} 3|17b7 24r16 25r13
+16*7 A{2+9} 3|18b7 25r23
+17b7 Encontrado{boolean} 3|19b7 23m7 26m13
+18i7 Posi{integer} 3|20b7 27m13
+19U14*Ordenamiento 19=28 3|32b14 46l8 46t20
+19a28 Vec{11A9} 3|32b28 38r16 38r26 39r23 40m16 40r27 41m16
+20U14*comparacion 20>27 20>33 20<55 3|48b14 57l8 57t19
+20a27 vec1{11A9} 3|48b27 52r13
+20a33 vec2{11A9} 3|48b33 52r25
+20b55 compa{boolean} 3|48b55 50m7 53m13
+21U14*mayor 21>21 21<42 3|59b14 70l8 70t13
+21a21 vec{11A9} 3|59b21 62r14 62r19 63r28 64r16 64r33 65r13 66r20
+21i42 posicion{integer} 3|59b42 63m7 67m13
+X 3 vector.adb
+4i11 I 5r20
+11i11 I 12r20
+24i11 I 25r18 27r30
+33*7 Aux{2|2+9} 39m16 41r41
+35*11 I{2|3I9}
+36i14 J 38r21 38r44 39r28 40r21 40r45 41r34
+51*11 I{2|3I9} 52r19 52r31
+60*7 aux{2|2+9} 62m7 65r23 66m13
+64i11 j 65r18 66r25 67r34
+

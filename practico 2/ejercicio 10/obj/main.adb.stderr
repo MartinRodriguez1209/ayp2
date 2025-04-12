@@ -1,0 +1,3 @@
+C:\Users\User\Documents\ayp2\practico 2\ejercicio 10\src\main.adb:2:06: warning: "System.Win32" is an internal GNAT unit [-gnatwi]
+C:\Users\User\Documents\ayp2\practico 2\ejercicio 10\src\main.adb:2:06: warning: use of this unit is non-portable and version-dependent [-gnatwi]
+C:\Users\User\Documents\ayp2\practico 2\ejercicio 10\src\main.adb:126:40: warning: "comparacion" may be referenced before it has a value [enabled by default]

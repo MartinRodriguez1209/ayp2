@@ -1,0 +1,141 @@
+V "GNAT Lib v2021"
+M P W=b
+A -O0
+A -gnatA
+A -g
+A -mtune=generic
+A -march=x86-64
+P ZX
+
+RN
+RV NO_EXCEPTIONS
+RV NO_IO
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U main%b		main.adb		d0eabdce NE OO SU IL
+W ada%s			ada.ads			ada.ali
+Z ada.exceptions%s	a-except.adb		a-except.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+W packagecola%s		packagecola.adb		packagecola.ali
+W packagepila%s		packagepila.adb		packagepila.ali
+W system%s		system.ads		system.ali
+Z system.exception_table%s  s-exctab.adb	s-exctab.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+W system.win32%s	s-win32.ads		s-win32.ali
+W vector%s		vector.adb		vector.ali
+
+D ada.ads		20210520051132 76789da1 ada%s
+D a-except.ads		20210520051128 946f3014 ada.exceptions%s
+D a-ioexce.ads		20210520051128 e4a01f64 ada.io_exceptions%s
+D a-stream.ads		20210520051130 119b8fb3 ada.streams%s
+D a-string.ads		20210520051130 90ac6797 ada.strings%s
+D a-sttebu.ads		20210520051130 18209c64 ada.strings.text_buffers%s
+D a-stuten.ads		20210520051130 808c40ad ada.strings.utf_encoding%s
+D a-tags.ads		20210520051130 9eaa38c6 ada.tags%s
+D a-textio.ads		20210520051130 aef4d56d ada.text_io%s
+D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
+D interfac.ads		20210520051132 edec285f interfaces%s
+D i-c.ads		20210520051132 d9beded9 interfaces.c%s
+D i-cstrea.ads		20210520051132 e53d8b8e interfaces.c_streams%s
+D main.adb		20250412203556 c8e94ce8 main%b
+D packagecola.ads	20250411201910 14d0b365 packagecola%s
+D packagecola.adb	20250411201948 1a6313bf packagecola%b
+D packagepila.ads	20250411201600 be0839e1 packagepila%s
+D packagepila.adb	20250411201638 111dd8ed packagepila%b
+D system.ads		20210520051136 2ffa5114 system%s
+D s-crtl.ads		20210520051132 0ebbdb71 system.crtl%s
+D s-exctab.ads		20210520051132 54135002 system.exception_table%s
+D s-ficobl.ads		20210520051132 078245e4 system.file_control_block%s
+D s-parame.ads		20210520051134 4752c4cb system.parameters%s
+D s-putima.ads		20210520051134 4e095881 system.put_images%s
+D s-secsta.ads		20210520051134 9b3ab94b system.secondary_stack%s
+D s-soflin.ads		20210520051134 a7318a92 system.soft_links%s
+D s-stache.ads		20210520051134 a37c21ec system.stack_checking%s
+D s-stalib.ads		20210520051134 472fbca8 system.standard_library%s
+D s-stoele.ads		20210520051134 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20210520051134 ed88f8fb system.storage_elements%b
+D s-traent.ads		20210520051134 26a8d361 system.traceback_entries%s
+D s-unstyp.ads		20210520051134 2b077493 system.unsigned_types%s
+D s-wchcon.ads		20210520051136 1b7d22d2 system.wch_con%s
+D s-win32.ads		20210520051136 15ac53fb system.win32%s
+D unchconv.ads		20210520051136 ca2f9e18 unchecked_conversion%s
+D vector.ads		20250412202308 0983fd34 vector%s
+D vector.adb		20250412202258 93889f5d vector%b
+G a e
+G c Z b b [main standard 7 13 none]
+G r i none [main standard 7 13 none] [packagecola standard 4 9 none]
+G r i none [main standard 7 13 none] [packagepila standard 5 9 none]
+G r i none [main standard 7 13 none] [vector standard 9 9 none]
+X 1 ada.ads
+16K9*Ada 20e8 14|1r6 4r5
+X 9 a-textio.ads
+58K13*Text_IO 725e16 14|1w10 4r9
+379U14*Get 14|22s7
+390U14*Put 14|17s7
+479U14*Get_Line 14|55s10
+506U14*Put_Line 14|54s10 58s13 129s7 131s7
+X 14 main.adb
+7U13*main 7b13 135l5 135t9
+10i4 MAX{integer} 13r47 49r40 77r47 116r46
+11i4 LONGITUD{integer} 42r32 55m28 56r13 66r21 80r22 89r22 95r22 107r22
+13I12 rango_vector{integer} 34r25
+15U14 putelement 15b14 15>26 18l8 18t18 34r49
+15e26 A{character} 17r12
+20U14 getelement 20b14 20<26 23l8 23t18 34r61
+20e26 A{character} 22m12
+25U14 Raiz 25b14 28l8 28t12
+31K12 cola_package_char[15|4] 40r23 43r10 73r33 81r10 86r7 90r10 116r18
+32K12 pila_package_char[17|5] 77r19 91r10 96r10
+33K12 vector_package_char[36|9] 39r19 48r42 74r33 103r26 117r18 118r18 119r18
+38U14 cargarCola 38b14 39>7 40=7 45l8 45t18 124s4
+39a7 vector{36|11A9[33]} 42r16 43r44
+40r7 cola{15|5R9[31]} 43m38
+42i11 J{integer} 43r52
+48U14 pedirDatos 48b14 48=26 70l8 70t18 123s4
+48a26 vector{36|11A9[33]} 67m10
+49a7 cadena{string} 55m20 67r24
+50b7 longitud_correcta{boolean} 57m13 61m13 63r20
+66i11 J{integer} 67r18 67r32
+72U14 obtenerWyWr 72b14 73=7 74=7 74=16 99l8 99t19 125s4
+73r7 cola{15|5R9[31]} 81m38 86m35 90m38
+74a7 vector1{36|11A9[33]} 82m10
+74a16 vector2{36|11A9[33]} 97m10
+76e7 temp{character} 81m44 82r25 86m41 90m44 91r46 96m46 97r25
+77r7 pila_char{17|6R9[32]} 91m35 91r35 96m35 96r35
+80i11 J{integer} 82r19
+89i11 J{integer}
+95i11 J{integer} 97r19
+102U14 compararVectores 102b14 103>7 103>16 104=7 114l8 114t24 126s4
+103a7 vector1{36|11A9[33]} 108r13
+103a16 vector2{36|11A9[33]} 108r28
+104b7 compa{boolean} 106m7 109m13
+107i11 j{integer} 108r22 108r37
+116r4 cola_char{15|5R9[31]} 124m29 124r29 125m17 125r17
+117a4 vector_char{36|11A9[33]} 123m16 123r16 124r16
+118a4 vector1{36|11A9[33]} 125m28 125r28 126r22
+119a4 vector2{36|11A9[33]} 125m37 125r37 126r31
+120b4 comparacion{boolean} 126m40 126r40 128r7
+X 15 packagecola.ads
+4k9*packageCola 14|3w6 31r37 15|26e16
+5R9 TipoCola 14|40r41[31] 73r51[31] 116r36[31]
+8U14 Insertar 14|43s28[31]
+10U14 Suprimir 14|81s28[31] 86s25[31] 90s28[31]
+X 17 packagepila.ads
+5k9*packagePila 14|3w19 32r37 17|20e16
+6R9 TipoPila 14|77r37[32]
+11U14 Meter 14|91s28[32]
+12U14 Sacar 14|96s28[32]
+X 19 system.ads
+37K9*System 14|2r6 19|193e11
+X 34 s-win32.ads
+39K16*Win32 14|2w13 34|349e17
+X 36 vector.ads
+9k9*Vector 14|3w32 34r6 36|22e11
+11A9 VecGeneric(character)<integer> 14|39r39[33] 48r62[33] 74r53[33] 103r46[33]
+. 117r38[33] 118r38[33] 119r38[33]
+
