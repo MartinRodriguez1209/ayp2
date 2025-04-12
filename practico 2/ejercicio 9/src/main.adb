@@ -9,7 +9,7 @@ use ada.Integer_Text_IO, ada.Numerics.Elementary_Functions, Ada.Text_IO;
 
 procedure Main is
 
-   subtype rango is Integer range 1 .. 5;
+   subtype rango_vector is Integer range 1 .. 5;
    MAX : Integer := 5;
 
    function Raiz (A : in Integer) return Float is
@@ -27,26 +27,23 @@ procedure Main is
       Get (A);
    end getelement;
 
-   function Random_Integer (numero : out Integer) return Integer is
-      subtype Rango is Integer range 1 .. 20;
-
-      package Random_Int is new Ada.Numerics.Discrete_Random (Rango);
+   function Random_Integer return Integer is
+      subtype rango_aleatorio is Integer range 1 .. 20;
+      package Random_Int is new Ada.Numerics.Discrete_Random (rango_aleatorio);
       use Random_Int;
-
       Gen   : Generator;
-      Valor : Rango;
+      Valor : rango_aleatorio;
    begin
-      Reset (Gen); -- inicializa el generador (opcionalmente podés usar Seed)
+      Reset (Gen); -- inicializa el generador 
       Valor := Random (Gen); -- genera número aleatorio
-      numero := Integer (Random (Gen));
-      return numero;
+      return Integer (valor); -- devuelvo el numero aleatorio
    end Random_Integer;
    --instancio mi vectore de enteros
 
    package vectorInt is new
      Vector
        (Integer,
-        rango,
+        rango_vector,
         0,
         "+",
         "*",
@@ -70,13 +67,31 @@ procedure Main is
    use cola;
    subtype colaType is cola.TipoCola (MAX);
 
+   --procedimiento que llena un vector de numeros aleatorios
+
    procedure llenarVector (vector : out VectorType) is
-      numero : Integer;
    begin
-      for j in rango loop
-         vector (j) := Random_Integer (numero);
+      for j in rango_vector loop
+         vector (j) := Random_Integer;
       end loop;
    end llenarVector;
+
+   --procedimiento para llenar la cola con numeros aleatorios
+
+   procedure llenarCola
+     (cola_pila_vectores : out colaType;
+      pila_vectores      : in out pilaType;
+      vector             : in out VectorType) is
+   begin
+      for i in 1 .. 4 loop
+         for j in 1 .. 5 loop
+            llenarVector (vector);
+            pila.Meter (pila_vectores, vector);
+         end loop;
+         cola.Insertar (cola_pila_vectores, pila_vectores);
+         pila.Limpiar (pila_vectores);
+      end loop;
+   end llenarCola;
 
    --variables
    cola_pila_vectores : colaType;
@@ -84,19 +99,10 @@ procedure Main is
    vector             : VectorType;
    posicion           : Integer;
 begin
-
    --lleno la cola de pila de vectores
-   for i in 1 .. 4 loop
-      for j in 1 .. 5 loop
-         llenarVector (vector);
-         pila.Meter (pila_vectores, vector);
-      end loop;
-      cola.Insertar (cola_pila_vectores, pila_vectores);
-      pila.Limpiar (pila_vectores);
-   end loop;
+   llenarCola (cola_pila_vectores, pila_vectores, vector);
 
    --busco el elemento mayor del primer vector de la primera cola
-
    cola.Suprimir (cola_pila_vectores, pila_vectores);
    pila.Sacar (pila_vectores, vector);
    vectorInt.mayor (vector, posicion);

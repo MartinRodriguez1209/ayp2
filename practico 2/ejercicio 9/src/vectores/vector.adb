@@ -69,15 +69,12 @@ package body vector is
    procedure mayor (vec : in VecGeneric; posicion : out Integer) is
       aux : Tipodato;
    begin
-      for j in vec'Range loop
-         if j = 1 then
+      aux := vec (vec'First);
+      posicion := Integer (vec'First);
+      for j in vec'First + 1 .. vec'Last loop
+         if vec (j) > aux then
             aux := vec (j);
             posicion := Integer (j);
-         else
-            if vec (j) > aux then
-               aux := vec (j);
-               posicion := Integer (j);
-            end if;
          end if;
       end loop;
    end mayor;
