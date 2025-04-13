@@ -31,12 +31,12 @@ procedure Main is
       subtype rango_aleatorio is Integer range 1 .. 20;
       package Random_Int is new Ada.Numerics.Discrete_Random (rango_aleatorio);
       use Random_Int;
-      Gen   : Generator;
-      Valor : rango_aleatorio;
+      Gen : Generator;
+
    begin
       Reset (Gen); -- inicializa el generador 
-      Valor := Random (Gen); -- genera número aleatorio
-      return Integer (valor); -- devuelvo el numero aleatorio
+      -- genera número aleatorio
+      return Integer (Random (Gen)); -- devuelvo el numero aleatorio
    end Random_Integer;
    --instancio mi vectore de enteros
 
