@@ -32,10 +32,8 @@ procedure Main is
       package Random_Int is new Ada.Numerics.Discrete_Random (rango_aleatorio);
       use Random_Int;
       Gen : Generator;
-
    begin
       Reset (Gen); -- inicializa el generador 
-      -- genera número aleatorio
       return Integer (Random (Gen)); -- devuelvo el numero aleatorio
    end Random_Integer;
    --instancio mi vectore de enteros
