@@ -4,11 +4,7 @@ package body Pila is
    procedure Free is new Ada.Unchecked_Deallocation (TipoNodo, TipoPila);
    procedure Crear (Pila : TipoPila) is
    begin
-      if Vacia (Pila) then
-         Pila := null;
-      else
-         raise PilaVacia;
-      end if;
+      Pila := null;
    end Crear;
 
    function Vacia (Pila : in TipoPila) return Boolean is
