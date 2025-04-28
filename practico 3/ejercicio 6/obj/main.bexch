@@ -1,0 +1,19 @@
+[GENERATED OBJECT FILE]
+b__main.o
+[PROJECT FILES]
+C:\Users\User\Documents\ayp2\practico 3\ejercicio 6\ejercicio6.gpr
+20250426182440 7de468d32a39a5bda79879892120546c
+[BOUND OBJECT FILES]
+C:\Users\User\Documents\ayp2\practico 3\ejercicio 6\obj\main.o
+[GENERATED SOURCE FILES]
+b__main.ads
+b__main.adb
+b__main.ali
+[RESULTING OPTIONS]
+-LC:\Users\User\Documents\ayp2\practico 3\ejercicio 6\obj\
+-LC:\Users\User\Documents\ayp2\practico 3\ejercicio 6\obj\
+-LC:/gnat/2021/lib/gcc/x86_64-w64-mingw32/10.3.1/adalib/
+-static
+-static-libgcc
+C:/gnat/2021/lib/gcc/x86_64-w64-mingw32/10.3.1/adalib/libgnat.a
+-Wl,--stack=0x2000000

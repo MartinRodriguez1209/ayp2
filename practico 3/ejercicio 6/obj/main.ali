@@ -1,0 +1,89 @@
+V "GNAT Lib v2021"
+M P W=b
+A -O0
+A -gnatA
+A -g
+A -mtune=generic
+A -march=x86-64
+P ZX
+
+RN
+RV NO_ALLOCATORS
+RV NO_IO
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_LOCAL_ALLOCATORS
+RV NO_STANDARD_ALLOCATORS_AFTER_ELABORATION
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_UNCHECKED_DEALLOCATION
+RV NO_DEFAULT_INITIALIZATION
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U main%b		main.adb		f0d69ff8 NE OO SU IL
+W ada%s			ada.ads			ada.ali
+W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+W unchecked_deallocation%s
+
+D ada.ads		20210520051132 76789da1 ada%s
+D a-except.ads		20210520051128 946f3014 ada.exceptions%s
+D a-inteio.ads		20210520051128 f64b89a4 ada.integer_text_io%s
+D a-ioexce.ads		20210520051128 e4a01f64 ada.io_exceptions%s
+D a-stream.ads		20210520051130 119b8fb3 ada.streams%s
+D a-string.ads		20210520051130 90ac6797 ada.strings%s
+D a-sttebu.ads		20210520051130 18209c64 ada.strings.text_buffers%s
+D a-stuten.ads		20210520051130 808c40ad ada.strings.utf_encoding%s
+D a-tags.ads		20210520051130 9eaa38c6 ada.tags%s
+D a-textio.ads		20210520051130 aef4d56d ada.text_io%s
+D a-tiinio.ads		20210520051130 390edddb ada.text_io.integer_io%s
+D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
+D interfac.ads		20210520051132 edec285f interfaces%s
+D i-cstrea.ads		20210520051132 e53d8b8e interfaces.c_streams%s
+D main.adb		20250426184720 892cd595 main%b
+D system.ads		20210520051136 2ffa5114 system%s
+D s-crtl.ads		20210520051132 0ebbdb71 system.crtl%s
+D s-exctab.ads		20210520051132 54135002 system.exception_table%s
+D s-ficobl.ads		20210520051132 078245e4 system.file_control_block%s
+D s-parame.ads		20210520051134 4752c4cb system.parameters%s
+D s-putima.ads		20210520051134 4e095881 system.put_images%s
+D s-secsta.ads		20210520051134 9b3ab94b system.secondary_stack%s
+D s-soflin.ads		20210520051134 a7318a92 system.soft_links%s
+D s-stache.ads		20210520051134 a37c21ec system.stack_checking%s
+D s-stalib.ads		20210520051134 472fbca8 system.standard_library%s
+D s-stoele.ads		20210520051134 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20210520051134 ed88f8fb system.storage_elements%b
+D s-traent.ads		20210520051134 26a8d361 system.traceback_entries%s
+D s-unstyp.ads		20210520051134 2b077493 system.unsigned_types%s
+D s-wchcon.ads		20210520051136 1b7d22d2 system.wch_con%s
+D unchconv.ads		20210520051136 ca2f9e18 unchecked_conversion%s
+D unchdeal.ads		20210520051136 214516a4 unchecked_deallocation%s
+G a e
+G c Z b b [main standard 6 11 none]
+X 1 ada.ads
+16K9*Ada 20e8 15|1r6 2r6 3r5 3r26
+X 3 a-inteio.ads
+18K13*Integer_Text_IO[11|46] 15|1w10 3r9
+X 10 a-textio.ads
+58K13*Text_IO 725e16 15|2w10 3r30
+262U14*New_Line 15|43s7 59s4 61s4
+390U14*Put 15|37s7 39s7 41s7 47s7 49s7 51s7
+506U14*Put_Line 15|57s4 60s4
+X 11 a-tiinio.ads
+80U14*Put 15|21s7[3|18] 36s7[3|18] 38s7[3|18] 40s7[3|18] 42s7[3|18] 46s7[3|18]
+. 48s7[3|18] 50s7[3|18] 52s7[3|18]
+X 15 main.adb
+6U11*main 6b11 63l5 63t9
+7P9 pInt(integer) 8r11 9r11
+8p4 pUno{7P9} 17m7 18r7 19r15 21r12
+9p4 pDos{7P9} 19m7 20r7 20r19
+11P9 pun(integer) 13r14 24r59
+12i4 b{integer} 30m7 35r16 38r12 48r12
+13p4 a{11P9} 28m7 29r7 33r16 34r12 36r12 46r12
+13p7 c{11P9} 31m7 32r12 34m7 35r7 40r12 44m7 45r7 50r12
+13p10 d{11P9} 32m7 33r7 42r12 44r12 52r12 53m13 53r13
+15U14 ejercicio6a 15b14 22l8 22t19 58s4
+24U14 free[32|20] 53s7
+26U14 ejercicio6c 26b14 54t7 62s4
+X 32 unchdeal.ads
+20u11*Unchecked_Deallocation 15|4w6 24r26
+

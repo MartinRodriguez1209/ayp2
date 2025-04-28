@@ -1,0 +1,61 @@
+V "GNAT Lib v2021"
+A -O0
+A -gnatA
+A -g
+A -mtune=generic
+A -march=x86-64
+P ZX
+
+RN
+RV NO_ALLOCATORS
+RV NO_EXCEPTIONS
+RV NO_LOCAL_ALLOCATORS
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_UNCHECKED_DEALLOCATION
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U pila%b		pila.adb		dc633325 NE OO PK GE
+W ada%s			ada.ads			ada.ali
+W ada.unchecked_deallocation%s
+
+U pila%s		pila.ads		d9154d79 BN EE NE OO PK GE IL
+
+D ada.ads		20210520051132 76789da1 ada%s
+D a-uncdea.ads		20210520051130 c3a8ac65 ada.unchecked_deallocation%s
+D pila.ads		20250428214600 d9154d79 pila%s
+D pila.adb		20250428221516 c6ded239 pila%b
+D system.ads		20210520051136 2ffa5114 system%s
+G a e
+G c Z s b [pila standard 3 9 none]
+X 1 ada.ads
+16K9*Ada 20e8 4|1r6 4r26
+X 2 a-uncdea.ads
+20u15*Unchecked_Deallocation 4|1w10 4r30
+X 3 pila.ads
+2+9 TipoElem 7r59 8r60 15r14 4|15r59 20r60
+3k9*pila 2z9 12E9 18l5 18e9 4|3b14 41l5 41t9
+4P9*TipoPila 5r35 6r30 7r35 8r35 9r37 13c9 16r14 4|4r64 5r35 10r30 15r35
+. 16r19 20r35 21r14 31r37 32r14
+5U14*Crear 5=21 4|5b14 8l8 8t13
+5p21 Pila{4P9} 4|5b21 7m7
+6V13*Vacia{boolean} 6>20 4|10b13 13l8 13t13 23s10 34s17
+6p20 Pila{4P9} 4|10b20 12r14
+7U14*Meter 7=21 7>45 4|15b14 19l8 19t13
+7p21 Pila{4P9} 4|15b21 16r55 18m7
+7*45 Elemento{2+9} 4|15b45 16r45
+8U14*Sacar 8=21 8<45 4|20b14 30l8 30t13
+8p21 Pila{4P9} 4|20b21 21r26 23r17 26r22 27m10 27r18
+8*45 Elemento{2+9} 4|20b45 26m10
+9U14*Limpiar 9=23 4|31b14 39l8 39t15
+9p23 Pila{4P9} 4|31b23 32r26 34r24 35m10 35r18 37r18
+10X4*PilaVacia 4|24r16
+12R9 TipoNodo 13r28 14c9 17e14 4|4r54 16r35
+15*7 Info{2+9} 4|26r27
+16p7 Sig{4P9} 4|27r23 35r23
+X 4 pila.adb
+4U14 Free[2|20] 28s10 36s10
+16p7 NuevoNodo{3|4P9} 18r15
+21p7 Temp{3|4P9} 28m16 28r16
+32p7 Temp{3|4P9} 36m16 36r16 37m10
+
