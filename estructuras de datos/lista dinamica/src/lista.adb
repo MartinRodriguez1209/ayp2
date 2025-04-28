@@ -7,11 +7,7 @@ package body lista is
 
    procedure Crear (Lista : out TipoLista) is
    begin
-      if Vacia (Lista) then
-         Lista := null;
-      else
-         raise ListaVacia;
-      end if;
+      Lista := null;
    end Crear;
 
    procedure Limpiar (Lista : in out TipoLista) is
