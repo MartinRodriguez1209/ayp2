@@ -1,0 +1,44 @@
+V "GNAT Lib v2021"
+A -O0
+A -gnatA
+A -g
+A -mtune=generic
+A -march=x86-64
+P ZX
+
+RN
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U turno%b		turno.adb		39c0f1fe NE OO PK
+W turno%s		turno.adb		turno.ali
+
+U turno%s		turno.ads		b08b67a6 EE NE OO PK IL
+
+D system.ads		20210520051136 2ffa5114 system%s
+D turno.ads		20250506213450 b08b67a6 turno%s
+D turno.adb		20250506212558 39c0f1fe turno%b
+G a e
+G c Z s b [crear turno 5 14 none]
+G c Z s s [tipoturnoIP turno 21 9 none]
+X 2 turno.ads
+1K9*turno 15E4 29l5 29e10 3|1w6 3b14 20l5 20t10
+3R9*TipoTurno 6r25 21c9 27e14 3|6r25
+5U14*Crear 6<7 7>7 8>7 9>7 10>7 11>7 3|5b14 18l8 18t13
+6r7 T{3R9} 3|6b7 13m7 14m7 15m7 16m7 17m7
+7a7 fecha{string} 3|7b7 13r18
+8a7 hora{string} 3|8b7 14r17
+9a7 patente{string} 3|9b7 15r20
+10a7 dni_cliente{string} 3|10b7 16r24
+11a7 motivo{string} 3|11b7 17r19
+15N4 Max_Long_Fecha 22r34
+16N4 Max_Long_Hora 23r34
+17N4 Max_Long_Patente 24r34
+18N4 Max_Long_DNI 25r34
+19N4 Max_Long_Motivo 26r34
+22a7*fecha{string} 3|13m9
+23a7*hora{string} 3|14m9
+24a7*patente{string} 3|15m9
+25a7*dni_cliente{string} 3|16m9
+26a7*motivo{string} 3|17m9
+

@@ -74,4 +74,5 @@ begin
    Promedio := Promedio / MAXVECTOR;
 
    Put_Line ("El promedio es :" & Integer'Image (Promedio));
+   ada.Text_IO.Put ("a");
 end;
