@@ -2,14 +2,10 @@ package turno is
 
    type TipoTurno is private;
 
-   procedure Crear
-     (T           : out TipoTurno;
-      fecha       : in String;
-      hora        : in String;
-      patente     : in String;
-      dni_cliente : in String;
-      motivo      : in String);
-
+   function Crear
+     (fecha       : in String; hora : in String; patente : in String;
+      dni_cliente : in String; motivo : in String) return TipoTurno;
+   function getDNI (T : TipoTurno) return String;
 private
 
    Max_Long_Fecha   : constant := 5;

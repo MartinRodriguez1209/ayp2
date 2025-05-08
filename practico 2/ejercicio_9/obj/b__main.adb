@@ -261,12 +261,12 @@ package body ada_main is
    end;
 
 --  BEGIN Object file/option list
-   --   C:\Users\User\Desktop\Uni Informatica\AYP2\ayp2\practico 2\ejercicio_9\obj\packageCola.o
-   --   C:\Users\User\Desktop\Uni Informatica\AYP2\ayp2\practico 2\ejercicio_9\obj\packagePila.o
-   --   C:\Users\User\Desktop\Uni Informatica\AYP2\ayp2\practico 2\ejercicio_9\obj\vector.o
-   --   C:\Users\User\Desktop\Uni Informatica\AYP2\ayp2\practico 2\ejercicio_9\obj\main.o
-   --   -LC:\Users\User\Desktop\Uni Informatica\AYP2\ayp2\practico 2\ejercicio_9\obj\
-   --   -LC:\Users\User\Desktop\Uni Informatica\AYP2\ayp2\practico 2\ejercicio_9\obj\
+   --   C:\Users\marti\Documents\ayp2\practico 2\ejercicio_9\obj\packageCola.o
+   --   C:\Users\marti\Documents\ayp2\practico 2\ejercicio_9\obj\packagePila.o
+   --   C:\Users\marti\Documents\ayp2\practico 2\ejercicio_9\obj\vector.o
+   --   C:\Users\marti\Documents\ayp2\practico 2\ejercicio_9\obj\main.o
+   --   -LC:\Users\marti\Documents\ayp2\practico 2\ejercicio_9\obj\
+   --   -LC:\Users\marti\Documents\ayp2\practico 2\ejercicio_9\obj\
    --   -LC:/gnat/2021/lib/gcc/x86_64-w64-mingw32/10.3.1/adalib/
    --   -static
    --   -lgnat

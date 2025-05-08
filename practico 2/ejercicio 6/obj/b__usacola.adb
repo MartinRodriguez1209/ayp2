@@ -269,10 +269,10 @@ package body ada_main is
    end;
 
 --  BEGIN Object file/option list
-   --   C:\Users\marti\Desktop\proyectoayp\practico2\obj\Cola.o
-   --   C:\Users\marti\Desktop\proyectoayp\practico2\obj\usacola.o
-   --   -LC:\Users\marti\Desktop\proyectoayp\practico2\obj\
-   --   -LC:\Users\marti\Desktop\proyectoayp\practico2\obj\
+   --   C:\Users\marti\Documents\ayp2\practico 2\ejercicio 6\obj\Cola.o
+   --   C:\Users\marti\Documents\ayp2\practico 2\ejercicio 6\obj\usacola.o
+   --   -LC:\Users\marti\Documents\ayp2\practico 2\ejercicio 6\obj\
+   --   -LC:\Users\marti\Documents\ayp2\practico 2\ejercicio 6\obj\
    --   -LC:/gnat/2021/lib/gcc/x86_64-w64-mingw32/10.3.1/adalib/
    --   -static
    --   -lgnat

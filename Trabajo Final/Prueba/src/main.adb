@@ -1,17 +1,17 @@
 with turno, Ada.Text_IO;
 with Lista;
-use ada.Text_IO;
+use Ada.Text_IO;
 
 procedure Main is
 
-   use Turno;
+   use turno;
 
    function compararDni (T : TipoTurno; DNI : String) return Boolean is
    begin
-      return DNI (T) = DNI;
+      return turno.getDNI (T) = DNI;
    end compararDni;
 
-   package nuevaLista is new Lista (Turno.TipoTurno, compararDni);
+   package nuevaLista is new Lista (turno.TipoTurno, compararDni);
    use nuevaLista;
 
    unaLista : TipoLista;
@@ -19,7 +19,7 @@ procedure Main is
    turnoAux : TipoTurno;
 
 begin
-   Turno.Crear (unTurno, "abcde", "16:00", "AAAAA", "12345", "motiv");
+   unTurno := turno.Crear ("abcde", "16:00", "AAAAA", "12345", "motiv");
    nuevaLista.Insertar (unaLista, unTurno);
 
    turnoAux := nuevaLista.Buscar (unaLista, "12345");

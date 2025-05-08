@@ -14,7 +14,7 @@ package body lista is
       Temp : TipoLista := Lista;
    begin
       while Lista /= null loop
-         Temp := Lista;
+         Temp  := Lista;
          Lista := Lista.Sig;
          Free (Temp);
       end loop;
@@ -40,12 +40,12 @@ package body lista is
    begin
       -- recursivo
       if Vacia (Lista) then
-         return false;
+         return False;
       else
          if Ptr /= null and then Ptr.Info = Elemento then
-            return true;
+            return True;
          else
-            return Esta (Lista.Sig, elemento);
+            return Esta (Lista.Sig, Elemento);
          end if;
       end if;
    end Esta;
@@ -66,11 +66,11 @@ package body lista is
       NuevoNodo : TipoLista := new TipoNodo'(Elemento, null);
    begin
       -- se inserta al comienzo de una lista
-      if Vacia (Lista) then
-         Lista := NuevoNodo;
+      if Vacia (lista) then
+         lista := NuevoNodo;
       else
-         NuevoNodo.Sig := Lista;
-         Lista := NuevoNodo; -- se inserto el valor
+         NuevoNodo.Sig := lista;
+         lista         := NuevoNodo; -- se inserto el valor
       end if;
    end Insertar;
 
@@ -91,7 +91,7 @@ package body lista is
          raise ListaVacia;
       else
          while actual /= null and then actual.Info /= Elemento loop
-            ant := actual;
+            ant    := actual;
             actual := actual.Sig;
          end loop;
          if ant = null then

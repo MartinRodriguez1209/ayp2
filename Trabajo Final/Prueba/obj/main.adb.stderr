@@ -1,3 +1,0 @@
-C:\Users\User\Documents\ayp2\Trabajo Final\Prueba\src\main.adb:12:14: error: invalid prefix in selected component "T"
-C:\Users\User\Documents\ayp2\Trabajo Final\Prueba\src\main.adb:15:15: error: "TipoLista" is not visible
-C:\Users\User\Documents\ayp2\Trabajo Final\Prueba\src\main.adb:15:15: error: non-visible declaration at lista.ads:8, instance at line 14

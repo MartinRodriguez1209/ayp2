@@ -249,11 +249,11 @@ package body ada_main is
    end;
 
 --  BEGIN Object file/option list
-   --   C:\Users\User\Documents\ayp2\Trabajo Final\Prueba\obj\lista.o
-   --   C:\Users\User\Documents\ayp2\Trabajo Final\Prueba\obj\turno.o
-   --   C:\Users\User\Documents\ayp2\Trabajo Final\Prueba\obj\main.o
-   --   -LC:\Users\User\Documents\ayp2\Trabajo Final\Prueba\obj\
-   --   -LC:\Users\User\Documents\ayp2\Trabajo Final\Prueba\obj\
+   --   C:\Users\marti\Documents\ayp2\Trabajo Final\Prueba\obj\lista.o
+   --   C:\Users\marti\Documents\ayp2\Trabajo Final\Prueba\obj\turno.o
+   --   C:\Users\marti\Documents\ayp2\Trabajo Final\Prueba\obj\main.o
+   --   -LC:\Users\marti\Documents\ayp2\Trabajo Final\Prueba\obj\
+   --   -LC:\Users\marti\Documents\ayp2\Trabajo Final\Prueba\obj\
    --   -LC:/gnat/2021/lib/gcc/x86_64-w64-mingw32/10.3.1/adalib/
    --   -static
    --   -lgnat

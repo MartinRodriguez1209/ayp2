@@ -1,18 +1,18 @@
 [GENERATED OBJECT FILE]
 b__usacola.o
 [PROJECT FILES]
-C:\Users\marti\Desktop\proyectoayp\practico2\practico2.gpr
-20250403230702 8f7353808835f93f83272bb7da34a509
+C:\Users\marti\Documents\ayp2\practico 2\ejercicio 6\practico2.gpr
+20250403230702 aed876b70596a6ddcdd68240ed203697
 [BOUND OBJECT FILES]
-C:\Users\marti\Desktop\proyectoayp\practico2\obj\Cola.o
-C:\Users\marti\Desktop\proyectoayp\practico2\obj\usacola.o
+C:\Users\marti\Documents\ayp2\practico 2\ejercicio 6\obj\Cola.o
+C:\Users\marti\Documents\ayp2\practico 2\ejercicio 6\obj\usacola.o
 [GENERATED SOURCE FILES]
 b__usacola.ads
 b__usacola.adb
 b__usacola.ali
 [RESULTING OPTIONS]
--LC:\Users\marti\Desktop\proyectoayp\practico2\obj\
--LC:\Users\marti\Desktop\proyectoayp\practico2\obj\
+-LC:\Users\marti\Documents\ayp2\practico 2\ejercicio 6\obj\
+-LC:\Users\marti\Documents\ayp2\practico 2\ejercicio 6\obj\
 -LC:/gnat/2021/lib/gcc/x86_64-w64-mingw32/10.3.1/adalib/
 -static
 -static-libgcc

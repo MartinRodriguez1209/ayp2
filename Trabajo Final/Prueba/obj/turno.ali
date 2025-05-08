@@ -4,41 +4,50 @@ A -gnatA
 A -g
 A -mtune=generic
 A -march=x86-64
-P ZX
+P SS ZX
 
 RN
+RV NO_SECONDARY_STACK
 RV NO_DYNAMIC_SIZED_OBJECTS
 RV NO_IMPLEMENTATION_PRAGMAS
 
-U turno%b		turno.adb		39c0f1fe NE OO PK
+U turno%b		turno.adb		8197c3f8 NE OO PK
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
 W turno%s		turno.adb		turno.ali
 
-U turno%s		turno.ads		b08b67a6 EE NE OO PK IL
+U turno%s		turno.ads		a1761253 EE NE OO PK IL
 
 D system.ads		20210520051136 2ffa5114 system%s
-D turno.ads		20250506213450 b08b67a6 turno%s
-D turno.adb		20250506212558 39c0f1fe turno%b
+D s-parame.ads		20210520051134 4752c4cb system.parameters%s
+D s-secsta.ads		20210520051134 9b3ab94b system.secondary_stack%s
+D s-stoele.ads		20210520051134 2dc34a04 system.storage_elements%s
+D turno.ads		20250507200642 a1761253 turno%s
+D turno.adb		20250507200630 8197c3f8 turno%b
 G a e
-G c Z s b [crear turno 5 14 none]
-G c Z s s [tipoturnoIP turno 21 9 none]
-X 2 turno.ads
-1K9*turno 15E4 29l5 29e10 3|1w6 3b14 20l5 20t10
-3R9*TipoTurno 6r25 21c9 27e14 3|6r25
-5U14*Crear 6<7 7>7 8>7 9>7 10>7 11>7 3|5b14 18l8 18t13
-6r7 T{3R9} 3|6b7 13m7 14m7 15m7 16m7 17m7
-7a7 fecha{string} 3|7b7 13r18
-8a7 hora{string} 3|8b7 14r17
-9a7 patente{string} 3|9b7 15r20
-10a7 dni_cliente{string} 3|10b7 16r24
-11a7 motivo{string} 3|11b7 17r19
-15N4 Max_Long_Fecha 22r34
-16N4 Max_Long_Hora 23r34
-17N4 Max_Long_Patente 24r34
-18N4 Max_Long_DNI 25r34
-19N4 Max_Long_Motivo 26r34
-22a7*fecha{string} 3|13m9
-23a7*hora{string} 3|14m9
-24a7*patente{string} 3|15m9
-25a7*dni_cliente{string} 3|16m9
-26a7*motivo{string} 3|17m9
+G c Z s b [crear turno 5 13 none]
+G c Z s b [getdni turno 8 13 none]
+G c Z s s [tipoturnoIP turno 17 9 none]
+X 5 turno.ads
+1K9*turno 11E4 25l5 25e10 6|1w6 3b14 9r11 26l5 26t10
+3R9*TipoTurno 7r59 8r25 17c9 23e14 6|7r59 10r11 21r25
+5V13*Crear{3R9} 6>7 6>32 6>50 7>7 7>32 6|5b13 19l8 19t13
+6a7 fecha{string} 6|6b7 13r24
+6a32 hora{string} 6|6b32 14r24
+6a50 patente{string} 6|6b50 15r24
+7a7 dni_cliente{string} 6|7b7 16r24
+7a32 motivo{string} 6|7b32 17r24
+8V13*getDNI{string} 8>21 6|21b13 24l8 24t14
+8r21 T{3R9} 6|21b21 23r14
+11N4 Max_Long_Fecha 18r34
+12N4 Max_Long_Hora 19r34
+13N4 Max_Long_Patente 20r34
+14N4 Max_Long_DNI 21r34
+15N4 Max_Long_Motivo 22r34
+18a7*fecha{string} 6|13m9
+19a7*hora{string} 6|14m9
+20a7*patente{string} 6|15m9
+21a7*dni_cliente{string} 6|16m9 23r16
+22a7*motivo{string} 6|17m9
+X 6 turno.adb
+10r7 T{5|3R9} 13m7 14m7 15m7 16m7 17m7 18r14
 
