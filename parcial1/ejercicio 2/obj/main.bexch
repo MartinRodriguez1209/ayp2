@@ -4,6 +4,9 @@ b__main.o
 C:\Users\User\Documents\ayp2\parcial1\ejercicio 2\ejercicio2.gpr
 20250510215640 8aff42f05e180d0b5cf32bfb8465137e
 [BOUND OBJECT FILES]
+C:\Users\User\Documents\ayp2\parcial1\ejercicio 2\obj\lista.o
+C:\Users\User\Documents\ayp2\parcial1\ejercicio 2\obj\pila.o
+C:\Users\User\Documents\ayp2\parcial1\ejercicio 2\obj\vectorSimple.o
 C:\Users\User\Documents\ayp2\parcial1\ejercicio 2\obj\main.o
 [GENERATED SOURCE FILES]
 b__main.ads

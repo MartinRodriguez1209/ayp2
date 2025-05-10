@@ -8,16 +8,36 @@ A -march=x86-64
 P ZX
 
 RN
+RV NO_ALLOCATORS
+RV NO_EXCEPTIONS
 RV NO_IO
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_LOCAL_ALLOCATORS
+RV NO_RECURSION
+RV NO_STANDARD_ALLOCATORS_AFTER_ELABORATION
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DEFAULT_INITIALIZATION
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
 RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
 
-U main%b		main.adb		996e5f90 NE OO SU IL
+U main%b		main.adb		abeb61ec NE OO SU IL
 W ada%s			ada.ads			ada.ali
+Z ada.exceptions%s	a-except.adb		a-except.ali
+W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
 Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
 W ada.text_io%s		a-textio.adb		a-textio.ali
+Z ada.unchecked_deallocation%s
+W lista%s		lista.adb		lista.ali
+W pila%s		pila.adb		pila.ali
+Z system%s		system.ads		system.ali
+Z system.exception_table%s  s-exctab.adb	s-exctab.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+W vectorsimple%s	vectorsimple.adb	vectorsimple.ali
 
 D ada.ads		20210520051132 76789da1 ada%s
 D a-except.ads		20210520051128 946f3014 ada.exceptions%s
+D a-inteio.ads		20210520051128 f64b89a4 ada.integer_text_io%s
 D a-ioexce.ads		20210520051128 e4a01f64 ada.io_exceptions%s
 D a-stream.ads		20210520051130 119b8fb3 ada.streams%s
 D a-string.ads		20210520051130 90ac6797 ada.strings%s
@@ -25,10 +45,16 @@ D a-sttebu.ads		20210520051130 18209c64 ada.strings.text_buffers%s
 D a-stuten.ads		20210520051130 808c40ad ada.strings.utf_encoding%s
 D a-tags.ads		20210520051130 9eaa38c6 ada.tags%s
 D a-textio.ads		20210520051130 aef4d56d ada.text_io%s
+D a-tiinio.ads		20210520051130 390edddb ada.text_io.integer_io%s
 D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20210520051130 c3a8ac65 ada.unchecked_deallocation%s
 D interfac.ads		20210520051132 edec285f interfaces%s
 D i-cstrea.ads		20210520051132 e53d8b8e interfaces.c_streams%s
-D main.adb		20250510215734 379a8afd main%b
+D lista.ads		20250510200404 30d846d5 lista%s
+D lista.adb		20250510200404 61730066 lista%b
+D main.adb		20250510231424 e2cddf76 main%b
+D pila.ads		20250510231624 c22ae52d pila%s
+D pila.adb		20250510231622 922d344b pila%b
 D system.ads		20210520051136 2ffa5114 system%s
 D s-crtl.ads		20210520051132 0ebbdb71 system.crtl%s
 D s-exctab.ads		20210520051132 54135002 system.exception_table%s
@@ -45,12 +71,50 @@ D s-traent.ads		20210520051134 26a8d361 system.traceback_entries%s
 D s-unstyp.ads		20210520051134 2b077493 system.unsigned_types%s
 D s-wchcon.ads		20210520051136 1b7d22d2 system.wch_con%s
 D unchconv.ads		20210520051136 ca2f9e18 unchecked_conversion%s
+D vectorsimple.ads	20250510222204 e36b41ab vectorsimple%s
+D vectorsimple.adb	20250510220108 bf4d39fb vectorsimple%b
 G a e
-G c Z b b [main standard 3 11 none]
+G c Z b b [main standard 4 11 none]
+G r i none [main standard 4 11 none] [lista standard 4 9 none]
+G r i none [main standard 4 11 none] [pila standard 3 9 none]
+G r i none [main standard 4 11 none] [vectorsimple standard 7 9 none]
 X 1 ada.ads
-16K9*Ada 20e8 13|1r6
-X 9 a-textio.ads
-58K13*Text_IO 725e16 13|1w10
-X 13 main.adb
-3U11*main 3b11 6l5 6t9
+16K9*Ada 20e8 18|1r6 1r19 2r5 2r18
+X 3 a-inteio.ads
+18K13*Integer_Text_IO[11|46] 18|1w23 2r22
+X 10 a-textio.ads
+58K13*Text_IO 725e16 18|1w10 2r9
+506U14*Put_Line 18|33s10
+X 11 a-tiinio.ads
+59U14*Get 18|34s10[3|18]
+X 16 lista.ads
+4k9*Lista 22e10 18|1w40 9r32
+5P9 TipoLista 18|11r49[9] 25r35[9] 29r55[9]
+6U14 Crear 18|43s17[9]
+9U14 Insertar 18|35s23[9]
+X 18 main.adb
+4U11*main 4b11 44l5 44t9
+6i4 MAXVECTOR{integer} 7r43
+7I12 rangoVec{integer} 23r41
+9K12 listaEnteros[16|4] 10r8 11r36 25r22 29r42 35r10 43r4
+11K12 pilaListas[19|3] 12r8 13r26 18r27 23r20 26r22 42r4
+13U14 put 13b14 13>19 16l8 16t11 23r51
+13p19 a{19|4P9[11]}
+18U14 get 18b14 18<19 21l8 21t11 23r56
+18p19 a{19|4P9[11]}
+22K12 vectorPilas[37|7] 27r22
+25p4 listaAux{16|5P9[9]} 41m17 41r17 42r31 43m24 43r24
+26p4 pilaAux{19|4P9[11]} 42m22 42r22
+27a4 vectorPrincipal{37|9A9[22]}
+29U14 cargarLista 29b14 29=27 38l8 38t19 41s4
+29p27 lista{16|5P9[9]} 35m33
+30i7 aux{integer} 34m15 35r40
+32i11 j{integer}
+X 19 pila.ads
+3k9*pila 18|1w47 11r30 19|18e9
+4P9 TipoPila 18|13r37[11] 18r38[11] 23r31[11] 26r33[11]
+7U14 Meter 18|42s15[11]
+X 37 vectorsimple.ads
+7k9*vectorSimple 18|1w53 23r6 37|12e17
+9A9 VecGeneric(19|4P9[18|11])<integer> 18|27r34[22]
 

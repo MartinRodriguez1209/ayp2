@@ -7,6 +7,11 @@ package body Cola is
       -- la cola esta vacía si el valor de frente es nulo
       return Cola.Frente = null;
    end Vacia;
+   procedure Crear (Cola : out TipoCola) is
+   begin
+      Cola := null;
+   end Crear;
+
    procedure Inscola (Cola : in out TipoCola; Elemento : in TipoElem) is
       NuevoNodo : TipoPun := new TipoNodo'(Elemento, null);
    begin
