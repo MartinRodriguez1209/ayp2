@@ -1,0 +1,15 @@
+1. En un torneo de ajedrez corto de partidas de 10 minutos , 
+se almacena la lista de jugadores con datos de su ultima partida jugada y 
+finalizada. Registrando la ultima pieza jugada 
+(c:caballo,a:alfil,t:torre, p:peon,r:rey, d:dama) y el tiempo que 
+utilizo para cada partida( si usa todo el tiempo la partida finalizo por tiempo, 
+caso contrario finalizo por jaque mate)
+Ejemplo Jugador 1: Numero: 1 (es el numero del jugador)
+ pieza: a (es la ultima pieza jugada en este caso es un alfil)
+  tiempo: 7 (es el tiempo en minutos que duro la partida) 
+  Se pide: 1. Instanciar el o los paquetes necesarios.
+   2.Obtener las siguientes listas (L1, L2): L1: Lista de aquellos jugadores 
+   cuya ultima pieza jugada sea el rey y cuya partida haya 
+   finalizado por tiempo (utilizo los 10 minutos de tiempo).
+    L2: Lista de de aquellos jugadores cuya ultima pieza sea peón y 
+    cuya partida finalizo por jaque mate. 3. Conservar la lista original. 
