@@ -2,7 +2,7 @@ generic
    type TipoElem is private;
    with function "<" (X, Y : TipoElem) return Boolean;
    with function ">" (X, Y : TipoElem) return Boolean;
-package Lista is
+package listaOrdenada is
    type TipoLista is private;
    procedure Crear (Lista : out TipoLista);
    function Vacia (Lista : TipoLista) return Boolean;
@@ -20,4 +20,4 @@ private
       Info : TipoElem;
       Sig  : TipoLista;
    end record;
-end lista;
+end listaOrdenada;

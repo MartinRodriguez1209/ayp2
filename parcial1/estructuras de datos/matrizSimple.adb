@@ -1,6 +1,6 @@
 with Ada.Text_Io; use Ada.Text_Io;
 
-package body Arreglo_Grupo3 is
+package body matrizSimple is
    procedure Leer (Mat : out Matgeneric) is
    begin
       for I in Fila'range loop
@@ -21,4 +21,4 @@ package body Arreglo_Grupo3 is
       end loop;
    end Imprimir;
 
-end Arreglo_grupo3;
+end matrizSimple;

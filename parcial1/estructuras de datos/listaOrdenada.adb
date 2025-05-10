@@ -1,7 +1,7 @@
 with Ada.Unchecked_Deallocation; -- procedimiento genérico para liberar memoria
 with Lista;
 
-package body lista is
+package body listaOrdenada is
    -- implementación del paquete Lista
    procedure Free is new Ada.Unchecked_Deallocation (TipoNodo, TipoLista);
 
@@ -107,4 +107,4 @@ package body lista is
       end if;
       Free (actual);
    end Suprimir;
-end lista;
+end listaOrdenada;

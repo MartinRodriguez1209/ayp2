@@ -4,8 +4,8 @@ generic
    type Columna is range <>;
    with procedure Put (A : in Tipodato);
    with procedure get (A : out tipodato);
-package Arreglo_Grupo3 is
+package matrizSimple is
    type Matgeneric is array (Fila, Columna) of Tipodato;
    procedure Leer (Mat : out Matgeneric);
    procedure Imprimir (Mat : in Matgeneric);
-end Arreglo_Grupo3;
+end matrizSimple;

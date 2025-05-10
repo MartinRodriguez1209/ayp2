@@ -1,4 +1,4 @@
-package body Crearpackage is
+package body vectorCompleto is
    procedure Leer (Vec : out Vecgeneric) is
    begin
       for I in Vec'range loop
@@ -66,4 +66,4 @@ package body Crearpackage is
 
    end comparacion;
 
-end Crearpackage;
+end vectorCompleto;

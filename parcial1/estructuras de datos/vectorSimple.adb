@@ -1,4 +1,4 @@
-package body Crearpackage is
+package body vectorSimple is
    procedure Leer (Vec : out Vecgeneric) is
    begin
       for I in Vec'range loop
@@ -13,4 +13,4 @@ package body Crearpackage is
       end loop;
    end Imprimir;
 
-end Crearpackage;
+end vectorSimple;

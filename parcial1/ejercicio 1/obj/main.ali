@@ -9,6 +9,8 @@ P ZX
 
 RN
 RV NO_ALLOCATORS
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_ENUMERATION_MAPS
 RV NO_EXCEPTIONS
 RV NO_IO
 RV NO_IMPLICIT_CONDITIONALS
@@ -17,10 +19,11 @@ RV NO_RECURSION
 RV NO_STANDARD_ALLOCATORS_AFTER_ELABORATION
 RV NO_STANDARD_STORAGE_POOLS
 RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
 RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
 RV NO_IMPLEMENTATION_PRAGMAS
 
-U main%b		main.adb		99774c92 NE OO SU IL
+U main%b		main.adb		8f926478 NE OO SU IL
 W ada%s			ada.ads			ada.ali
 Z ada.exceptions%s	a-except.adb		a-except.ali
 W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
@@ -29,7 +32,10 @@ W ada.text_io%s		a-textio.adb		a-textio.ali
 Z ada.unchecked_deallocation%s
 W lista%s		lista.adb		lista.ali
 Z system%s		system.ads		system.ali
+Z system.concat_2%s	s-conca2.adb		s-conca2.ali
 Z system.exception_table%s  s-exctab.adb	s-exctab.ali
+Z system.img_char%s	s-imgcha.adb		s-imgcha.ali
+Z system.img_int%s	s-imgint.ads		s-imgint.ali
 Z system.standard_library%s  s-stalib.adb	s-stalib.ali
 
 D ada.ads		20210520051132 76789da1 ada%s
@@ -49,11 +55,15 @@ D interfac.ads		20210520051132 edec285f interfaces%s
 D i-cstrea.ads		20210520051132 e53d8b8e interfaces.c_streams%s
 D lista.ads		20250510200404 30d846d5 lista%s
 D lista.adb		20250510200404 61730066 lista%b
-D main.adb		20250510203746 f110568e main%b
+D main.adb		20250510213150 e7f57e64 main%b
 D system.ads		20210520051136 2ffa5114 system%s
+D s-conca2.ads		20210520051132 02a0d7d0 system.concat_2%s
 D s-crtl.ads		20210520051132 0ebbdb71 system.crtl%s
 D s-exctab.ads		20210520051132 54135002 system.exception_table%s
 D s-ficobl.ads		20210520051132 078245e4 system.file_control_block%s
+D s-imagei.ads		20210520051134 0d3f86a7 system.image_i%s
+D s-imgcha.ads		20210520051134 9c3458e7 system.img_char%s
+D s-imgint.ads		20210520051134 bdb6f5ec system.img_int%s
 D s-parame.ads		20210520051134 4752c4cb system.parameters%s
 D s-putima.ads		20210520051134 4e095881 system.put_images%s
 D s-secsta.ads		20210520051134 9b3ab94b system.secondary_stack%s
@@ -75,26 +85,42 @@ X 3 a-inteio.ads
 18K13*Integer_Text_IO[11|46] 18|1w23 2r22
 X 10 a-textio.ads
 58K13*Text_IO 725e16 18|1w10 2r9
-506U14*Put_Line 18|28s10 30s10 35s10
+379U14*Get 18|35s10
+506U14*Put_Line 18|30s10 32s10 34s10 40s10 70s10 72s10 74s10 85s4 87s4
 X 11 a-tiinio.ads
-59U14*Get 18|29s10[3|18] 31s10[3|18] 36s10[3|18]
+59U14*Get 18|31s10[3|18] 33s10[3|18] 41s10[3|18]
 X 16 lista.ads
-4k9*Lista 22e10 18|1w40 12r33
-5P9 TipoLista 18|14r34[12] 15r34[12] 16r34[12] 17r34[12]
-9U14 Insertar 18|34s24[12]
+4k9*Lista 22e10 18|1w40 13r33
+5P9 TipoLista 18|15r34[13] 16r34[13] 17r34[13] 18r34[13] 47r40[13] 48r41[13]
+. 49r41[13] 64r54[13]
+7V13 Vacia{boolean} 18|52s31[13] 68s31[13]
+9U14 Insertar 18|39s24[13] 55s27[13] 58s27[13]
+12V13 Info{18|6R9} 18|53s38[13] 69s38[13]
+13V13 Sig{5P9[18|13]} 18|60s36[13] 76s36[13]
 X 18 main.adb
-4U11*main 4b11 45l5 45t9
-6R9 partidaAjedrez 10e14 12r40 18r20
-7i7 numeroJugador{integer} 32m21
-8i7 tiempoPartida{integer} 33m21
-12K12 listaEnlazada[16|4] 14r20 15r20 16r20 17r20 34r10
-14p4 listaPartidas{16|5P9[12]} 34m34 34r34
-15p4 lista1{16|5P9[12]}
-16p4 lista2{16|5P9[12]}
-17p4 listaAux{16|5P9[12]}
-18r4 partidaAux{6R9} 32m10 33m10 34r49
-20U14 cargarPartidas 20b14 39t7 43s4
-21i7 numero{integer} 29m15 32r38
-22i7 tiempo{integer} 31m15 33r38
-23i7 condic{integer} 26m7 27r13 36m15
+4U11*main 4b11 91l5 91t9
+6R9 partidaAjedrez 11e14 13r40 19r20
+7i7 numeroJugador{integer} 36m21 71r63
+8i7 tiempoPartida{integer} 37m21 54r24 56r60 73r63
+9e7 ultimaPieza{character} 38m21 54r58 56r27 75r60
+13K12 listaEnlazada[16|4] 15r20 16r20 17r20 18r20 39r10 47r26 48r27 49r27
+. 52r17 53r24 55r13 58r13 60r22 64r40 68r17 69r24 76r22
+15p4 listaPartidas{16|5P9[13]} 39m34 39r34 84r19
+16p4 lista1{16|5P9[13]} 84m34 84r34 86r19
+17p4 lista2{16|5P9[13]} 84m42 84r42 89r19
+18p4 listaAux{16|5P9[13]} 51m7 52r38 53r44 60m10 60r41 67m7 68r38 69r44 76m10
+. 76r41
+19r4 partidaAux{6R9} 36m10 37m10 38m10 39r49 53m10 54r13 54r47 55r45 56r16
+. 56r49 58r45 69m10 71r52 73r52 75r49
+21U14 cargarPartidas 21b14 44l8 44t22 83s4
+22i7 numero{integer} 31m15 36r38
+23i7 tiempo{integer} 33m15 37r38
+24e7 pieza{character} 35m15 38r36
+25i7 condic{integer} 28m7 29r13 41m15
+46U14 obtenerListas 46b14 47>7 48<7 49<7 62l8 62t21 84s4
+47p7 listaPartidas{16|5P9[13]} 51r19
+48p7 lista1{16|5P9[13]} 55m37
+49p7 lista2{16|5P9[13]} 58m37
+64U14 imprimirLista 64b14 64>29 79l8 79t21 86s4 89s4
+64p29 lista{16|5P9[13]} 67r19
 

@@ -10,7 +10,7 @@ generic
    with procedure Put (A : in Tipodato);
    with procedure get (A : out tipodato);
 
-package Arreglo_Grupo3
+package matrizCompleto
 is
    type Matgeneric is array (Fila, Columna) of Tipodato;
    type Mattranspuesta is array (Columna, Fila) of Tipodato;
@@ -26,4 +26,4 @@ is
    procedure Comparacion (Mat1, Mat2 : Matgeneric; porcentaje : in Float);
    procedure Trasposicion
      (Mat : in out Matgeneric; mataux : out Mattranspuesta);
-end Arreglo_Grupo3;
+end matrizCompleto;

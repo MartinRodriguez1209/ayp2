@@ -5,9 +5,9 @@ generic
    with procedure Put (A : in Tipodato);
    with procedure get (A : out tipodato);
 
-package Crearpackage
+package vectorSimple
 is
    type VecGeneric is array (Indice) of Tipodato;
    procedure Leer (Vec : out Vecgeneric);
    procedure Imprimir (Vec : in Vecgeneric);
-end Crearpackage;
+end vectorSimple;
