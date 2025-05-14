@@ -21,5 +21,5 @@ is
       Encontrado : out Boolean;
       Posi       : out Integer);
    procedure Ordenamiento (Vec : in out Vecgeneric);
-   procedure comparacion (vec1, vec2 : in vecgeneric; compa : out boolean);
+   function comparacion (vec1, vec2 : in vecgeneric) return Boolean;
 end vectorCompleto;

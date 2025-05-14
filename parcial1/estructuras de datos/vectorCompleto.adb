@@ -45,7 +45,7 @@ package body vectorCompleto is
       end loop;
    end Ordenamiento;
 
-   procedure comparacion (vec1, vec2 : in vecgeneric; compa : out boolean) is
+   function comparacion (vec1, vec2 : in vecgeneric) return Boolean is
       Acum1, Acum2 : Tipodato := valorinicial;
       raiz1, raiz2 : float;
    begin
@@ -57,13 +57,7 @@ package body vectorCompleto is
 
       raiz1 := Raiz (acum1);
       raiz2 := Raiz (acum2);
-
-      if Raiz1 = Raiz2 then
-         compa := true;
-      else
-         Compa := False;
-      end if;
-
+      return Raiz1 = Raiz2;
    end comparacion;
 
 end vectorCompleto;
