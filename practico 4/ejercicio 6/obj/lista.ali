@@ -23,8 +23,8 @@ U lista%s		lista.ads		a170ee04 BN EE NE OO PK GE
 
 D ada.ads		20210520051132 76789da1 ada%s
 D a-uncdea.ads		20210520051130 c3a8ac65 ada.unchecked_deallocation%s
-D lista.ads		20250508214544 a170ee04 lista%s
-D lista.adb		20250508214544 f91c7ef0 lista%b
+D lista.ads		20250510195244 a170ee04 lista%s
+D lista.adb		20250510195244 f91c7ef0 lista%b
 D system.ads		20210520051136 2ffa5114 system%s
 G a e
 G c Z s b [lista standard 3 12 none]

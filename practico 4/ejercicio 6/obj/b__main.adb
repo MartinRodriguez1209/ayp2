@@ -247,10 +247,10 @@ package body ada_main is
    end;
 
 --  BEGIN Object file/option list
-   --   C:\Users\marti\Documents\ayp2\practico 4\ejercicio 6\obj\lista.o
-   --   C:\Users\marti\Documents\ayp2\practico 4\ejercicio 6\obj\main.o
-   --   -LC:\Users\marti\Documents\ayp2\practico 4\ejercicio 6\obj\
-   --   -LC:\Users\marti\Documents\ayp2\practico 4\ejercicio 6\obj\
+   --   C:\Users\User\Documents\ayp2\practico 4\ejercicio 6\obj\lista.o
+   --   C:\Users\User\Documents\ayp2\practico 4\ejercicio 6\obj\main.o
+   --   -LC:\Users\User\Documents\ayp2\practico 4\ejercicio 6\obj\
+   --   -LC:\Users\User\Documents\ayp2\practico 4\ejercicio 6\obj\
    --   -LC:/gnat/2021/lib/gcc/x86_64-w64-mingw32/10.3.1/adalib/
    --   -static
    --   -lgnat

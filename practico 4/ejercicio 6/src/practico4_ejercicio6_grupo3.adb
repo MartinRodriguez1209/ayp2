@@ -49,9 +49,9 @@ procedure main is
 
          while not Listachara.Vacia (Auxlista2) loop
             Put (Listachara.Info (Auxlista2));
-            new_line;
             auxlista2 := listachara.sig (auxlista2);
          end loop;
+         new_line;
          Contador := Contador + 1;
          auxlista1 := listalista.sig (auxlista1);
 

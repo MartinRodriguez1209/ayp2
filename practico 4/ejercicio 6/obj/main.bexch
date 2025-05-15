@@ -1,18 +1,18 @@
 [GENERATED OBJECT FILE]
 b__main.o
 [PROJECT FILES]
-C:\Users\marti\Documents\ayp2\practico 4\ejercicio 6\ejercicio6.gpr
-20250508214544 1199e3597237d27095cf138ba956baa5
+C:\Users\User\Documents\ayp2\practico 4\ejercicio 6\ejercicio6.gpr
+20250510195244 8e80ebfd97530617034f6478e3c8f7fa
 [BOUND OBJECT FILES]
-C:\Users\marti\Documents\ayp2\practico 4\ejercicio 6\obj\lista.o
-C:\Users\marti\Documents\ayp2\practico 4\ejercicio 6\obj\main.o
+C:\Users\User\Documents\ayp2\practico 4\ejercicio 6\obj\lista.o
+C:\Users\User\Documents\ayp2\practico 4\ejercicio 6\obj\main.o
 [GENERATED SOURCE FILES]
 b__main.ads
 b__main.adb
 b__main.ali
 [RESULTING OPTIONS]
--LC:\Users\marti\Documents\ayp2\practico 4\ejercicio 6\obj\
--LC:\Users\marti\Documents\ayp2\practico 4\ejercicio 6\obj\
+-LC:\Users\User\Documents\ayp2\practico 4\ejercicio 6\obj\
+-LC:\Users\User\Documents\ayp2\practico 4\ejercicio 6\obj\
 -LC:/gnat/2021/lib/gcc/x86_64-w64-mingw32/10.3.1/adalib/
 -static
 -static-libgcc

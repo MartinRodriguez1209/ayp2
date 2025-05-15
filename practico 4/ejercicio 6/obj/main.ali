@@ -21,7 +21,7 @@ RV NO_DYNAMIC_SIZED_OBJECTS
 RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
 RV NO_IMPLEMENTATION_PRAGMAS
 
-U main%b		main.adb		968ca287 NE OO SU IL
+U main%b		main.adb		697289b7 NE OO SU IL
 W ada%s			ada.ads			ada.ali
 Z ada.exceptions%s	a-except.adb		a-except.ali
 W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
@@ -51,9 +51,9 @@ D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
 D a-uncdea.ads		20210520051130 c3a8ac65 ada.unchecked_deallocation%s
 D interfac.ads		20210520051132 edec285f interfaces%s
 D i-cstrea.ads		20210520051132 e53d8b8e interfaces.c_streams%s
-D lista.ads		20250508214544 a170ee04 lista%s
-D lista.adb		20250508214544 f91c7ef0 lista%b
-D main.adb		20250508214544 6f43104a main%b
+D lista.ads		20250510195244 a170ee04 lista%s
+D lista.adb		20250510195244 f91c7ef0 lista%b
+D main.adb		20250513201926 90bd3b7a main%b
 D system.ads		20210520051136 2ffa5114 system%s
 D s-conca2.ads		20210520051132 02a0d7d0 system.concat_2%s
 D s-conca5.ads		20210520051132 875e432e system.concat_5%s
@@ -83,7 +83,7 @@ X 3 a-inteio.ads
 18K13*Integer_Text_IO[11|46] 18|1w30 2r9
 X 10 a-textio.ads
 58K13*Text_IO 725e16 18|1w17 2r30
-262U14*New_Line 18|52s13
+262U14*New_Line 18|54s10
 379U14*Get 18|33s13
 390U14*Put 18|51s13
 463U14*Put 18|18s7 20s7 27s13
@@ -100,11 +100,11 @@ X 16 lista.ads
 9U17 Insertar 18|34s24[6] 36s21[9] 96s24[9]
 12V16 Info{4P12[18|6]} 18|47s34[9] 51s29[6] 76s29[9] 78s32[9] 86s27[6] 86s53[6]
 . 96s55[9]
-13V16 Sig{4P12[18|6]} 18|53s37[6] 56s34[9] 73s46[9] 77s28[9] 89s35[6] 90s38[6]
+13V16 Sig{4P12[18|6]} 18|52s37[6] 56s34[9] 73s46[9] 77s28[9] 89s35[6] 90s38[6]
 . 99s29[9]
 X 18 main.adb
 4U11*main 4b11 116l5 116t9
-6K12 Listachara[16|3] 7r8 9r37 14r19 25r10 34r13 42r19 50r20 51r18 53r26
+6K12 Listachara[16|3] 7r8 9r37 14r19 25r10 34r13 42r19 50r20 51r18 52r26
 . 66r17 67r17 81r20 82r20 86r16 86r42 89r24 90r27 94r23 94r51
 9K12 Listalista[16|3] 10r8 12r40 23r7 36r10 40r33 41r19 46r17 47r23 56r23
 . 63r16 63r53 65r17 68r17 71r7 72r17 73r17 73r35 76r18 77r17 78r21 96r13
@@ -120,7 +120,7 @@ X 18 main.adb
 40U14 Imprimir 40b14 40>24 60l8 60t16 112s4 114s4
 40p24 lista1{16|4P12[9]} 41r43
 41p7 Auxlista1{16|4P12[9]} 46r35 47r40 56m10 56r39
-42p7 Auxlista2{16|4P12[6]} 47m10 50r38 51r35 53m13 53r42
+42p7 Auxlista2{16|4P12[6]} 47m10 50r38 51r35 52m13 52r42
 43i7 contador{integer} 48r48 55m10 55r22
 62U14 comparacion 62b14 63>7 63<38 102l8 102t19 109s4
 63p7 lista1{16|4P12[9]} 65r41
