@@ -1,6 +1,7 @@
 with Ada.Unchecked_Deallocation; -- procedimiento genérico para liberar memoria
+with Lista;
 
-package body listaOrdenada is
+package body lista is
    -- implementación del paquete Lista
    procedure Free is new Ada.Unchecked_Deallocation (TipoNodo, TipoLista);
 
@@ -49,34 +50,15 @@ package body listaOrdenada is
       end if;
    end Esta;
 
-   --NO SE PUEDEN INSERTAR REPETIDOS
    procedure Insertar (lista : in out TipoLista; Elemento : in TipoElem) is
-      NuevoNodo       : TipoLista := new TipoNodo'(Elemento, null);
-      Ptr, ant        : TipoLista;
-      LugarEncontrado : Boolean;
+      NuevoNodo : TipoLista := new TipoNodo'(Elemento, null);
    begin
+      -- se inserta al comienzo de una lista
       if Vacia (Lista) then
          Lista := NuevoNodo;
       else
-         -- inserta en una lista con valores y busca en que lugar se inserta para enlazar los nodos
-         if Elemento < Lista.Info then
-            NuevoNodo.Sig := Lista;
-            Lista := NuevoNodo; -- se insertó el valor al comienzo
-
-         else
-            Ptr := Lista;
-            LugarEncontrado := false;
-            while not LugarEncontrado and Ptr /= null loop
-               if Elemento > Ptr.Info then
-                  ant := Ptr;
-                  Ptr := Ptr.Sig;
-               else
-                  LugarEncontrado := true;
-               end if;
-            end loop;
-            NuevoNodo.Sig := Ptr;
-            ant.Sig := NuevoNodo;
-         end if;
+         NuevoNodo.Sig := Lista;
+         Lista := NuevoNodo; -- se inserto el valor
       end if;
    end Insertar;
 
@@ -93,18 +75,21 @@ package body listaOrdenada is
       actual : TipoLista := Lista;
       ant    : TipoLista := null;
    begin
-      -- la lista no está vacia, elemento existe y es unico
-      while actual /= null and then actual.Info < Elemento loop
-         ant := actual;
-         actual := actual.Sig;
-      end loop;
-      if ant = null then
-         Lista := Lista.Sig; -- se elimina el primer elemento
-
+      if Vacia (Lista) then
+         raise ListaVacia;
       else
-         ant.Sig :=
-           actual.Sig; -- se elimina un elemento de cualquier otra posición
+         while actual /= null and then actual.Info /= Elemento loop
+            ant := actual;
+            actual := actual.Sig;
+         end loop;
+         if ant = null then
+            Lista := Lista.Sig; -- se elimina el primer elemento
+
+         else
+            ant.Sig := actual.Sig; -- se elimina un elemento de otra posición
+         end if;
+         Free (actual);
       end if;
-      Free (actual);
    end Suprimir;
-end listaOrdenada;
+
+end lista;

@@ -40,7 +40,7 @@ package body Cola is
    end Supcola;
 
    procedure limpiar (cola : in out TipoCola) is
-      temp : t_pun := cola.frente;
+      temp : TipoPun := cola.frente;
    begin
       while not vacia (cola) loop
          cola.frente := cola.frente.sig;

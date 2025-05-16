@@ -1,0 +1,84 @@
+V "GNAT Lib v2021"
+A -O0
+A -gnatA
+A -g
+A -mtune=generic
+A -march=x86-64
+P ZX
+
+RN
+RV NO_ALLOCATORS
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_EXCEPTIONS
+RV NO_LOCAL_ALLOCATORS
+RV NO_RECURSION
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_UNCHECKED_DEALLOCATION
+RV NO_DEFAULT_INITIALIZATION
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U listaordenada%b	listaordenada.adb	707ef55e NE OO PK GE
+W ada%s			ada.ads			ada.ali
+W ada.unchecked_deallocation%s
+
+U listaordenada%s	listaordenada.ads	68c3e2e0 BN EE NE OO PK GE
+
+D ada.ads		20210520051132 76789da1 ada%s
+D a-uncdea.ads		20210520051130 c3a8ac65 ada.unchecked_deallocation%s
+D listaordenada.ads	20250510220006 68c3e2e0 listaordenada%s
+D listaordenada.adb	20250515215932 db15bbdb listaordenada%b
+D system.ads		20210520051136 2ffa5114 system%s
+G a e
+G c Z s b [listaordenada standard 5 9 none]
+X 1 ada.ads
+16K9*Ada 20e8 4|1r6 5r26
+X 2 a-uncdea.ads
+20u15*Unchecked_Deallocation 4|1w10 5r30
+X 3 listaordenada.ads
+2+9 TipoElem 3r30 4r30 9r49 10r64 11r64 13r48 20r14 4|28r48 37r49 53r64 92r64
+3V19 "<"{boolean} 3>23 3>26 4|62s22 97s49
+3*23 X{2+9}
+3*26 Y{2+9}
+4V19 ">"{boolean} 4>23 4>26 4|70s28
+4*23 X{2+9}
+4*26 Y{2+9}
+5k9*listaOrdenada 2z9 3z19 4z19 17E9 23l5 23e18 4|3b14 110l5 110t18
+6P9*TipoLista 7r33 8r28 9r27 10r39 11r39 12r38 13r30 14r29 14r47 18c9 21r14
+. 4|5r64 7r33 12r38 13r14 22r31 28r30 37r27 38r13 53r39 54r25 55r25 83r29
+. 83r47 92r39 93r16 94r16
+7U14*Crear 7<21 4|7b14 10l8 10t13
+7p21 Lista{6P9} 4|7b21 9m7
+8V13*Vacia{boolean} 8>20 4|22b13 26l8 26t13 41s10 58s10 85s10
+8p20 Lista{6P9} 4|22b20 25r14
+9V13*Esta{boolean} 9>19 9>38 4|37b13 47s20 50l8 50t12
+9p19 Lista{6P9} 4|37b19 38r26 41r17 47r26
+9*38 Elemento{2+9} 4|37b38 44r45 47r37
+10U14*Insertar 10=24 10>50 4|53b14 81l8 81t16
+10p24 Lista{6P9} 4|53b24 58r17 59m10 62r24 63r30 64m13 67r20
+10*50 Elemento{2+9} 4|53b50 54r52 62r13 70r19
+11U14*Suprimir 11=24 11>50 4|92b14 109l8 109t16
+11p24 Lista{6P9} 4|92b24 93r29 102m10 102r19
+11*50 Elemento{2+9} 4|92b50 97r51
+12U14*Limpiar 12=23 4|12b14 20l8 20t15
+12p23 Lista{6P9} 4|12b23 13r27 15r13 16r18 17m10 17r19
+13V13*Info{2+9} 13>19 4|28b13 35l8 35t12
+13p19 Lista{6P9} 4|28b19 30r10 31r17
+14V13*Sig{6P9} 14>18 4|83b13 90l8 90t11
+14p18 Lista{6P9} 4|83b18 85r17 88r17
+15X4*ListaVacia 4|33r16 86r16
+17R9 TipoNodo 18r29 19c9 22e14 4|5r54 54r42
+20*7 Info{2+9} 4|31r23 44r38 62r30 70r34 97r44
+21p7 Sig{6P9} 4|17r25 47r32 63m23 72r30 77m23 78m17 88r23 99r27 102r25 105m14
+. 106r19
+X 4 listaordenada.adb
+5U14 Free[2|20] 18s10 108s7
+13p7 Temp{3|6P9} 16m10 18m16 18r16
+38p7 Ptr{3|6P9} 44r13 44r34
+54p7 NuevoNodo{3|6P9} 59r19 63r13 64r22 77r13 78r24
+55p7 Ptr{3|6P9} 67m13 69r43 70r30 71r26 72m19 72r26 77r30
+55p12 ant{3|6P9} 71m19 78r13
+56b7 LugarEncontrado{boolean} 68m13 69r23 74m19
+93p7 actual{3|6P9} 97r13 97r37 98r17 99m10 99r20 106r12 108m13 108r13
+94p7 ant{3|6P9} 98m10 101r10 105r10
+

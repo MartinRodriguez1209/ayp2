@@ -1,0 +1,107 @@
+V "GNAT Lib v2021"
+M P W=b
+A -O0
+A -gnatA
+A -g
+A -mtune=generic
+A -march=x86-64
+P ZX
+
+RN
+RV NO_ALLOCATORS
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_EXCEPTIONS
+RV NO_IO
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_LOCAL_ALLOCATORS
+RV NO_RECURSION
+RV NO_STANDARD_ALLOCATORS_AFTER_ELABORATION
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DEFAULT_INITIALIZATION
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+
+U main%b		main.adb		62e3f1c0 NE OO SU IL
+W ada%s			ada.ads			ada.ali
+Z ada.exceptions%s	a-except.adb		a-except.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+Z ada.unchecked_deallocation%s
+W cola%s		cola.adb		cola.ali
+W listaordenada%s	listaordenada.adb	listaordenada.ali
+Z system%s		system.ads		system.ali
+Z system.exception_table%s  s-exctab.adb	s-exctab.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+W vectorsimple%s	vectorsimple.adb	vectorsimple.ali
+
+D ada.ads		20210520051132 76789da1 ada%s
+D a-except.ads		20210520051128 946f3014 ada.exceptions%s
+D a-ioexce.ads		20210520051128 e4a01f64 ada.io_exceptions%s
+D a-stream.ads		20210520051130 119b8fb3 ada.streams%s
+D a-string.ads		20210520051130 90ac6797 ada.strings%s
+D a-sttebu.ads		20210520051130 18209c64 ada.strings.text_buffers%s
+D a-stuten.ads		20210520051130 808c40ad ada.strings.utf_encoding%s
+D a-tags.ads		20210520051130 9eaa38c6 ada.tags%s
+D a-textio.ads		20210520051130 aef4d56d ada.text_io%s
+D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20210520051130 c3a8ac65 ada.unchecked_deallocation%s
+D cola.ads		20250515220236 26b94a43 cola%s
+D cola.adb		20250515220254 20d891d7 cola%b
+D interfac.ads		20210520051132 edec285f interfaces%s
+D i-cstrea.ads		20210520051132 e53d8b8e interfaces.c_streams%s
+D listaordenada.ads	20250510220006 68c3e2e0 listaordenada%s
+D listaordenada.adb	20250515215932 db15bbdb listaordenada%b
+D main.adb		20250515215344 6106cda5 main%b
+D system.ads		20210520051136 2ffa5114 system%s
+D s-crtl.ads		20210520051132 0ebbdb71 system.crtl%s
+D s-exctab.ads		20210520051132 54135002 system.exception_table%s
+D s-ficobl.ads		20210520051132 078245e4 system.file_control_block%s
+D s-parame.ads		20210520051134 4752c4cb system.parameters%s
+D s-putima.ads		20210520051134 4e095881 system.put_images%s
+D s-secsta.ads		20210520051134 9b3ab94b system.secondary_stack%s
+D s-soflin.ads		20210520051134 a7318a92 system.soft_links%s
+D s-stache.ads		20210520051134 a37c21ec system.stack_checking%s
+D s-stalib.ads		20210520051134 472fbca8 system.standard_library%s
+D s-stoele.ads		20210520051134 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20210520051134 ed88f8fb system.storage_elements%b
+D s-traent.ads		20210520051134 26a8d361 system.traceback_entries%s
+D s-unstyp.ads		20210520051134 2b077493 system.unsigned_types%s
+D s-wchcon.ads		20210520051136 1b7d22d2 system.wch_con%s
+D unchconv.ads		20210520051136 ca2f9e18 unchecked_conversion%s
+D vectorsimple.ads	20250515214714 e36b41ab vectorsimple%s
+D vectorsimple.adb	20250510220108 bf4d39fb vectorsimple%b
+G a e
+G c Z b b [main standard 9 11 none]
+G r i none [main standard 9 11 none] [listaordenada standard 5 9 none]
+G r i none [main standard 9 11 none] [cola standard 3 9 none]
+G r i none [main standard 9 11 none] [vectorsimple standard 7 9 none]
+X 1 ada.ads
+16K9*Ada 20e8 18|1r41 2r5
+X 9 a-textio.ads
+58K13*Text_IO 725e16 18|1w45 2r9
+506U14*Put_Line 18|29s10
+X 12 cola.ads
+3k9*cola 22e9 18|1w6 12r30
+4R9 TipoCola 18|14r37[12] 18r38[12] 23r31[12]
+X 16 listaordenada.ads
+5k9*listaOrdenada 23e18 18|1w26 11r32
+6P9 TipoLista 18|12r49[11]
+X 18 main.adb
+9U11*main 9b11 38t4
+11K12 listaEnteros[16|5] 12r36
+12K12 colaListas[12|3] 14r26 18r27 23r20
+13I12 rangovec{integer} 23r41
+14U14 put 14b14 14>19 17l8 17t11 23r51
+14r19 a{12|4R9[12]}
+18U14 get 18b14 18<19 21l8 21t11 23r56
+18r19 a{12|4R9[12]}
+22K12 vectorColas[35|7] 25r31 34r8
+25U14 analisis 25b14 25>24 32l8 32t16 37s4
+25a24 E{35|9A9[22]} 28r16
+28i11 j{integer}
+34a4 E{35|9A9[22]} 37r14
+X 35 vectorsimple.ads
+7k9*vectorSimple 18|1w12 23r6 35|12e17
+9A9 VecGeneric(12|4R9[18|12])<integer> 18|25r43[22] 34r20[22]
+

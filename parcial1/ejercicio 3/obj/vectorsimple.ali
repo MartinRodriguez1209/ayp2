@@ -1,0 +1,37 @@
+V "GNAT Lib v2021"
+A -O0
+A -gnatA
+A -g
+A -mtune=generic
+A -march=x86-64
+P ZX
+
+RN
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U vectorsimple%b	vectorsimple.adb	5c267850 NE OO PK GE
+
+U vectorsimple%s	vectorsimple.ads	e36b41ab BN EE NE OO PK GE
+
+D system.ads		20210520051136 2ffa5114 system%s
+D vectorsimple.ads	20250515214714 e36b41ab vectorsimple%s
+D vectorsimple.adb	20250510220108 bf4d39fb vectorsimple%b
+G a e
+G c Z s b [vectorsimple standard 7 9 none]
+X 2 vectorsimple.ads
+2+9 Tipodato 4r31 5r32 9r41
+3I9 Indice 9r30
+4U19 Put 4>24 3|12s10
+4*24 A{2+9}
+5U19 get 5<24 3|5s10
+5*24 A{2+9}
+7k9*vectorSimple 2z9 3z9 4z19 5z19 12l5 12e17 3|1b14 16l5 16t17
+9A9*VecGeneric(2+9)<3I9> 10r30 11r33 3|2r30 9r33
+10U14*Leer 10<20 3|2b14 7l8 7t12
+10a20 Vec{9A9} 3|2b20 4r16 5m15 5r15
+11U14*Imprimir 11>24 3|9b14 14l8 14t16
+11a24 Vec{9A9} 3|9b24 11r16 12r15
+X 3 vectorsimple.adb
+4i11 I 5r20
+11i11 I 12r20
+
