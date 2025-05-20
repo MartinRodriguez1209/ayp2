@@ -1,0 +1,21 @@
+[GENERATED OBJECT FILE]
+b__main.o
+[PROJECT FILES]
+C:\Users\marti\Documents\ayp2\practico 5\ejercicio 4\ejercicio4.gpr
+20250520164928 9f6fc76e29cd7dad9e89d2dcef3f084a
+[BOUND OBJECT FILES]
+C:\Users\marti\Documents\ayp2\practico 5\ejercicio 4\obj\abb.o
+C:\Users\marti\Documents\ayp2\practico 5\ejercicio 4\obj\cola.o
+C:\Users\marti\Documents\ayp2\practico 5\ejercicio 4\obj\main.o
+[GENERATED SOURCE FILES]
+b__main.ads
+b__main.adb
+b__main.ali
+[RESULTING OPTIONS]
+-LC:\Users\marti\Documents\ayp2\practico 5\ejercicio 4\obj\
+-LC:\Users\marti\Documents\ayp2\practico 5\ejercicio 4\obj\
+-LC:/gnat/2021/lib/gcc/x86_64-w64-mingw32/10.3.1/adalib/
+-static
+-static-libgcc
+C:/gnat/2021/lib/gcc/x86_64-w64-mingw32/10.3.1/adalib/libgnat.a
+-Wl,--stack=0x2000000

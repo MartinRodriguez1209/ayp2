@@ -1,0 +1,65 @@
+V "GNAT Lib v2021"
+A -O0
+A -gnatA
+A -g
+A -mtune=generic
+A -march=x86-64
+P ZX
+
+RN
+RV NO_ALLOCATORS
+RV NO_EXCEPTIONS
+RV NO_LOCAL_ALLOCATORS
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_UNCHECKED_DEALLOCATION
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U cola%b		cola.adb		c5c977f1 NE OO PK GE
+W ada%s			ada.ads			ada.ali
+W ada.unchecked_deallocation%s
+
+U cola%s		cola.ads		26b94a43 BN EE NE OO PK GE IL
+
+D ada.ads		20210520051132 76789da1 ada%s
+D a-uncdea.ads		20210520051130 c3a8ac65 ada.unchecked_deallocation%s
+D cola.ads		20250516184350 26b94a43 cola%s
+D cola.adb		20250520171310 20d891d7 cola%b
+D system.ads		20210520051136 2ffa5114 system%s
+G a e
+G c Z s b [cola standard 3 9 none]
+X 1 ada.ads
+16K9*Ada 20e8 4|1r6 4r26
+X 2 a-uncdea.ads
+20u15*Unchecked_Deallocation 4|1w10 4r30
+X 3 cola.ads
+2+9 tipoElem 9r61 10r62 16r14 4|16r61 26r62
+3k9*cola 2z9 13E9 22l5 22e9 4|3b14 54l5 54t9
+4R9*TipoCola 7r30 8r32 9r37 10r37 11r37 19c9 21e14 4|5r30 10r32 16r37 26r37
+. 42r37
+5X4*colaVacia 4|30r16
+7V13*Vacia{boolean} 7>20 4|5b13 9l8 9t13 19s10 29s10 45s17
+7r20 Cola{4R9} 4|5b20 8r14
+8U14*Crear 8<21 4|10b14 14l8 14t13
+8r21 Cola{4R9} 4|10b21 12m7 13m7
+9U14*Inscola 9=23 9>47 4|16b14 25l8 25t15
+9r23 Cola{4R9} 4|16b23 19r17 20m10 22r10 24m7
+9*47 Elemento{2+9} 4|16b47 17r44
+10U14*Supcola 10=23 10<47 4|26b14 40l8 40t15
+10r23 Cola{4R9} 4|26b23 27r25 29r17 32r22 33m10 33r25 35r10 36m10
+10*47 Elemento{2+9} 4|26b47 32m10
+11U14*Limpiar 11=23 4|42b14 53l8 53t15
+11r23 Cola{4R9} 4|42b23 43r25 45r24 46m10 46r25 47r13 48m13 51r18
+13R9 TipoNodo 14r27 15c9 18e14 4|4r54 17r34
+14P9 TipoPun(13R9) 17r14 20r23 4|4r64 17r19 27r14 43r14
+16*7 Info{2+9} 4|32r34
+17p7 Sig{14P9} 4|22m21 33r37 46r37
+20p7 Frente{14P9} 4|8r19 12m12 20m15 27r30 32r27 33m15 33r30 35r15 43r30
+. 46m15 46r30 47r18 51r23
+20p15 Final{14P9} 4|13m12 22r15 24m12 36m15 48m18
+X 4 cola.adb
+4U14 Free[2|20] 39s7 50s10
+17p7 NuevoNodo{3|14P9} 20r25 22r28 24r21
+27p7 Temp{3|14P9} 39m13 39r13
+43p7 temp{3|14P9} 50m16 50r16 51m10
+

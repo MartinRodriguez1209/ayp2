@@ -1,0 +1,14 @@
+C:\Users\marti\Documents\ayp2\parcial1\ejercicio 3\src\main.adb:22:04: error: expect subprogram or entry name in instantiation of "Put"
+C:\Users\marti\Documents\ayp2\parcial1\ejercicio 3\src\main.adb:22:04: error: instantiation abandoned
+C:\Users\marti\Documents\ayp2\parcial1\ejercicio 3\src\main.adb:29:35: error: "vectorColas" is undefined (more references follow)
+C:\Users\marti\Documents\ayp2\parcial1\ejercicio 3\src\main.adb:39:13: error: invalid prefix in selected component "colaAux2"
+C:\Users\marti\Documents\ayp2\parcial1\ejercicio 3\src\main.adb:39:21: error: prefixed call is only allowed for objects of a tagged type
+C:\Users\marti\Documents\ayp2\parcial1\ejercicio 3\src\main.adb:43:22: error: no candidate interpretations match the actuals:
+C:\Users\marti\Documents\ayp2\parcial1\ejercicio 3\src\main.adb:43:22: error: missing argument for parameter "Item" in call to "put" declared at a-textio.ads:457
+C:\Users\marti\Documents\ayp2\parcial1\ejercicio 3\src\main.adb:43:22: error: missing argument for parameter "Item" in call to "put" declared at a-textio.ads:384
+C:\Users\marti\Documents\ayp2\parcial1\ejercicio 3\src\main.adb:43:22: error: possible missing instantiation of Text_IO.Integer_IO
+C:\Users\marti\Documents\ayp2\parcial1\ejercicio 3\src\main.adb:43:39: error: expected private type "TipoCola" defined at cola.ads:4, instance at line 12
+C:\Users\marti\Documents\ayp2\parcial1\ejercicio 3\src\main.adb:43:39: error: found type "Standard.Integer"
+C:\Users\marti\Documents\ayp2\parcial1\ejercicio 3\src\main.adb:43:39: error:   ==> in call to "put" at line 14
+C:\Users\marti\Documents\ayp2\parcial1\ejercicio 3\src\main.adb:43:39: error:   ==> in call to "Put" at a-textio.ads:463
+C:\Users\marti\Documents\ayp2\parcial1\ejercicio 3\src\main.adb:43:39: error:   ==> in call to "Put" at a-textio.ads:390

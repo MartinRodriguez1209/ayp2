@@ -29,7 +29,7 @@ procedure main is
    begin
       arbolAux := arbol;
       while not arbolEnteros.Vacio (arbolAux) loop
-         minimo   := arbolEnteros.Info (arbolAux);
+         minimo := arbolEnteros.Info (arbolAux);
          arbolAux := arbolEnteros.Izq (arbolAux);
       end loop;
       return minimo;
@@ -40,7 +40,7 @@ procedure main is
    begin
       arbolAux := arbol;
       while not arbolEnteros.Vacio (arbolAux) loop
-         maximo   := arbolEnteros.Info (arbolAux);
+         maximo := arbolEnteros.Info (arbolAux);
          arbolAux := arbolEnteros.Der (arbolAux);
       end loop;
       return maximo;
