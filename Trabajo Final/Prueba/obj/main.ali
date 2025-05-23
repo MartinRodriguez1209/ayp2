@@ -5,7 +5,7 @@ A -gnatA
 A -g
 A -mtune=generic
 A -march=x86-64
-P SS ZX
+P ZX
 
 RN
 RV NO_ALLOCATORS
@@ -14,7 +14,6 @@ RV NO_IO
 RV NO_IMPLICIT_CONDITIONALS
 RV NO_LOCAL_ALLOCATORS
 RV NO_RECURSION
-RV NO_SECONDARY_STACK
 RV NO_STANDARD_ALLOCATORS_AFTER_ELABORATION
 RV NO_STANDARD_STORAGE_POOLS
 RV NO_DEFAULT_INITIALIZATION
@@ -22,7 +21,7 @@ RV NO_DYNAMIC_SIZED_OBJECTS
 RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
 RV NO_IMPLEMENTATION_PRAGMAS
 
-U main%b		main.adb		a6afc3d0 NE OO SU
+U main%b		main.adb		761435c9 NE OO SU
 W ada%s			ada.ads			ada.ali
 Z ada.exceptions%s	a-except.adb		a-except.ali
 Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
@@ -31,7 +30,6 @@ Z ada.unchecked_deallocation%s
 W lista%s		lista.adb		lista.ali
 Z system%s		system.ads		system.ali
 Z system.exception_table%s  s-exctab.adb	s-exctab.ali
-Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
 Z system.standard_library%s  s-stalib.adb	s-stalib.ali
 W turno%s		turno.adb		turno.ali
 
@@ -48,9 +46,9 @@ D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
 D a-uncdea.ads		20210520051130 c3a8ac65 ada.unchecked_deallocation%s
 D interfac.ads		20210520051132 edec285f interfaces%s
 D i-cstrea.ads		20210520051132 e53d8b8e interfaces.c_streams%s
-D lista.ads		20250507200324 f5609062 lista%s
+D lista.ads		20250520194142 f5609062 lista%s
 D lista.adb		20250507200330 dc06929e lista%b
-D main.adb		20250507200708 5c4d948c main%b
+D main.adb		20250520204650 831a2c19 main%b
 D system.ads		20210520051136 2ffa5114 system%s
 D s-crtl.ads		20210520051132 0ebbdb71 system.crtl%s
 D s-exctab.ads		20210520051132 54135002 system.exception_table%s
@@ -66,34 +64,35 @@ D s-stoele.adb		20210520051134 ed88f8fb system.storage_elements%b
 D s-traent.ads		20210520051134 26a8d361 system.traceback_entries%s
 D s-unstyp.ads		20210520051134 2b077493 system.unsigned_types%s
 D s-wchcon.ads		20210520051136 1b7d22d2 system.wch_con%s
-D turno.ads		20250507200642 a1761253 turno%s
+D turno.ads		20250520204640 ae9a5cdf turno%s
 D unchconv.ads		20210520051136 ca2f9e18 unchecked_conversion%s
 G a e
 G c Z b b [main standard 5 11 none]
 G r i none [main standard 5 11 none] [lista standard 6 9 none]
 G r c none [main standard 5 11 none] [crear turno 5 13 none]
-G r c none [main standard 5 11 none] [getdni turno 8 13 none]
+G r c none [main standard 5 11 none] [comparardni turno 14 13 none]
+G r c none [main standard 5 11 none] [putturno turno 12 14 none]
+G r c none [main standard 5 11 none] [setfecha turno 13 14 none]
 X 1 ada.ads
 16K9*Ada 20e8 16|1r13 3r5
 X 9 a-textio.ads
 58K13*Text_IO 725e16 16|1w17 3r9
 X 14 lista.ads
-6k9*Lista 28e10 16|2w6 14r30
-7P9 TipoLista 16|17r15[14]
-13V13 Buscar{32|3R9} 16|25s27[14]
-15U14 Insertar 16|23s15[14]
+6k9*Lista 28e10 16|2w6 9r30
+8P9 TipoLista 16|12r15[9]
+13V13 Buscar{32|3R9} 16|20s27[9]
+15U14 Insertar 16|18s15[9]
 X 16 main.adb
-5U11*Main 5b11 27l5 27t9
-9V13 compararDni{boolean} 9b13 9>26 9>41 12l8 12t19 14r54
-9r26 T{32|3R9} 11r28
-9a41 DNI{string} 11r33
-14K12 nuevaLista[14|6] 15r8 23r4 25r16
-17p4 unaLista{14|7P9[14]} 23m25 23r25 25r35
-18r4 unTurno{32|3R9} 22m4 23r35
-19r4 turnoAux{32|3R9} 25m4
+5U11*Main 5b11 25l5 25t9
+9K12 nuevaLista[14|6] 10r8 18r4 20r16
+12p4 unaLista{14|8P9[9]} 18m25 18r25 20r35
+13r4 unTurno{32|3R9} 17m4 18r35
+14r4 turnoAux{32|3R9} 20m4 21r20 22m20 22r20 23r20
 X 32 turno.ads
-1K9*turno 16|1w6 7r8 11r14 14r37 22r15 32|25e10
-3R9*TipoTurno 16|9r30 14r43 18r15 19r15 32|23e14
-5V13*Crear{3R9} 16|22s21
-8V13*getDNI{string} 16|11s20
+1K9*turno 16|1w6 7r8 9r37 9r54 17r15 21r4 22r4 23r4 32|31e10
+3R9*TipoTurno 16|9r43 13r15 14r15 32|29e14
+5V13*Crear{3R9} 16|17s21
+12U14*putTurno 16|21s10 23s10
+13U14*setFecha 16|22s10
+14V13*compararDni{boolean} 16|9r60
 

@@ -1,5 +1,5 @@
-with abb, cola, ada.Text_IO;
-use ada.Text_IO;
+with abb, cola, ada.Text_IO, ada.Integer_Text_IO;
+use ada.Text_IO, ada.Integer_Text_IO;
 
 procedure main is
    arbolVacio : exception;
@@ -15,19 +15,16 @@ procedure main is
    colaAux        : colaArbol.TipoCola;
 
    procedure llenarArbol (arbol : in out arbolInt.Tipoarbol) is
+      contador, dato : integer;
    begin
-      arbolInt.Insertar (arbol, 20);
-      arbolInt.Insertar (arbol, 4);
-      arbolInt.Insertar (arbol, 3);
-      arbolInt.Insertar (arbol, 9);
-      arbolInt.Insertar (arbol, 15);
-      arbolInt.Insertar (arbol, 2);
-      arbolInt.Insertar (arbol, 21);
-      arbolInt.Insertar (arbol, 7);
-      arbolInt.Insertar (arbol, 13);
-      arbolInt.Insertar (arbol, 42);
-      arbolInt.Insertar (arbol, 50);
-      arbolInt.Insertar (arbol, 1);
+
+      Put_Line ("cuantos numeros desea ingresar al arbol");
+      Get (contador);
+      for J in 1 .. contador loop
+         Put_Line ("ingrese el numero");
+         Get (dato);
+         arbolInt.Insertar (arbol, dato);
+      end loop;
    end;
 
    procedure imprimirArbol (arbol : in arbolInt.Tipoarbol) is
@@ -50,7 +47,6 @@ procedure main is
                colaArbol.Inscola (colaAux, arbolInt.Der (arbolAux));
                nivelSiguiente := nivelSiguiente + 1;
             end if;
-
             Put (integer'Image (intAux));
             nivelActual := nivelActual - 1;
             if nivelActual = 0 then

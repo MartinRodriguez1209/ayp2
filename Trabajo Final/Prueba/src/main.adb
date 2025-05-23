@@ -6,12 +6,7 @@ procedure Main is
 
    use turno;
 
-   function compararDni (T : TipoTurno; DNI : String) return Boolean is
-   begin
-      return turno.getDNI (T) = DNI;
-   end compararDni;
-
-   package nuevaLista is new Lista (turno.TipoTurno, compararDni);
+   package nuevaLista is new Lista (turno.TipoTurno, turno.compararDni);
    use nuevaLista;
 
    unaLista : TipoLista;
@@ -23,5 +18,8 @@ begin
    nuevaLista.Insertar (unaLista, unTurno);
 
    turnoAux := nuevaLista.Buscar (unaLista, "12345");
+   turno.putTurno (turnoAux);
+   turno.setFecha (turnoAux, "acabc");
+   turno.putTurno (turnoAux);
 
 end Main;
