@@ -5,15 +5,19 @@ A -gnatA
 A -g
 A -mtune=generic
 A -march=x86-64
-P ZX
+P SS ZX
 
 RN
 RV NO_ALLOCATORS
+RV NO_CALENDAR
+RV NO_DELAY
 RV NO_EXCEPTIONS
+RV NO_FIXED_POINT
 RV NO_IO
 RV NO_IMPLICIT_CONDITIONALS
 RV NO_LOCAL_ALLOCATORS
 RV NO_RECURSION
+RV NO_SECONDARY_STACK
 RV NO_STANDARD_ALLOCATORS_AFTER_ELABORATION
 RV NO_STANDARD_STORAGE_POOLS
 RV NO_DEFAULT_INITIALIZATION
@@ -21,20 +25,29 @@ RV NO_DYNAMIC_SIZED_OBJECTS
 RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
 RV NO_IMPLEMENTATION_PRAGMAS
 
-U main%b		main.adb		761435c9 NE OO SU
+U main%b		main.adb		42a9e94b NE OO SU
 W ada%s			ada.ads			ada.ali
+W ada.calendar%s	a-calend.adb		a-calend.ali
 Z ada.exceptions%s	a-except.adb		a-except.ali
+W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
 Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
 W ada.text_io%s		a-textio.adb		a-textio.ali
 Z ada.unchecked_deallocation%s
+W calendar%s		calendar.ads		calendar.ali
 W lista%s		lista.adb		lista.ali
 Z system%s		system.ads		system.ali
+Z system.concat_4%s	s-conca4.adb		s-conca4.ali
+Z system.concat_5%s	s-conca5.adb		s-conca5.ali
 Z system.exception_table%s  s-exctab.adb	s-exctab.ali
+Z system.img_int%s	s-imgint.ads		s-imgint.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
 Z system.standard_library%s  s-stalib.adb	s-stalib.ali
 W turno%s		turno.adb		turno.ali
 
 D ada.ads		20210520051132 76789da1 ada%s
+D a-calend.ads		20210520051128 474d9720 ada.calendar%s
 D a-except.ads		20210520051128 946f3014 ada.exceptions%s
+D a-inteio.ads		20210520051128 f64b89a4 ada.integer_text_io%s
 D a-ioexce.ads		20210520051128 e4a01f64 ada.io_exceptions%s
 D a-stream.ads		20210520051130 119b8fb3 ada.streams%s
 D a-string.ads		20210520051130 90ac6797 ada.strings%s
@@ -42,17 +55,23 @@ D a-sttebu.ads		20210520051130 18209c64 ada.strings.text_buffers%s
 D a-stuten.ads		20210520051130 808c40ad ada.strings.utf_encoding%s
 D a-tags.ads		20210520051130 9eaa38c6 ada.tags%s
 D a-textio.ads		20210520051130 aef4d56d ada.text_io%s
+D a-tiinio.ads		20210520051130 390edddb ada.text_io.integer_io%s
 D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
 D a-uncdea.ads		20210520051130 c3a8ac65 ada.unchecked_deallocation%s
+D calendar.ads		20210520051132 2cb525cd calendar%s
 D interfac.ads		20210520051132 edec285f interfaces%s
 D i-cstrea.ads		20210520051132 e53d8b8e interfaces.c_streams%s
-D lista.ads		20250520194142 f5609062 lista%s
-D lista.adb		20250507200330 dc06929e lista%b
-D main.adb		20250520204650 831a2c19 main%b
+D lista.ads		20250525215554 ebb9a9b1 lista%s
+D lista.adb		20250525215410 4882737e lista%b
+D main.adb		20250525215438 b09e5d1f main%b
 D system.ads		20210520051136 2ffa5114 system%s
+D s-conca4.ads		20210520051132 7e642b20 system.concat_4%s
+D s-conca5.ads		20210520051132 875e432e system.concat_5%s
 D s-crtl.ads		20210520051132 0ebbdb71 system.crtl%s
 D s-exctab.ads		20210520051132 54135002 system.exception_table%s
 D s-ficobl.ads		20210520051132 078245e4 system.file_control_block%s
+D s-imagei.ads		20210520051134 0d3f86a7 system.image_i%s
+D s-imgint.ads		20210520051134 bdb6f5ec system.img_int%s
 D s-parame.ads		20210520051134 4752c4cb system.parameters%s
 D s-putima.ads		20210520051134 4e095881 system.put_images%s
 D s-secsta.ads		20210520051134 9b3ab94b system.secondary_stack%s
@@ -64,35 +83,75 @@ D s-stoele.adb		20210520051134 ed88f8fb system.storage_elements%b
 D s-traent.ads		20210520051134 26a8d361 system.traceback_entries%s
 D s-unstyp.ads		20210520051134 2b077493 system.unsigned_types%s
 D s-wchcon.ads		20210520051136 1b7d22d2 system.wch_con%s
-D turno.ads		20250520204640 ae9a5cdf turno%s
+D turno.ads		20250525191914 2ac9f3c1 turno%s
 D unchconv.ads		20210520051136 ca2f9e18 unchecked_conversion%s
 G a e
-G c Z b b [main standard 5 11 none]
-G r i none [main standard 5 11 none] [lista standard 6 9 none]
-G r c none [main standard 5 11 none] [crear turno 5 13 none]
-G r c none [main standard 5 11 none] [comparardni turno 14 13 none]
-G r c none [main standard 5 11 none] [putturno turno 12 14 none]
-G r c none [main standard 5 11 none] [setfecha turno 13 14 none]
+G c Z b b [main standard 7 11 none]
+G r i none [main standard 7 11 none] [lista standard 7 9 none]
+G r c none [main standard 7 11 none] [crear turno 8 13 none]
+G r c none [main standard 7 11 none] [comparardnicliente turno 30 13 none]
+G r c none [main standard 7 11 none] [getmotivo turno 15 13 none]
+G r c none [main standard 7 11 none] [getcliente turno 17 13 none]
+G r c none [main standard 7 11 none] [cambiarmotivo turno 27 13 none]
+G r c none [main standard 7 11 none] [getfecha turno 19 13 none]
 X 1 ada.ads
-16K9*Ada 20e8 16|1r13 3r5
-X 9 a-textio.ads
-58K13*Text_IO 725e16 16|1w17 3r9
-X 14 lista.ads
-6k9*Lista 28e10 16|2w6 9r30
-8P9 TipoLista 16|12r15[9]
-13V13 Buscar{32|3R9} 16|20s27[9]
-15U14 Insertar 16|18s15[9]
-X 16 main.adb
-5U11*Main 5b11 25l5 25t9
-9K12 nuevaLista[14|6] 10r8 18r4 20r16
-12p4 unaLista{14|8P9[9]} 18m25 18r25 20r35
-13r4 unTurno{32|3R9} 17m4 18r35
-14r4 turnoAux{32|3R9} 20m4 21r20 22m20 22r20 23r20
-X 32 turno.ads
-1K9*turno 16|1w6 7r8 9r37 9r54 17r15 21r4 22r4 23r4 32|31e10
-3R9*TipoTurno 16|9r43 13r15 14r15 32|29e14
-5V13*Crear{3R9} 16|17s21
-12U14*putTurno 16|21s10 23s10
-13U14*setFecha 16|22s10
-14V13*compararDni{boolean} 16|9r60
+16K9*Ada 20e8 20|1r6 2r6 2r19 8r8 10r19 11r19 12r19 13r19 14r19 21r7 68r4
+X 2 a-calend.ads
+36K13*Calendar 413e17 20|1w10 10r23 11r23 12r23 13r23 14r23 21r11
+42I9*Time<226I9> 20|10r32 16r46 40r45
+48I12*Year_Number{integer} 20|11r32
+49I12*Month_Number{integer} 20|12r32
+50I12*Day_Number{integer} 20|13r32
+54O12*Day_Duration{duration} 20|14r32 42r27 44r28
+72U14*Split 20|21s20
+83V13*Time_Of{42I9} 20|45s23
+226I9 Time_Rep<long_long_integer>
+X 4 a-inteio.ads
+18K13*Integer_Text_IO[12|46] 20|2w23 68r8
+X 11 a-textio.ads
+58K13*Text_IO 725e16 20|2w10 8r12
+262U14*New_Line 20|69s4
+506U14*Put_Line 20|25s7 31s7 67s4 71s4
+X 12 a-tiinio.ads
+80U14*Put 20|68s24[4|18]
+X 15 calendar.ads
+18K9*Calendar=18:30 20|3w6 16r37 40r36 42r18 44r19 45r14
+X 18 lista.ads
+7k9*Lista 30e10 20|4w6 50r6
+9P9 TipoLista 20|51r27[49]
+14V13 Buscar{40|6R9} 20|66s27[49]
+16U14 Insertar 20|58s16[49] 60s16[49] 62s16[49] 64s16[49]
+X 20 main.adb
+7U11*Main 7b11 74l5 74t9
+10i4 tiempo{2|42I9} 21r27 55m4 57r28 59r28 61r28 63r28
+11i4 anio{2|48I12} 21m35 30r27
+12i4 mes{2|49I12} 21m41 28r27
+13i4 dia{2|50I12} 21m46 26r25
+14o4 segundos_dia{2|54O12} 21m51 22r25 23r28
+16U14 imprimirFecha 16b14 16>29 33l8 33t21 72s4
+16i29 fecha{2|42I9}
+17i7 horas{integer} 22m7 32r36
+18i7 minutos{integer} 23m7 32r66
+35V13 cargarFecha{2|42I9} 35b13 36>7 37>7 38>7 39>7 40>7 46l8 46t19 55s14
+36i7 dia{integer} 45r43
+37i7 mes{integer} 45r38
+38i7 anio{integer} 45r32
+39i7 hora{integer} 44r43
+40i7 minutos{integer} 44r59
+42o7 segundos{2|54O12} 44m7 45r48
+48r4 unTurno{40|6R9} 57m4 58r36 59m4 60r36 61m4 62r36 63m4 64r36 66m4 67r31
+. 68r47 70m4 70m36 70r36 71r31 72r35
+49K12 listaTurnos[18|7] 51r15 58r4 60r4 62r4 64r4 66r15
+51p4 unaLista{18|9P9[49]} 58m26 58r26 60m26 60r26 62m26 62r26 64m26 64r26
+. 66r35
+X 40 turno.ads
+4K9*turno 20|5w6 48r15 50r13 50r39 57r15 59r15 61r15 63r15 67r14 68r29 70r15
+. 71r14 72r19 40|46e10
+6R9*TipoTurno 20|48r21 50r19 40|44e14
+8V13*Crear{6R9} 20|57s21 59s21 61s21 63s21
+15V13*getMotivo{string} 20|67s20 71s20
+17V13*getCliente{integer} 20|68s35
+19V13*getFecha{2|42I9} 20|72s25
+27V13*cambiarMotivo{6R9} 20|70s21
+30V13*compararDniCliente{boolean} 20|50r45
 

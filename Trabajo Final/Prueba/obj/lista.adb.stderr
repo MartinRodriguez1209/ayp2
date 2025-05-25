@@ -1,2 +1,0 @@
-C:\Users\marti\Documents\ayp2\Trabajo Final\Prueba\src\lista.adb:57:25: warning: "return" statement missing following this statement [enabled by default]
-C:\Users\marti\Documents\ayp2\Trabajo Final\Prueba\src\lista.adb:57:25: warning: Program_Error may be raised at run time [enabled by default]

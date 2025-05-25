@@ -14,7 +14,7 @@ package body lista is
       Temp : TipoLista := Lista;
    begin
       while Lista /= null loop
-         Temp  := Lista;
+         Temp := Lista;
          Lista := Lista.Sig;
          Free (Temp);
       end loop;
@@ -51,7 +51,7 @@ package body lista is
    end Esta;
 
    -- Preguntar si se puede
-   function Buscar (Lista : TipoLista; Clave : String) return TipoElem is
+   function Buscar (Lista : TipoLista; Clave : TipoClave) return TipoElem is
       Ptr : TipoLista := Lista;
    begin
       while Ptr /= null loop
@@ -60,6 +60,7 @@ package body lista is
          end if;
          Ptr := Ptr.Sig;
       end loop;
+      raise NoEncontrado;
    end Buscar;
 
    procedure Insertar (lista : in out TipoLista; Elemento : in TipoElem) is
@@ -70,7 +71,7 @@ package body lista is
          lista := NuevoNodo;
       else
          NuevoNodo.Sig := lista;
-         lista         := NuevoNodo; -- se inserto el valor
+         lista := NuevoNodo; -- se inserto el valor
       end if;
    end Insertar;
 
@@ -91,7 +92,7 @@ package body lista is
          raise ListaVacia;
       else
          while actual /= null and then actual.Info /= Elemento loop
-            ant    := actual;
+            ant := actual;
             actual := actual.Sig;
          end loop;
          if ant = null then

@@ -7,95 +7,126 @@ A -march=x86-64
 P SS ZX
 
 RN
-RV NO_IO
+RV NO_CALENDAR
+RV NO_DELAY
+RV NO_EXCEPTIONS
 RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
 RV NO_DYNAMIC_SIZED_OBJECTS
 RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+RV NO_ELABORATION_CODE
 
-U turno%b		turno.adb		964b9cf2 NE OO PK
+U turno%b		turno.adb		0c05bec2 NE OO PK IL
 W ada%s			ada.ads			ada.ali
-Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
-W ada.text_io%s		a-textio.adb		a-textio.ali
+W ada.exceptions%s	a-except.adb		a-except.ali
+W ada.strings%s		a-string.ads		a-string.ali
+W ada.strings.fixed%s	a-strfix.adb		a-strfix.ali
 Z system.concat_2%s	s-conca2.adb		s-conca2.ali
 Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
-W turno%s		turno.adb		turno.ali
 
-U turno%s		turno.ads		ae9a5cdf EE NE OO PK IL
-Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+U turno%s		turno.ads		4131412c EE OO PK IL
+W ada%s			ada.ads			ada.ali
+W ada.calendar%s	a-calend.adb		a-calend.ali
+W calendar%s		calendar.ads		calendar.ali
+Z system%s		system.ads		system.ali
+Z system.exception_table%s  s-exctab.adb	s-exctab.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
 
 D ada.ads		20210520051132 76789da1 ada%s
+D a-calend.ads		20210520051128 474d9720 ada.calendar%s
+D a-charac.ads		20210520051128 2d3ec45b ada.characters%s
+D a-chlat1.ads		20210520051128 66457d31 ada.characters.latin_1%s
 D a-except.ads		20210520051128 946f3014 ada.exceptions%s
-D a-ioexce.ads		20210520051128 e4a01f64 ada.io_exceptions%s
-D a-stream.ads		20210520051130 119b8fb3 ada.streams%s
 D a-string.ads		20210520051130 90ac6797 ada.strings%s
-D a-sttebu.ads		20210520051130 18209c64 ada.strings.text_buffers%s
-D a-stuten.ads		20210520051130 808c40ad ada.strings.utf_encoding%s
-D a-tags.ads		20210520051130 9eaa38c6 ada.tags%s
-D a-textio.ads		20210520051130 aef4d56d ada.text_io%s
+D a-strfix.ads		20210520051130 aeacf44c ada.strings.fixed%s
+D a-strmap.ads		20210520051130 5a88892a ada.strings.maps%s
 D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
-D interfac.ads		20210520051132 edec285f interfaces%s
-D i-cstrea.ads		20210520051132 e53d8b8e interfaces.c_streams%s
+D calendar.ads		20210520051132 2cb525cd calendar%s
 D system.ads		20210520051136 2ffa5114 system%s
 D s-conca2.ads		20210520051132 02a0d7d0 system.concat_2%s
-D s-crtl.ads		20210520051132 0ebbdb71 system.crtl%s
 D s-exctab.ads		20210520051132 54135002 system.exception_table%s
-D s-ficobl.ads		20210520051132 078245e4 system.file_control_block%s
 D s-parame.ads		20210520051134 4752c4cb system.parameters%s
-D s-putima.ads		20210520051134 4e095881 system.put_images%s
 D s-secsta.ads		20210520051134 9b3ab94b system.secondary_stack%s
-D s-soflin.ads		20210520051134 a7318a92 system.soft_links%s
-D s-stache.ads		20210520051134 a37c21ec system.stack_checking%s
 D s-stalib.ads		20210520051134 472fbca8 system.standard_library%s
 D s-stoele.ads		20210520051134 2dc34a04 system.storage_elements%s
-D s-stoele.adb		20210520051134 ed88f8fb system.storage_elements%b
 D s-traent.ads		20210520051134 26a8d361 system.traceback_entries%s
 D s-unstyp.ads		20210520051134 2b077493 system.unsigned_types%s
-D s-wchcon.ads		20210520051136 1b7d22d2 system.wch_con%s
-D turno.ads		20250520204640 ae9a5cdf turno%s
-D turno.adb		20250520204642 38bf499f turno%b
-D unchconv.ads		20210520051136 ca2f9e18 unchecked_conversion%s
+D turno.ads		20250525191914 2ac9f3c1 turno%s
+D turno.adb		20250525191914 6a7714fa turno%b
 G a e
-G c Z s b [crear turno 5 13 none]
-G c Z s b [getdni turno 11 13 none]
-G c Z s b [putturno turno 12 14 none]
-G c Z s b [setfecha turno 13 14 none]
-G c Z s b [comparardni turno 14 13 none]
-G c Z s s [tipoturnoIP turno 23 9 none]
+G c Z s b [crear turno 8 13 none]
+G c Z s b [getmotivo turno 15 13 none]
+G c Z s b [getmecanico turno 16 13 none]
+G c Z s b [getcliente turno 17 13 none]
+G c Z s b [getpatente turno 18 13 none]
+G c Z s b [getfecha turno 19 13 none]
+G c Z s b [cambiarmecanico turno 21 13 none]
+G c Z s b [cambiarfecha turno 24 13 none]
+G c Z s b [cambiarmotivo turno 27 13 none]
+G c Z s b [comparardnicliente turno 30 13 none]
+G c Z s s [tipoturnoIP turno 38 9 none]
+G c Z b b [ajustarstring turno 7 13 none]
 X 1 ada.ads
-16K9*Ada 20e8 30|1r13 2r5
-X 9 a-textio.ads
-58K13*Text_IO 725e16 30|1w17 2r9
-506U14*Put_Line 30|32s7 33s7 34s7
-X 29 turno.ads
-1K9*turno 17E4 31l5 31e10 30|1w6 4b14 13r11 27r14 47l5 47t10
-3R9*TipoTurno 10r39 11r25 12r31 13r35 14r30 23c9 29e14 30|11r39 14r11 25r30
-. 30r31 37r35 42r25
-5V13*Crear{3R9} 6>7 7>7 8>7 9>7 10>7 30|6b13 23l8 23t13
-6a7 fecha{string} 30|7b7 17r18
-7a7 hora{string} 30|8b7 18r17
-8a7 patente{string} 30|9b7 19r20
-9a7 dni_cliente{string} 30|10b7 20r24
-10a7 motivo{string} 30|11b7 21r19
-11V13*getDNI{string} 11>21 30|27s20 42b13 45l8 45t14
-11r21 T{3R9} 30|42b21 44r14
-12U14*putTurno 12>24 30|30b14 35t7
-12r24 t{3R9} 30|30b24 32r31 33r26 34r29
-13U14*setFecha 13=24 13>46 30|37b14 40t7
-13r24 t{3R9} 30|37b24 39m7
-13a46 fechaNueva{string} 30|37b46 39r18
-14V13*compararDni{boolean} 14>26 14>41 30|25b13 28l8 28t19
-14r26 T{3R9} 30|25b26 27r28
-14a41 DNI{string} 30|25b41 27r33
-17N4 Max_Long_Fecha 24r34
-18N4 Max_Long_Hora 25r34
-19N4 Max_Long_Patente 26r34
-20N4 Max_Long_DNI 27r34
-21N4 Max_Long_Motivo 28r34
-24a7*fecha{string} 30|17m9 34r31 39m9
-25a7*hora{string} 30|18m9
-26a7*patente{string} 30|19m9 32r33
-27a7*dni_cliente{string} 30|20m9 33r28 44r16
-28a7*motivo{string} 30|21m9
-X 30 turno.adb
-14r7 T{29|3R9} 17m7 18m7 19m7 20m7 21m7 22r14
+16K9*Ada 20e8 20|1r6 21|1w6 2r6 3r6 44r14 44r48
+X 2 a-calend.ads
+36K13*Calendar 413e17 20|1w10
+42I9*Time<226I9> 20|9r31 19r54 25r51 39r31 21|14r31 57r54 75r51
+226I9 Time_Rep<long_long_integer>
+X 5 a-except.ads
+44K13*Exceptions 289e19 21|2w10
+X 6 a-string.ads
+16K13*Strings 35e16 21|3r10 44r18 44r52
+33n30*Right{33E9} 21|44r60
+X 7 a-strfix.ads
+43K21*Fixed 1398e22 21|3w18 44r26
+1097V13*Trim{string} 21|44s32
+X 10 calendar.ads
+18K9*Calendar=18:30 20|2w6 9r22 19r45 25r42 39r22 21|14r22 57r45 75r42
+X 20 turno.ads
+4K9*turno 35E4 46l5 46e10 21|5b14 97l5 97t10
+6R9*TipoTurno 13r40 15r28 16r30 17r29 18r29 19r27 22r18 22r59 25r18 25r64
+. 28r18 28r58 30r37 38c9 44e14 21|18r40 20r15 42r28 47r30 52r29 57r27 62r29
+. 68r18 68r59 75r18 75r64 82r18 82r58 92r37
+8V13*Crear{6R9} 9>7 10>7 11>7 12>7 13>7 21|13b13 40t7
+9i7 fecha{2|42I9} 21|14b7 23r22
+10a7 patente{string} 21|15b7 24r10 25r42
+11i7 dni_cliente{integer} 21|16b7 30r28
+12i7 dni_mecanico{integer} 21|17b7 32r29
+13a7 motivo{string} 21|18b7 34r10 35r41
+15V13*getMotivo{string} 15>24 21|42b13 45l8 45t17
+15r24 T{6R9} 21|42b24 44r38
+16V13*getMecanico{integer} 16>26 21|47b13 50l8 50t19
+16r26 T{6R9} 21|47b26 49r14
+17V13*getCliente{integer} 17>25 21|62b13 65l8 65t18
+17r25 T{6R9} 21|62b25 64r14
+18V13*getPatente{string} 18>25 21|52b13 55l8 55t18
+18r25 T{6R9} 21|52b25 54r14
+19V13*getFecha{2|42I9} 19>23 21|57b13 60l8 60t16
+19r23 T{6R9} 21|57b23 59r14
+21V13*cambiarMecanico{6R9} 22=7 22>29 21|67b13 72t7
+22r7 T{6R9} 21|68b7 70m7 71r14
+22i29 dniMecanico{integer} 21|68b29 70r25
+24V13*cambiarFecha{6R9} 25=7 25>29 21|74b13 79l8 79t20
+25r7 T{6R9} 21|75b7 77m7 78r14
+25i29 fechaNueva{2|42I9} 21|75b29 77r18
+27V13*cambiarMotivo{6R9} 28=7 28>29 21|81b13 90l8 90t21
+28r7 T{6R9} 21|82b7 84r32 85m10 85r50 89r14
+28a29 motivoNuevo{string} 21|82b29 84r10 85r37
+30V13*compararDniCliente{boolean} 30>33 30>48 21|92b13 95l8 95t26
+30r33 T{6R9} 21|92b33 94r14
+30i48 DNI{integer} 21|92b48 94r30
+32X4*DatoIncorrecto 21|27r16 37r16 87r16
+35N4 Max_Long_Patente 40r35
+36N4 Max_Long_Motivo 42r35
+39i7*fecha{2|42I9} 21|23m13 59r16 77m9
+40a7*patente{string} 21|24r34 25m16 25r57 54r16
+41i7*dni_cliente{integer} 21|30m13 64r16 94r16
+42a7*motivo{string} 21|34r33 35m16 35r55 44r40 84r34 85m12 85r52
+43i7*dni_mecanico{integer} 21|32m13 49r16 70m9
+X 21 turno.adb
+7V13 ajustarString{string} 7b13 7>28 7>44 11t7 25s27 35s26 85s22
+7a28 texto{string} 10r14 10r39
+7i44 longitud{positive} 10r28
+20r7 turno{20|6R9} 23m7 24r28 25m10 25r51 30m7 32m7 34r27 35m10 35r49 39r14
 
