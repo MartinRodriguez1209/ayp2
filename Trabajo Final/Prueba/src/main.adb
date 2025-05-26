@@ -2,6 +2,7 @@ with Ada.Calendar;
 with Ada.Text_IO, ada.Integer_Text_IO;
 with Calendar;
 with Lista;
+with Reparacion;
 with turno;
 
 procedure Main is
@@ -45,10 +46,13 @@ procedure Main is
       return Calendar.Time_Of (anio, mes, dia, segundos);
    end cargarFecha;
 
-   unTurno  : turno.TipoTurno;
+   unTurno       : turno.TipoTurno;
    package listaTurnos is new
      Lista (turno.TipoTurno, Integer, turno.compararDniCliente);
-   unaLista : listaTurnos.TipoLista;
+   unaLista      : listaTurnos.TipoLista;
+   unaReparacion : Reparacion.TipoReparacion;
+   package listaReparaciones is new
+     Lista (Reparacion.TipoReparacion, Integer, Reparacion.Bajareparacion);
 
 begin
 
