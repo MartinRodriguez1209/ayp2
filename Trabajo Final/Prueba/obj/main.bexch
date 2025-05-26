@@ -1,21 +1,21 @@
 [GENERATED OBJECT FILE]
 b__main.o
 [PROJECT FILES]
-C:\Users\User\Documents\ayp2\Trabajo Final\Prueba\prueba.gpr
-20250506210432 31f60567554d2a70208a4ef8574b8f90
+C:\Users\marti\Documents\ayp2\Trabajo Final\Prueba\prueba.gpr
+20250507174524 8b22a1158987c78d449db05820b5edda
 [BOUND OBJECT FILES]
-C:\Users\User\Documents\ayp2\Trabajo Final\Prueba\obj\lista.o
-C:\Users\User\Documents\ayp2\Trabajo Final\Prueba\obj\mecanico.o
-C:\Users\User\Documents\ayp2\Trabajo Final\Prueba\obj\reparacion.o
-C:\Users\User\Documents\ayp2\Trabajo Final\Prueba\obj\turno.o
-C:\Users\User\Documents\ayp2\Trabajo Final\Prueba\obj\main.o
+C:\Users\marti\Documents\ayp2\Trabajo Final\Prueba\obj\lista.o
+C:\Users\marti\Documents\ayp2\Trabajo Final\Prueba\obj\mecanico.o
+C:\Users\marti\Documents\ayp2\Trabajo Final\Prueba\obj\reparacion.o
+C:\Users\marti\Documents\ayp2\Trabajo Final\Prueba\obj\turno.o
+C:\Users\marti\Documents\ayp2\Trabajo Final\Prueba\obj\main.o
 [GENERATED SOURCE FILES]
 b__main.ads
 b__main.adb
 b__main.ali
 [RESULTING OPTIONS]
--LC:\Users\User\Documents\ayp2\Trabajo Final\Prueba\obj\
--LC:\Users\User\Documents\ayp2\Trabajo Final\Prueba\obj\
+-LC:\Users\marti\Documents\ayp2\Trabajo Final\Prueba\obj\
+-LC:\Users\marti\Documents\ayp2\Trabajo Final\Prueba\obj\
 -LC:/gnat/2021/lib/gcc/x86_64-w64-mingw32/10.3.1/adalib/
 -static
 -static-libgcc

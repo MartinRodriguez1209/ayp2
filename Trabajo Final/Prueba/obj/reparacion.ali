@@ -19,9 +19,9 @@ W mecanico%s		mecanico.adb		mecanico.ali
 
 D ada.ads		20210520051132 76789da1 ada%s
 D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
-D mecanico.ads		20250526205954 70c8c09f mecanico%s
-D reparacion.ads	20250526023334 7ba1a9a3 reparacion%s
-D reparacion.adb	20250526023334 787c5c90 reparacion%b
+D mecanico.ads		20250526222114 70c8c09f mecanico%s
+D reparacion.ads	20250526222114 7ba1a9a3 reparacion%s
+D reparacion.adb	20250526222114 787c5c90 reparacion%b
 D system.ads		20210520051136 2ffa5114 system%s
 D s-exctab.ads		20210520051132 54135002 system.exception_table%s
 D s-powflt.ads		20210520051134 46f7a1b9 system.powten_flt%s

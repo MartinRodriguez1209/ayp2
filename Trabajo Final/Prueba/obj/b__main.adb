@@ -30,12 +30,13 @@ package body ada_main is
    E130 : Short_Integer; pragma Import (Ada, E130, "system__finalization_root_E");
    E128 : Short_Integer; pragma Import (Ada, E128, "ada__finalization_E");
    E127 : Short_Integer; pragma Import (Ada, E127, "system__file_io_E");
+   E147 : Short_Integer; pragma Import (Ada, E147, "ada__strings__unbounded_E");
    E006 : Short_Integer; pragma Import (Ada, E006, "ada__calendar_E");
    E103 : Short_Integer; pragma Import (Ada, E103, "ada__text_io_E");
-   E148 : Short_Integer; pragma Import (Ada, E148, "lista_E");
-   E150 : Short_Integer; pragma Import (Ada, E150, "mecanico_E");
-   E152 : Short_Integer; pragma Import (Ada, E152, "reparacion_E");
-   E168 : Short_Integer; pragma Import (Ada, E168, "turno_E");
+   E167 : Short_Integer; pragma Import (Ada, E167, "lista_E");
+   E169 : Short_Integer; pragma Import (Ada, E169, "mecanico_E");
+   E171 : Short_Integer; pragma Import (Ada, E171, "reparacion_E");
+   E186 : Short_Integer; pragma Import (Ada, E186, "turno_E");
 
    Sec_Default_Sized_Stacks : array (1 .. 1) of aliased System.Secondary_Stack.SS_Stack (System.Parameters.Runtime_Default_Sec_Stack_Size);
 
@@ -53,12 +54,19 @@ package body ada_main is
       begin
          F1;
       end;
+      E147 := E147 - 1;
       declare
          procedure F2;
-         pragma Import (Ada, F2, "system__file_io__finalize_body");
+         pragma Import (Ada, F2, "ada__strings__unbounded__finalize_spec");
+      begin
+         F2;
+      end;
+      declare
+         procedure F3;
+         pragma Import (Ada, F3, "system__file_io__finalize_body");
       begin
          E127 := E127 - 1;
-         F2;
+         F3;
       end;
       declare
          procedure Reraise_Library_Exception_If_Any;
@@ -210,18 +218,21 @@ package body ada_main is
       E128 := E128 + 1;
       System.File_Io'Elab_Body;
       E127 := E127 + 1;
+      Ada.Strings.Unbounded'Elab_Spec;
+      Ada.Strings.Unbounded'Elab_Body;
+      E147 := E147 + 1;
       Ada.Calendar'Elab_Spec;
       Ada.Calendar'Elab_Body;
       E006 := E006 + 1;
       Ada.Text_Io'Elab_Spec;
       Ada.Text_Io'Elab_Body;
       E103 := E103 + 1;
-      E148 := E148 + 1;
+      E167 := E167 + 1;
       Mecanico'Elab_Spec;
-      E150 := E150 + 1;
-      E152 := E152 + 1;
+      E169 := E169 + 1;
+      E171 := E171 + 1;
       turno'elab_spec;
-      E168 := E168 + 1;
+      E186 := E186 + 1;
    end adainit;
 
    procedure Ada_Main_Program;
@@ -259,13 +270,13 @@ package body ada_main is
    end;
 
 --  BEGIN Object file/option list
-   --   C:\Users\User\Documents\ayp2\Trabajo Final\Prueba\obj\lista.o
-   --   C:\Users\User\Documents\ayp2\Trabajo Final\Prueba\obj\mecanico.o
-   --   C:\Users\User\Documents\ayp2\Trabajo Final\Prueba\obj\reparacion.o
-   --   C:\Users\User\Documents\ayp2\Trabajo Final\Prueba\obj\turno.o
-   --   C:\Users\User\Documents\ayp2\Trabajo Final\Prueba\obj\main.o
-   --   -LC:\Users\User\Documents\ayp2\Trabajo Final\Prueba\obj\
-   --   -LC:\Users\User\Documents\ayp2\Trabajo Final\Prueba\obj\
+   --   C:\Users\marti\Documents\ayp2\Trabajo Final\Prueba\obj\lista.o
+   --   C:\Users\marti\Documents\ayp2\Trabajo Final\Prueba\obj\mecanico.o
+   --   C:\Users\marti\Documents\ayp2\Trabajo Final\Prueba\obj\reparacion.o
+   --   C:\Users\marti\Documents\ayp2\Trabajo Final\Prueba\obj\turno.o
+   --   C:\Users\marti\Documents\ayp2\Trabajo Final\Prueba\obj\main.o
+   --   -LC:\Users\marti\Documents\ayp2\Trabajo Final\Prueba\obj\
+   --   -LC:\Users\marti\Documents\ayp2\Trabajo Final\Prueba\obj\
    --   -LC:/gnat/2021/lib/gcc/x86_64-w64-mingw32/10.3.1/adalib/
    --   -static
    --   -lgnat

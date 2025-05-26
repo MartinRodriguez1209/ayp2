@@ -11,11 +11,14 @@ RN
 RV NO_ALLOCATORS
 RV NO_CALENDAR
 RV NO_DELAY
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTION_PROPAGATION
 RV NO_EXCEPTIONS
 RV NO_FIXED_POINT
 RV NO_IO
 RV NO_IMPLICIT_CONDITIONALS
 RV NO_LOCAL_ALLOCATORS
+RV NO_NESTED_FINALIZATION
 RV NO_RECURSION
 RV NO_SECONDARY_STACK
 RV NO_STANDARD_ALLOCATORS_AFTER_ELABORATION
@@ -24,13 +27,17 @@ RV NO_DEFAULT_INITIALIZATION
 RV NO_DYNAMIC_SIZED_OBJECTS
 RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
 RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
 
-U main%b		main.adb		381e05d2 NE OO SU
+U main%b		main.adb		8ef9801a NE OO SU
 W ada%s			ada.ads			ada.ali
 W ada.calendar%s	a-calend.adb		a-calend.ali
 Z ada.exceptions%s	a-except.adb		a-except.ali
 W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
+W ada.strings%s		a-string.ads		a-string.ali
 Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+W ada.strings.unbounded%s  a-strunb.adb		a-strunb.ali
+W ada.strings.unbounded.text_io%s  a-suteio.adb	a-suteio.ali
 W ada.text_io%s		a-textio.adb		a-textio.ali
 Z ada.unchecked_deallocation%s
 W calendar%s		calendar.ads		calendar.ali
@@ -43,17 +50,25 @@ Z system.concat_5%s	s-conca5.adb		s-conca5.ali
 Z system.exception_table%s  s-exctab.adb	s-exctab.ali
 Z system.img_int%s	s-imgint.ads		s-imgint.ali
 Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
 Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+Z system.val_int%s	s-valint.ads		s-valint.ali
 W turno%s		turno.adb		turno.ali
 
 D ada.ads		20210520051132 76789da1 ada%s
-D a-calend.ads		20210520051128 474d9720 ada.calendar%s
+D a-calend.ads		20250523203646 474d9720 ada.calendar%s
+D a-charac.ads		20210520051128 2d3ec45b ada.characters%s
+D a-chlat1.ads		20210520051128 66457d31 ada.characters.latin_1%s
 D a-except.ads		20210520051128 946f3014 ada.exceptions%s
+D a-finali.ads		20210520051128 bf4f806b ada.finalization%s
 D a-inteio.ads		20210520051128 f64b89a4 ada.integer_text_io%s
 D a-ioexce.ads		20210520051128 e4a01f64 ada.io_exceptions%s
 D a-stream.ads		20210520051130 119b8fb3 ada.streams%s
 D a-string.ads		20210520051130 90ac6797 ada.strings%s
+D a-strmap.ads		20210520051130 5a88892a ada.strings.maps%s
 D a-sttebu.ads		20210520051130 18209c64 ada.strings.text_buffers%s
+D a-strunb.ads		20210520051130 03325227 ada.strings.unbounded%s
+D a-suteio.ads		20210520051130 26d8e9aa ada.strings.unbounded.text_io%s
 D a-stuten.ads		20210520051130 808c40ad ada.strings.utf_encoding%s
 D a-tags.ads		20210520051130 9eaa38c6 ada.tags%s
 D a-textio.ads		20210520051130 aef4d56d ada.text_io%s
@@ -63,123 +78,165 @@ D a-uncdea.ads		20210520051130 c3a8ac65 ada.unchecked_deallocation%s
 D calendar.ads		20210520051132 2cb525cd calendar%s
 D interfac.ads		20210520051132 edec285f interfaces%s
 D i-cstrea.ads		20210520051132 e53d8b8e interfaces.c_streams%s
-D lista.ads		20250526023338 ebb9a9b1 lista%s
-D lista.adb		20250526023338 4882737e lista%b
-D main.adb		20250526210616 c140d8ba main%b
-D mecanico.ads		20250526205954 70c8c09f mecanico%s
-D reparacion.ads	20250526023334 7ba1a9a3 reparacion%s
+D lista.ads		20250526222114 ebb9a9b1 lista%s
+D lista.adb		20250526222114 4882737e lista%b
+D main.adb		20250526230204 8dc42f21 main%b
+D mecanico.ads		20250526222114 70c8c09f mecanico%s
+D reparacion.ads	20250526222114 7ba1a9a3 reparacion%s
 D system.ads		20210520051136 2ffa5114 system%s
+D s-atocou.ads		20210520051132 b45c2d8d system.atomic_counters%s
 D s-conca4.ads		20210520051132 7e642b20 system.concat_4%s
 D s-conca5.ads		20210520051132 875e432e system.concat_5%s
 D s-crtl.ads		20210520051132 0ebbdb71 system.crtl%s
 D s-exctab.ads		20210520051132 54135002 system.exception_table%s
 D s-ficobl.ads		20210520051132 078245e4 system.file_control_block%s
+D s-finroo.ads		20210520051132 4ff27390 system.finalization_root%s
 D s-imagei.ads		20210520051134 0d3f86a7 system.image_i%s
 D s-imgint.ads		20210520051134 bdb6f5ec system.img_int%s
+D s-memory.ads		20210520051134 597d6634 system.memory%s
 D s-parame.ads		20210520051134 4752c4cb system.parameters%s
 D s-putima.ads		20210520051134 4e095881 system.put_images%s
 D s-secsta.ads		20210520051134 9b3ab94b system.secondary_stack%s
 D s-soflin.ads		20210520051134 a7318a92 system.soft_links%s
 D s-stache.ads		20210520051134 a37c21ec system.stack_checking%s
 D s-stalib.ads		20210520051134 472fbca8 system.standard_library%s
+D s-stalib.adb		20210520051134 977290bf system.standard_library%b
 D s-stoele.ads		20210520051134 2dc34a04 system.storage_elements%s
 D s-stoele.adb		20210520051134 ed88f8fb system.storage_elements%b
+D s-stratt.ads		20210520051134 7bdda3fa system.stream_attributes%s
 D s-traent.ads		20210520051134 26a8d361 system.traceback_entries%s
 D s-unstyp.ads		20210520051134 2b077493 system.unsigned_types%s
+D s-valint.ads		20210520051134 e7fcadb7 system.val_int%s
+D s-valuns.ads		20210520051134 dac7b45d system.val_uns%s
+D s-valuei.ads		20210520051134 978dd0a6 system.value_i%s
+D s-valueu.ads		20210520051134 7b8fccf5 system.value_u%s
 D s-wchcon.ads		20210520051136 1b7d22d2 system.wch_con%s
-D turno.ads		20250526023336 2ac9f3c1 turno%s
+D turno.ads		20250526222114 f5403a1f turno%s
 D unchconv.ads		20210520051136 ca2f9e18 unchecked_conversion%s
 G a e
-G c Z b b [main standard 9 11 none]
-G r i none [main standard 9 11 none] [lista standard 7 9 none]
-G r c none [main standard 9 11 none] [crear turno 8 13 none]
-G r c none [main standard 9 11 none] [comparardnicliente turno 30 13 none]
-G r c none [main standard 9 11 none] [getmotivo turno 15 13 none]
-G r c none [main standard 9 11 none] [getcliente turno 17 13 none]
-G r c none [main standard 9 11 none] [cambiarmotivo turno 27 13 none]
-G r c none [main standard 9 11 none] [getfecha turno 19 13 none]
-G r c none [main standard 9 11 none] [crearmecanico mecanico 5 13 none]
-G r c none [main standard 9 11 none] [comparardnimecanico mecanico 18 13 none]
-G r c none [main standard 9 11 none] [obtenernombre mecanico 13 13 none]
-G r c none [main standard 9 11 none] [obtenerespecialidad mecanico 15 13 none]
-G r c none [main standard 9 11 none] [obtenerdni mecanico 16 13 none]
+G c Z b b [main standard 12 11 none]
+G r i none [main standard 12 11 none] [lista standard 7 9 none]
+G r c none [main standard 12 11 none] [crear turno 7 13 none]
+G r c none [main standard 12 11 none] [comparardnicliente turno 29 13 none]
+G r c none [main standard 12 11 none] [getmotivo turno 14 13 none]
+G r c none [main standard 12 11 none] [getcliente turno 16 13 none]
+G r c none [main standard 12 11 none] [cambiarmotivo turno 26 13 none]
+G r c none [main standard 12 11 none] [getfecha turno 18 13 none]
+G r c none [main standard 12 11 none] [crearmecanico mecanico 5 13 none]
+G r c none [main standard 12 11 none] [comparardnimecanico mecanico 18 13 none]
+G r c none [main standard 12 11 none] [obtenernombre mecanico 13 13 none]
+G r c none [main standard 12 11 none] [obtenerespecialidad mecanico 15 13 none]
+G r c none [main standard 12 11 none] [obtenerdni mecanico 16 13 none]
 X 1 ada.ads
-16K9*Ada 20e8 20|1r6 2r6 2r19 10r8 12r19 13r19 14r19 15r19 16r19 23r7 78r7
-. 114r7
+16K9*Ada 20e8 26|1r6 2r6 2r19 3r5 9r6 9r41 10r6 10r41 13r8 15r19 16r19 17r19
+. 18r19 19r19 26r7 81r7 120r7
 X 2 a-calend.ads
-36K13*Calendar 413e17 20|1w10 12r23 13r23 14r23 15r23 16r23 23r11
-42I9*Time<226I9> 20|12r32 18r46 42r45
-48I12*Year_Number{integer} 20|13r32
-49I12*Month_Number{integer} 20|14r32
-50I12*Day_Number{integer} 20|15r32
-54O12*Day_Duration{duration} 20|16r32 44r27 46r28
-72U14*Split 20|23s20
-83V13*Time_Of{42I9} 20|47s23
+36K13*Calendar 410e17 26|1w10 15r23 16r23 17r23 18r23 19r23 26r11
+43I9*Time<226I9> 26|15r32 21r46 45r45 130r31
+49I12*Year_Number{integer} 26|16r32
+50I12*Month_Number{integer} 26|17r32
+51I12*Day_Number{integer} 26|18r32
+55O12*Day_Duration{duration} 26|19r32 47r27 49r28
+72U14*Split 26|26s20
+83V13*Time_Of{43I9} 26|50s23
 226I9 Time_Rep<long_long_integer>
-X 4 a-inteio.ads
-18K13*Integer_Text_IO[12|46] 20|2w23 78r11 114r11
-X 11 a-textio.ads
-58K13*Text_IO 725e16 20|2w10 10r12
-262U14*New_Line 20|59s7 79s7 87s7 88s7 99s7
-506U14*Put_Line 20|27s7 33s7 58s7 77s7 85s7 98s7 110s7 112s7 113s7
-X 12 a-tiinio.ads
-80U14*Put 20|78s27[4|18] 114s27[4|18]
-X 15 calendar.ads
-18K9*Calendar=18:30 20|3w6 18r37 42r36 44r18 46r19 47r14
-X 18 lista.ads
-7k9*Lista 30e10 20|4w6 52r6 93r9
-9P9 TipoLista 20|53r27[51] 94r35[92]
-14V13 Buscar{42|6R9} 20|74s30[51] 111s36[92]
-16U14 Insertar 20|65s19[51] 67s19[51] 69s19[51] 71s19[51] 102s22[92] 105s22[92]
-. 108s22[92]
-X 20 main.adb
-9U11*Main 9b11 123l5 123t9
-12i4 tiempo{2|42I9} 23r27 61m7 64r31 66r31 68r31 70r31
-13i4 anio{2|48I12} 23m35 32r27
-14i4 mes{2|49I12} 23m41 30r27
-15i4 dia{2|50I12} 23m46 28r25
-16o4 segundos_dia{2|54O12} 23m51 24r25 25r28
-18U14 imprimirFecha 18b14 18>29 35l8 35t21 86s7
-18i29 fecha{2|42I9}
-19i7 horas{integer} 24m7 34r36
-20i7 minutos{integer} 25m7 34r66
-37V13 cargarFecha{2|42I9} 37b13 38>7 39>7 40>7 41>7 42>7 48l8 48t19 61s17
-38i7 dia{integer} 47r43
-39i7 mes{integer} 47r38
-40i7 anio{integer} 47r32
-41i7 hora{integer} 46r43
-42i7 minutos{integer} 46r59
-44o7 segundos{2|54O12} 46m7 47r48
-50r4 unTurno{42|6R9} 64m7 65r39 66m7 67r39 68m7 69r39 70m7 71r39 74m7 77r34
-. 78r50 82m7 82m39 82r39 85r34 86r38
-51K12 listaTurnos[18|7] 53r15 65r7 67r7 69r7 71r7 74r18
-53p4 unaLista{18|9P9[51]} 65m29 65r29 67m29 67r29 69m29 69r29 71m29 71r29
-. 74r38
-55U14 pruebasTurno 55b14 89l8 89t20 120s4
-91U14 pruebaMecanico 91b14 116l8 116t22 121s4
-92K15 listaMecanicos[18|7] 94r20 102r7 105r7 108r7 111r21
-94p7 unaLista{18|9P9[92]} 102m32 102r32 105m32 105r32 108m32 108r32 111r44
-95r7 unMecanico{21|2R9} 100m7 102r42 103m7 105r42 106m7 108r42 111m7 112r41
-. 113r47 114r53
-X 21 mecanico.ads
-1K9*Mecanico 20|5w6 93r16 93r48 95r20 101r9 104r9 107r9 112r17 113r17 114r32
-. 21|33e13
-2R9*Tipomecanico 20|93r25 95r29 21|32e14
-5V13*Crearmecanico{2R9} 20|101s18 104s18 107s18
-13V13*Obtenernombre{string} 20|112s26
-15V13*Obtenerespecialidad{string} 20|113s26
-16V13*Obtenerdni{natural} 20|114s41
-18V13*compararDniMecanico{boolean} 20|93r57
-X 22 reparacion.ads
-3K9*Reparacion 20|6w6 22|48e15
-X 42 turno.ads
-4K9*turno 20|7w6 50r15 52r13 52r39 64r18 66r18 68r18 70r18 77r17 78r32 82r18
-. 85r17 86r22 42|46e10
-6R9*TipoTurno 20|50r21 52r19 42|44e14
-8V13*Crear{6R9} 20|64s24 66s24 68s24 70s24
-15V13*getMotivo{string} 20|77s23 85s23
-17V13*getCliente{integer} 20|78s38
-19V13*getFecha{2|42I9} 20|86s28
-27V13*cambiarMotivo{6R9} 20|82s24
-30V13*compararDniCliente{boolean} 20|52r45
+X 7 a-inteio.ads
+18K13*Integer_Text_IO[18|46] 26|2w23 81r11 120r11
+X 10 a-string.ads
+16K13*Strings 35e16 26|9r10 9r45 10r10 10r45
+X 13 a-strunb.ads
+83K21*Unbounded 765e26 26|9w18 9r53 10r18 10r53
+88R9*Unbounded_String<6|43R9> 744e15 26|127r48
+104V13*To_Unbounded_String{88R9} 26|137s25
+117V13*To_String{string} 26|142s27 143s27 144s27 145s27 146s27 150s12 151s27
+. 152s27 153s12
+X 14 a-suteio.ads
+39K31*Text_IO 61e34 26|10w28 10r63
+55U14*Put_Line 26|139s7
+X 17 a-textio.ads
+58K13*Text_IO 725e16 26|2w10 3r9 13r12
+65P9*File_Type 26|126r22
+67n23*In_File{67E9} 26|134r27
+112U14*Open 26|134s7
+262U14*New_Line 26|62s7 82s7 90s7 91s7 102s7 121s7
+490V13*Get_Line{string} 26|137s46
+506U14*Put_Line 26|30s7 36s7 61s7 80s7 88s7 101s7 116s7 118s7 119s7 133s7
+. 154s7
+X 18 a-tiinio.ads
+80U14*Put 26|81s27[7|18] 120s27[7|18]
+X 21 calendar.ads
+18K9*Calendar=18:30 26|4w6 21r37 45r36 47r18 49r19 50r14 130r22
+X 24 lista.ads
+7k9*Lista 30e10 26|5w6 55r6 96r9
+9P9 TipoLista 26|56r27[54] 97r35[95]
+14V13 Buscar{57|5R9} 26|77s30[54] 117s36[95]
+16U14 Insertar 26|68s19[54] 70s19[54] 72s19[54] 74s19[54] 107s22[95] 110s22[95]
+. 113s22[95]
+X 26 main.adb
+12U11*Main 12b11 164l5 164t9
+15i4 tiempo{2|43I9} 64m7 67r31 69r31 71r31 73r31
+16i4 anio{2|49I12} 26m34 35r27
+17i4 mes{2|50I12} 26m40 33r27
+18i4 dia{2|51I12} 26m45 31r25
+19o4 segundos_dia{2|55O12} 26m50 27r25 28r28
+21U14 imprimirFecha 21b14 21>29 38l8 38t21 89s7
+21i29 fecha{2|43I9} 26r27
+22i7 horas{integer} 27m7 37r36
+23i7 minutos{integer} 28m7 37r66
+40V13 cargarFecha{2|43I9} 40b13 41>7 42>7 43>7 44>7 45>7 51l8 51t19 64s17
+. 141s9
+41i7 dia{integer} 50r43
+42i7 mes{integer} 50r38
+43i7 anio{integer} 50r32
+44i7 hora{integer} 49r43
+45i7 minutos{integer} 49r59
+47o7 segundos{2|55O12} 49m7 50r48
+53r4 unTurno{57|5R9} 67m7 68r39 69m7 70r39 71m7 72r39 73m7 74r39 77m7 80r34
+. 81r50 85m7 85r39 88r34 89r38
+54K12 listaTurnos[24|7] 56r15 68r7 70r7 72r7 74r7 77r18
+56p4 unaLista{24|9P9[54]} 68m29 68r29 70m29 70r29 72m29 72r29 74m29 74r29
+. 77r38
+58U14 pruebasTurno 58b14 92l8 92t20 160s4
+94U14 pruebaMecanico 94b14 123l8 123t22 161s4
+95K15 listaMecanicos[24|7] 97r20 107r7 110r7 113r7 117r21
+97p7 unaLista{24|9P9[95]} 107m32 107r32 110m32 110r32 113m32 113r32 117r44
+98r7 unMecanico{27|2R9} 105m7 107r42 108m7 110r42 111m7 113r42 117m7 118r41
+. 119r47 120r53
+125U14 leerArchivo 125b14 156t7 162s4
+126p7 archivPrueba{17|65P9} 134m13 134r13 137r56
+127A12 arregloStrings(13|88R9)<integer> 128r22
+128a7 arreglo{127A12} 137m10 139r17 142r38 143r38 144r38 145r38 146r38 150r23
+. 151r38 152r38 153r23
+129r7 unTurno{57|5R9} 147m7 154r34
+130i7 fecha{2|43I9} 140m7 149r12
+136i11 j{integer} 137r19
+X 27 mecanico.ads
+1K9*Mecanico 26|6w6 96r16 96r48 98r20 106r9 109r9 112r9 118r17 119r17 120r32
+. 27|33e13
+2R9*Tipomecanico 26|96r25 98r29 27|32e14
+5V13*Crearmecanico{2R9} 26|106s18 109s18 112s18
+13V13*Obtenernombre{string} 26|118s26
+15V13*Obtenerespecialidad{string} 26|119s26
+16V13*Obtenerdni{natural} 26|120s41
+18V13*compararDniMecanico{boolean} 26|96r57
+X 28 reparacion.ads
+3K9*Reparacion 26|7w6 28|48e15
+X 29 system.ads
+67M9*Address
+X 39 s-memory.ads
+53V13*Alloc{29|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{29|67M9} 105i<c,__gnat_realloc>22
+X 46 s-stalib.adb
+89U14 Break_Start 90i<c,__gnat_break_start>22
+X 57 turno.ads
+3K9*turno 26|8w6 53r15 55r13 55r39 67r18 69r18 71r18 73r18 80r17 81r32 85r18
+. 88r17 89r22 129r22 148r9 154r17 57|45e10
+5R9*TipoTurno 26|53r21 55r19 129r28 57|43e14
+7V13*Crear{5R9} 26|67s24 69s24 71s24 73s24 148s15
+14V13*getMotivo{string} 26|80s23 88s23 154s23
+16V13*getCliente{integer} 26|81s38
+18V13*getFecha{2|43I9} 26|89s28
+26V13*cambiarMotivo{5R9} 26|85s24
+29V13*compararDniCliente{boolean} 26|55r45
 
