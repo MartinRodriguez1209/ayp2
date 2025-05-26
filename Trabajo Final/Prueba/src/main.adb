@@ -97,6 +97,8 @@ procedure Main is
 
       Put_Line ("PRUEBAS DEL TAD MECANICO");
       New_Line;
+
+      -- creo varios mecanicos de ejemplo y los inserto a una lista
       unMecanico :=
         mecanico.Crearmecanico ("Martin", "Rodriguez", "Chapa", 39436870);
       listaMecanicos.Insertar (unaLista, unMecanico);
@@ -107,6 +109,7 @@ procedure Main is
         mecanico.Crearmecanico ("Juan", "Rodriguez", "Chapa", 41111111);
       listaMecanicos.Insertar (unaLista, unMecanico);
 
+      -- realizo busqueda en la lista
       Put_Line ("Busco el mecanico con el dni 40123123 e imprimo sus datos");
       unMecanico := listaMecanicos.Buscar (unaLista, 40123123);
       Put_Line (mecanico.Obtenernombre (unMecanico));
