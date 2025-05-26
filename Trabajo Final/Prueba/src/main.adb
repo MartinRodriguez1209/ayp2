@@ -89,8 +89,7 @@ procedure Main is
    end pruebasTurno;
 
    procedure pruebaMecanico is
-      package listaMecanicos is new
-        Lista (Mecanico.Tipomecanico, Natural, Mecanico.compararDniMecanico);
+      package listaMecanicos is new Lista (Mecanico.Tipomecanico, Natural, Mecanico.compararDniMecanico);
       unaLista   : listaMecanicos.TipoLista;
       unMecanico : mecanico.Tipomecanico;
    begin

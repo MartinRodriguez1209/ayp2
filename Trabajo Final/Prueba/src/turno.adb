@@ -1,5 +1,4 @@
 with ada;
-with ada.Exceptions;
 with Ada.Strings.Fixed;
 
 package body turno is
@@ -65,33 +64,40 @@ package body turno is
    end getCliente;
 
    function cambiarMecanico
-     (T : in out TipoTurno; dniMecanico : Integer) return TipoTurno is
+     (T : in Tipoturno; Dnimecanico : Integer) return Tipoturno
+   is
+      Aux : Tipoturno := T;
    begin
-      t.dni_mecanico := dniMecanico;
-      return t;
+      aux.dni_mecanico := dniMecanico;
+      return aux;
    end;
 
    function cambiarFecha
-     (T : in out TipoTurno; fechaNueva : Calendar.time) return TipoTurno is
+     (T : in Tipoturno; Fechanueva : Calendar.Time) return Tipoturno
+   is
+      Aux : Tipoturno := T;
    begin
-      T.fecha := fechaNueva;
-      return t;
+      aux.fecha := fechaNueva;
+      return aux;
    end cambiarFecha;
 
    function cambiarMotivo
-     (T : in out TipoTurno; motivoNuevo : String) return TipoTurno is
+     (T : in Tipoturno; Motivonuevo : String) return Tipoturno
+   is
+      Aux : Tipoturno := T;
    begin
       if motivoNuevo'Length <= t.motivo'Length then
-         t.motivo := ajustarString (motivoNuevo, t.motivo'Length);
+         aux.motivo := ajustarString (motivoNuevo, aux.motivo'Length);
       else
          raise DatoIncorrecto;
       end if;
-      return t;
+      return aux;
    end cambiarMotivo;
 
-   function compararDniCliente (T : TipoTurno; DNI : Integer) return Boolean is
+   function Comparardnicliente (T : Tipoturno; Dni : Integer) return Boolean is
+      aux : tipoturno := t;
    begin
-      return t.dni_cliente = DNI;
+      return aux.dni_cliente = DNI;
    end compararDniCliente;
 
 end turno;

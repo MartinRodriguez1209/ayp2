@@ -1,4 +1,3 @@
-with ada.Calendar;
 with Calendar;
 
 package turno is
@@ -19,13 +18,13 @@ package turno is
    function getFecha (T : TipoTurno) return Calendar.Time;
 
    function cambiarMecanico
-     (T : in out TipoTurno; dniMecanico : Integer) return TipoTurno;
+     (T : in TipoTurno; dniMecanico : Integer) return TipoTurno;
 
    function cambiarFecha
-     (T : in out TipoTurno; fechaNueva : Calendar.time) return TipoTurno;
+     (T : in TipoTurno; fechaNueva : Calendar.time) return TipoTurno;
 
    function cambiarMotivo
-     (T : in out TipoTurno; motivoNuevo : String) return TipoTurno;
+     (T : in TipoTurno; motivoNuevo : String) return TipoTurno;
 
    function compararDniCliente (T : TipoTurno; DNI : Integer) return Boolean;
 

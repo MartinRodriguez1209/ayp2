@@ -20,7 +20,7 @@ package body Mecanico is
    begin
 
       if not (Dni in 10_000_000 .. 99_999_999) then
-         raise Dni_Invalido with "El dni debe contener exctamente 8 digitos. ";
+         raise Dni_Invalido;
       end if;
 
       M.Nombrelen := Calcularstring (Nombre);
