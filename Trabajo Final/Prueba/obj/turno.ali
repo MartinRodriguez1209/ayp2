@@ -52,8 +52,8 @@ D s-stalib.ads		20210520051134 472fbca8 system.standard_library%s
 D s-stoele.ads		20210520051134 2dc34a04 system.storage_elements%s
 D s-traent.ads		20210520051134 26a8d361 system.traceback_entries%s
 D s-unstyp.ads		20210520051134 2b077493 system.unsigned_types%s
-D turno.ads		20250525191914 2ac9f3c1 turno%s
-D turno.adb		20250525191914 6a7714fa turno%b
+D turno.ads		20250526023336 2ac9f3c1 turno%s
+D turno.adb		20250526023336 6a7714fa turno%b
 G a e
 G c Z s b [crear turno 8 13 none]
 G c Z s b [getmotivo turno 15 13 none]

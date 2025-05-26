@@ -15,6 +15,9 @@ package Mecanico is
    function Obtenerespecialidad (M : Tipomecanico) return String;
    function Obtenerdni (M : Tipomecanico) return Natural;
 
+   function compararDniMecanico
+     (M : Tipomecanico; dni : Natural) return Boolean;
+
 private
    subtype String50 is String (1 .. 50);
    type Tipomecanico is record

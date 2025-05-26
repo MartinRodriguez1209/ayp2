@@ -33,7 +33,9 @@ package body ada_main is
    E006 : Short_Integer; pragma Import (Ada, E006, "ada__calendar_E");
    E103 : Short_Integer; pragma Import (Ada, E103, "ada__text_io_E");
    E148 : Short_Integer; pragma Import (Ada, E148, "lista_E");
-   E158 : Short_Integer; pragma Import (Ada, E158, "turno_E");
+   E150 : Short_Integer; pragma Import (Ada, E150, "mecanico_E");
+   E152 : Short_Integer; pragma Import (Ada, E152, "reparacion_E");
+   E168 : Short_Integer; pragma Import (Ada, E168, "turno_E");
 
    Sec_Default_Sized_Stacks : array (1 .. 1) of aliased System.Secondary_Stack.SS_Stack (System.Parameters.Runtime_Default_Sec_Stack_Size);
 
@@ -215,8 +217,11 @@ package body ada_main is
       Ada.Text_Io'Elab_Body;
       E103 := E103 + 1;
       E148 := E148 + 1;
+      Mecanico'Elab_Spec;
+      E150 := E150 + 1;
+      E152 := E152 + 1;
       turno'elab_spec;
-      E158 := E158 + 1;
+      E168 := E168 + 1;
    end adainit;
 
    procedure Ada_Main_Program;
@@ -255,6 +260,8 @@ package body ada_main is
 
 --  BEGIN Object file/option list
    --   C:\Users\User\Documents\ayp2\Trabajo Final\Prueba\obj\lista.o
+   --   C:\Users\User\Documents\ayp2\Trabajo Final\Prueba\obj\mecanico.o
+   --   C:\Users\User\Documents\ayp2\Trabajo Final\Prueba\obj\reparacion.o
    --   C:\Users\User\Documents\ayp2\Trabajo Final\Prueba\obj\turno.o
    --   C:\Users\User\Documents\ayp2\Trabajo Final\Prueba\obj\main.o
    --   -LC:\Users\User\Documents\ayp2\Trabajo Final\Prueba\obj\

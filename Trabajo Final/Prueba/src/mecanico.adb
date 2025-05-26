@@ -76,4 +76,10 @@ package body Mecanico is
       return M.Dni;
    end Obtenerdni;
 
+   function compararDniMecanico
+     (M : Tipomecanico; dni : Natural) return Boolean is
+   begin
+      return M.Dni = dni;
+   end compararDniMecanico;
+
 end Mecanico;

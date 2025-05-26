@@ -1,0 +1,90 @@
+V "GNAT Lib v2021"
+A -O0
+A -gnatA
+A -g
+A -mtune=generic
+A -march=x86-64
+P SS ZX
+
+RN
+RV NO_EXCEPTIONS
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_ELABORATION_CODE
+
+U mecanico%b		mecanico.adb		d2231155 NE OO PK
+Z ada.exceptions%s	a-except.adb		a-except.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+
+U mecanico%s		mecanico.ads		70c8c09f EE OO PK
+Z system%s		system.ads		system.ali
+Z system.exception_table%s  s-exctab.adb	s-exctab.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+
+D ada.ads		20210520051132 76789da1 ada%s
+D a-except.ads		20210520051128 946f3014 ada.exceptions%s
+D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
+D mecanico.ads		20250526205954 70c8c09f mecanico%s
+D mecanico.adb		20250526210034 a2ebd1ca mecanico%b
+D system.ads		20210520051136 2ffa5114 system%s
+D s-exctab.ads		20210520051132 54135002 system.exception_table%s
+D s-parame.ads		20210520051134 4752c4cb system.parameters%s
+D s-secsta.ads		20210520051134 9b3ab94b system.secondary_stack%s
+D s-stalib.ads		20210520051134 472fbca8 system.standard_library%s
+D s-stoele.ads		20210520051134 2dc34a04 system.storage_elements%s
+D s-traent.ads		20210520051134 26a8d361 system.traceback_entries%s
+G a e
+G c Z s b [crearmecanico mecanico 5 13 none]
+G c Z s b [modificarmecanico mecanico 8 14 none]
+G c Z s b [bajamecanico mecanico 10 14 none]
+G c Z s b [obtenernombre mecanico 13 13 none]
+G c Z s b [obtenerapellido mecanico 14 13 none]
+G c Z s b [obtenerespecialidad mecanico 15 13 none]
+G c Z s b [obtenerdni mecanico 16 13 none]
+G c Z s b [comparardnimecanico mecanico 18 13 none]
+G c Z s s [tipomecanicoIP mecanico 23 9 none]
+X 4 mecanico.ads
+1K9*Mecanico 22E12 33l5 33e13 5|1b14 85l5 85t13
+2R9*Tipomecanico 7r14 9r18 10r39 13r32 14r34 15r38 16r29 19r11 23c9 32e14
+. 5|5r14 7r11 40r18 53r39 58r32 63r34 68r38 73r29 80r11
+3X4*Dni_Invalido 5|23r16
+5V13*Crearmecanico{2R9} 6>7 6>15 6>25 6>48 5|3b13 36l8 36t21
+6a7 nombre{string} 5|4b7 26r38 30r22 30r40
+6a15 apellido{string} 5|4b15 27r40 31r24 31r44
+6a25 especialidad{string} 5|4b25 28r44 32r28 32r52
+6i48 dni{natural} 5|4b48 22r15 33r16
+8U14*Modificarmecanico 9=7 9>32 9>53 5|39b14 51l8 51t25
+9r7 M{2R9} 5|40b7 44m10 45m10 47m10 48m10
+9a32 nuevoValor{string} 5|40b32 44r25 44r47 45r25 47r27 47r49 48r27
+9i53 rta{integer} 5|40b53 42r10
+10U14*Bajamecanico 10=28 5|53b14 56l8 56t20
+10r28 M{2R9} 5|53b28 55m7
+13V13*Obtenernombre{string} 13>28 5|58b13 61l8 61t21
+13r28 M{2R9} 5|58b28 60r14 60r29
+14V13*Obtenerapellido{string} 14>30 5|63b13 66l8 66t23
+14r30 M{2R9} 5|63b30 65r14 65r31
+15V13*Obtenerespecialidad{string} 15>34 5|68b13 71l8 71t27
+15r34 M{2R9} 5|68b34 70r14 70r35
+16V13*Obtenerdni{natural} 16>25 5|73b13 77l8 77t18
+16r25 M{2R9} 5|73b25 76r14
+18V13*compararDniMecanico{boolean} 19>7 19>25 5|79b13 83l8 83t27
+19r7 M{2R9} 5|80b7 82r14
+19i25 dni{natural} 5|80b25 82r22
+22A12 String50{string}<integer> 24r25 25r25 26r25
+24a7*Nombre{22A12} 5|30m9 44m12 60r16
+25a7*apellido{22A12} 5|31m9 47m12 65r16
+26a7*Especialidad{22A12} 5|32m9 70r16
+27i7*Nombrelen{natural} 5|26m9 45m12 60r31
+28i7*Apellidolen{natural} 5|27m9 48m12 65r33
+29i7*Especialidadlen{natural} 5|28m9 70r37
+30i7*Dni{natural} 5|33m9 76r16 82r16
+31b7*estado{boolean} 5|55m9
+X 5 mecanico.adb
+7r7 M{4|2R9} 26m7 27m7 28m7 30m7 31m7 32m7 33m7 35r14
+9V16 Calcularstring{natural} 9b16 9>32 18l11 18t25 26s22 27s24 28s28
+9a32 Palabra{string} 12r19 13r16
+10i10 Len{natural} 14m16 14r23 17r17
+12i14 I{integer} 13r25
+
