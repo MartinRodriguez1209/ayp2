@@ -25,7 +25,7 @@ RV NO_DYNAMIC_SIZED_OBJECTS
 RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
 RV NO_IMPLEMENTATION_PRAGMAS
 
-U main%b		main.adb		381e05d2 NE OO SU
+U main%b		main.adb		e797cc0c NE OO SU
 W ada%s			ada.ads			ada.ali
 W ada.calendar%s	a-calend.adb		a-calend.ali
 Z ada.exceptions%s	a-except.adb		a-except.ali
@@ -63,11 +63,11 @@ D a-uncdea.ads		20210520051130 c3a8ac65 ada.unchecked_deallocation%s
 D calendar.ads		20210520051132 2cb525cd calendar%s
 D interfac.ads		20210520051132 edec285f interfaces%s
 D i-cstrea.ads		20210520051132 e53d8b8e interfaces.c_streams%s
-D lista.ads		20250526023338 ebb9a9b1 lista%s
-D lista.adb		20250526023338 4882737e lista%b
-D main.adb		20250526210616 c140d8ba main%b
-D mecanico.ads		20250526205954 70c8c09f mecanico%s
-D reparacion.ads	20250526023334 7ba1a9a3 reparacion%s
+D lista.ads		20250526021448 ebb9a9b1 lista%s
+D lista.adb		20250526021448 4882737e lista%b
+D main.adb		20250526211822 c140d8ba main%b
+D mecanico.ads		20250526210954 70c8c09f mecanico%s
+D reparacion.ads	20250526023906 7ba1a9a3 reparacion%s
 D system.ads		20210520051136 2ffa5114 system%s
 D s-conca4.ads		20210520051132 7e642b20 system.concat_4%s
 D s-conca5.ads		20210520051132 875e432e system.concat_5%s
@@ -87,17 +87,17 @@ D s-stoele.adb		20210520051134 ed88f8fb system.storage_elements%b
 D s-traent.ads		20210520051134 26a8d361 system.traceback_entries%s
 D s-unstyp.ads		20210520051134 2b077493 system.unsigned_types%s
 D s-wchcon.ads		20210520051136 1b7d22d2 system.wch_con%s
-D turno.ads		20250526023336 2ac9f3c1 turno%s
+D turno.ads		20250526212850 f5403a1f turno%s
 D unchconv.ads		20210520051136 ca2f9e18 unchecked_conversion%s
 G a e
 G c Z b b [main standard 9 11 none]
 G r i none [main standard 9 11 none] [lista standard 7 9 none]
-G r c none [main standard 9 11 none] [crear turno 8 13 none]
-G r c none [main standard 9 11 none] [comparardnicliente turno 30 13 none]
-G r c none [main standard 9 11 none] [getmotivo turno 15 13 none]
-G r c none [main standard 9 11 none] [getcliente turno 17 13 none]
-G r c none [main standard 9 11 none] [cambiarmotivo turno 27 13 none]
-G r c none [main standard 9 11 none] [getfecha turno 19 13 none]
+G r c none [main standard 9 11 none] [crear turno 7 13 none]
+G r c none [main standard 9 11 none] [comparardnicliente turno 29 13 none]
+G r c none [main standard 9 11 none] [getmotivo turno 14 13 none]
+G r c none [main standard 9 11 none] [getcliente turno 16 13 none]
+G r c none [main standard 9 11 none] [cambiarmotivo turno 26 13 none]
+G r c none [main standard 9 11 none] [getfecha turno 18 13 none]
 G r c none [main standard 9 11 none] [crearmecanico mecanico 5 13 none]
 G r c none [main standard 9 11 none] [comparardnimecanico mecanico 18 13 none]
 G r c none [main standard 9 11 none] [obtenernombre mecanico 13 13 none]
@@ -105,7 +105,7 @@ G r c none [main standard 9 11 none] [obtenerespecialidad mecanico 15 13 none]
 G r c none [main standard 9 11 none] [obtenerdni mecanico 16 13 none]
 X 1 ada.ads
 16K9*Ada 20e8 20|1r6 2r6 2r19 10r8 12r19 13r19 14r19 15r19 16r19 23r7 78r7
-. 114r7
+. 116r7
 X 2 a-calend.ads
 36K13*Calendar 413e17 20|1w10 12r23 13r23 14r23 15r23 16r23 23r11
 42I9*Time<226I9> 20|12r32 18r46 42r45
@@ -117,23 +117,23 @@ X 2 a-calend.ads
 83V13*Time_Of{42I9} 20|47s23
 226I9 Time_Rep<long_long_integer>
 X 4 a-inteio.ads
-18K13*Integer_Text_IO[12|46] 20|2w23 78r11 114r11
+18K13*Integer_Text_IO[12|46] 20|2w23 78r11 116r11
 X 11 a-textio.ads
 58K13*Text_IO 725e16 20|2w10 10r12
-262U14*New_Line 20|59s7 79s7 87s7 88s7 99s7
-506U14*Put_Line 20|27s7 33s7 58s7 77s7 85s7 98s7 110s7 112s7 113s7
+262U14*New_Line 20|59s7 79s7 87s7 88s7 98s7
+506U14*Put_Line 20|27s7 33s7 58s7 77s7 85s7 97s7 112s7 114s7 115s7
 X 12 a-tiinio.ads
-80U14*Put 20|78s27[4|18] 114s27[4|18]
+80U14*Put 20|78s27[4|18] 116s27[4|18]
 X 15 calendar.ads
 18K9*Calendar=18:30 20|3w6 18r37 42r36 44r18 46r19 47r14
 X 18 lista.ads
-7k9*Lista 30e10 20|4w6 52r6 93r9
-9P9 TipoLista 20|53r27[51] 94r35[92]
-14V13 Buscar{42|6R9} 20|74s30[51] 111s36[92]
-16U14 Insertar 20|65s19[51] 67s19[51] 69s19[51] 71s19[51] 102s22[92] 105s22[92]
-. 108s22[92]
+7k9*Lista 30e10 20|4w6 52r6 92r37
+9P9 TipoLista 20|53r27[51] 93r35[92]
+14V13 Buscar{42|5R9} 20|74s30[51] 113s36[92]
+16U14 Insertar 20|65s19[51] 67s19[51] 69s19[51] 71s19[51] 103s22[92] 106s22[92]
+. 109s22[92]
 X 20 main.adb
-9U11*Main 9b11 123l5 123t9
+9U11*Main 9b11 125l5 125t9
 12i4 tiempo{2|42I9} 23r27 61m7 64r31 66r31 68r31 70r31
 13i4 anio{2|48I12} 23m35 32r27
 14i4 mes{2|49I12} 23m41 30r27
@@ -150,36 +150,36 @@ X 20 main.adb
 41i7 hora{integer} 46r43
 42i7 minutos{integer} 46r59
 44o7 segundos{2|54O12} 46m7 47r48
-50r4 unTurno{42|6R9} 64m7 65r39 66m7 67r39 68m7 69r39 70m7 71r39 74m7 77r34
-. 78r50 82m7 82m39 82r39 85r34 86r38
+50r4 unTurno{42|5R9} 64m7 65r39 66m7 67r39 68m7 69r39 70m7 71r39 74m7 77r34
+. 78r50 82m7 82r39 85r34 86r38
 51K12 listaTurnos[18|7] 53r15 65r7 67r7 69r7 71r7 74r18
 53p4 unaLista{18|9P9[51]} 65m29 65r29 67m29 67r29 69m29 69r29 71m29 71r29
 . 74r38
-55U14 pruebasTurno 55b14 89l8 89t20 120s4
-91U14 pruebaMecanico 91b14 116l8 116t22 121s4
-92K15 listaMecanicos[18|7] 94r20 102r7 105r7 108r7 111r21
-94p7 unaLista{18|9P9[92]} 102m32 102r32 105m32 105r32 108m32 108r32 111r44
-95r7 unMecanico{21|2R9} 100m7 102r42 103m7 105r42 106m7 108r42 111m7 112r41
-. 113r47 114r53
+55U14 pruebasTurno 55b14 89l8 89t20 122s4
+91U14 pruebaMecanico 91b14 118l8 118t22 123s4
+92K15 listaMecanicos[18|7] 93r20 103r7 106r7 109r7 113r21
+93p7 unaLista{18|9P9[92]} 103m32 103r32 106m32 106r32 109m32 109r32 113r44
+94r7 unMecanico{21|2R9} 101m7 103r42 104m7 106r42 107m7 109r42 113m7 114r41
+. 115r47 116r53
 X 21 mecanico.ads
-1K9*Mecanico 20|5w6 93r16 93r48 95r20 101r9 104r9 107r9 112r17 113r17 114r32
+1K9*Mecanico 20|5w6 92r44 92r76 94r20 102r9 105r9 108r9 114r17 115r17 116r32
 . 21|33e13
-2R9*Tipomecanico 20|93r25 95r29 21|32e14
-5V13*Crearmecanico{2R9} 20|101s18 104s18 107s18
-13V13*Obtenernombre{string} 20|112s26
-15V13*Obtenerespecialidad{string} 20|113s26
-16V13*Obtenerdni{natural} 20|114s41
-18V13*compararDniMecanico{boolean} 20|93r57
+2R9*Tipomecanico 20|92r53 94r29 21|32e14
+5V13*Crearmecanico{2R9} 20|102s18 105s18 108s18
+13V13*Obtenernombre{string} 20|114s26
+15V13*Obtenerespecialidad{string} 20|115s26
+16V13*Obtenerdni{natural} 20|116s41
+18V13*compararDniMecanico{boolean} 20|92r85
 X 22 reparacion.ads
 3K9*Reparacion 20|6w6 22|48e15
 X 42 turno.ads
-4K9*turno 20|7w6 50r15 52r13 52r39 64r18 66r18 68r18 70r18 77r17 78r32 82r18
-. 85r17 86r22 42|46e10
-6R9*TipoTurno 20|50r21 52r19 42|44e14
-8V13*Crear{6R9} 20|64s24 66s24 68s24 70s24
-15V13*getMotivo{string} 20|77s23 85s23
-17V13*getCliente{integer} 20|78s38
-19V13*getFecha{2|42I9} 20|86s28
-27V13*cambiarMotivo{6R9} 20|82s24
-30V13*compararDniCliente{boolean} 20|52r45
+3K9*turno 20|7w6 50r15 52r13 52r39 64r18 66r18 68r18 70r18 77r17 78r32 82r18
+. 85r17 86r22 42|45e10
+5R9*TipoTurno 20|50r21 52r19 42|43e14
+7V13*Crear{5R9} 20|64s24 66s24 68s24 70s24
+14V13*getMotivo{string} 20|77s23 85s23
+16V13*getCliente{integer} 20|78s38
+18V13*getFecha{2|42I9} 20|86s28
+26V13*cambiarMotivo{5R9} 20|82s24
+29V13*compararDniCliente{boolean} 20|52r45
 

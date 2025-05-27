@@ -1,3 +1,5 @@
+with turno;
+
 package body Mecanico is
 
    function Crearmecanico
@@ -75,6 +77,19 @@ package body Mecanico is
 
       return M.Dni;
    end Obtenerdni;
+
+   function obtenerTareas (M : Tipomecanico) return TipoCola is
+      aux   : TipoCola := m.Cantidadtarea;
+      Cola2 : Tipocola;
+      tarea: turno.Tipoturno;
+   begin
+      Crear (cola2);
+      while not Vacia (aux) loop
+         Suprimir(Aux, tarea);
+         Insertar(cola2,tarea); 
+      end loop;
+      return cola2;
+   end obtenerTareas;
 
    function compararDniMecanico
      (M : Tipomecanico; dni : Natural) return Boolean is

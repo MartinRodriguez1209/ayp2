@@ -1,4 +1,10 @@
+with cola, turno;
+
 package Mecanico is
+
+   package Colatareas is new Cola(turno.Tipoturno);
+   use Colatareas;
+
    type Tipomecanico is private;
    Dni_Invalido : exception;
 
@@ -14,11 +20,13 @@ package Mecanico is
    function Obtenerapellido (M : Tipomecanico) return String;
    function Obtenerespecialidad (M : Tipomecanico) return String;
    function Obtenerdni (M : Tipomecanico) return Natural;
+   function Obtenertareas (M : Tipomecanico) return Tipocola;
 
    function compararDniMecanico
      (M : Tipomecanico; dni : Natural) return Boolean;
 
-private
+   private
+
    subtype String50 is String (1 .. 50);
    type Tipomecanico is record
       Nombre          : String50;
@@ -28,6 +36,8 @@ private
       Apellidolen     : Natural;
       Especialidadlen : Natural;
       Dni             : Natural;
+      Cantidadtarea   : Tipocola;
       estado          : boolean;
    end record;
+
 end Mecanico;

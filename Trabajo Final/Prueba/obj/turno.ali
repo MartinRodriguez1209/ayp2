@@ -17,17 +17,15 @@ RV NO_IMPLEMENTATION_PRAGMAS
 RV NO_IMPLICIT_LOOPS
 RV NO_ELABORATION_CODE
 
-U turno%b		turno.adb		0c05bec2 NE OO PK IL
+U turno%b		turno.adb		9a0b5d25 NE OO PK IL
 W ada%s			ada.ads			ada.ali
-W ada.exceptions%s	a-except.adb		a-except.ali
+Z ada.exceptions%s	a-except.adb		a-except.ali
 W ada.strings%s		a-string.ads		a-string.ali
 W ada.strings.fixed%s	a-strfix.adb		a-strfix.ali
 Z system.concat_2%s	s-conca2.adb		s-conca2.ali
 Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
 
-U turno%s		turno.ads		4131412c EE OO PK IL
-W ada%s			ada.ads			ada.ali
-W ada.calendar%s	a-calend.adb		a-calend.ali
+U turno%s		turno.ads		d9f51fd2 EE OO PK IL
 W calendar%s		calendar.ads		calendar.ali
 Z system%s		system.ads		system.ali
 Z system.exception_table%s  s-exctab.adb	s-exctab.ali
@@ -52,81 +50,82 @@ D s-stalib.ads		20210520051134 472fbca8 system.standard_library%s
 D s-stoele.ads		20210520051134 2dc34a04 system.storage_elements%s
 D s-traent.ads		20210520051134 26a8d361 system.traceback_entries%s
 D s-unstyp.ads		20210520051134 2b077493 system.unsigned_types%s
-D turno.ads		20250526023336 2ac9f3c1 turno%s
-D turno.adb		20250526023336 6a7714fa turno%b
+D turno.ads		20250526212850 f5403a1f turno%s
+D turno.adb		20250526212954 b79f0ed7 turno%b
 G a e
-G c Z s b [crear turno 8 13 none]
-G c Z s b [getmotivo turno 15 13 none]
-G c Z s b [getmecanico turno 16 13 none]
-G c Z s b [getcliente turno 17 13 none]
-G c Z s b [getpatente turno 18 13 none]
-G c Z s b [getfecha turno 19 13 none]
-G c Z s b [cambiarmecanico turno 21 13 none]
-G c Z s b [cambiarfecha turno 24 13 none]
-G c Z s b [cambiarmotivo turno 27 13 none]
-G c Z s b [comparardnicliente turno 30 13 none]
-G c Z s s [tipoturnoIP turno 38 9 none]
-G c Z b b [ajustarstring turno 7 13 none]
+G c Z s b [crear turno 7 13 none]
+G c Z s b [getmotivo turno 14 13 none]
+G c Z s b [getmecanico turno 15 13 none]
+G c Z s b [getcliente turno 16 13 none]
+G c Z s b [getpatente turno 17 13 none]
+G c Z s b [getfecha turno 18 13 none]
+G c Z s b [cambiarmecanico turno 20 13 none]
+G c Z s b [cambiarfecha turno 23 13 none]
+G c Z s b [cambiarmotivo turno 26 13 none]
+G c Z s b [comparardnicliente turno 29 13 none]
+G c Z s s [tipoturnoIP turno 37 9 none]
+G c Z b b [ajustarstring turno 6 13 none]
 X 1 ada.ads
-16K9*Ada 20e8 20|1r6 21|1w6 2r6 3r6 44r14 44r48
+16K9*Ada 20e8 21|1w6 2r6 43r14 43r48
 X 2 a-calend.ads
-36K13*Calendar 413e17 20|1w10
-42I9*Time<226I9> 20|9r31 19r54 25r51 39r31 21|14r31 57r54 75r51
+42I9*Time<226I9> 20|8r31 18r54 24r47 38r31 21|13r31 56r54 76r47
 226I9 Time_Rep<long_long_integer>
-X 5 a-except.ads
-44K13*Exceptions 289e19 21|2w10
 X 6 a-string.ads
-16K13*Strings 35e16 21|3r10 44r18 44r52
-33n30*Right{33E9} 21|44r60
+16K13*Strings 35e16 21|2r10 43r18 43r52
+33n30*Right{33E9} 21|43r60
 X 7 a-strfix.ads
-43K21*Fixed 1398e22 21|3w18 44r26
-1097V13*Trim{string} 21|44s32
+43K21*Fixed 1398e22 21|2w18 43r26
+1097V13*Trim{string} 21|43s32
 X 10 calendar.ads
-18K9*Calendar=18:30 20|2w6 9r22 19r45 25r42 39r22 21|14r22 57r45 75r42
+18K9*Calendar=18:30 20|1w6 8r22 18r45 24r38 38r22 21|13r22 56r45 76r38
 X 20 turno.ads
-4K9*turno 35E4 46l5 46e10 21|5b14 97l5 97t10
-6R9*TipoTurno 13r40 15r28 16r30 17r29 18r29 19r27 22r18 22r59 25r18 25r64
-. 28r18 28r58 30r37 38c9 44e14 21|18r40 20r15 42r28 47r30 52r29 57r27 62r29
-. 68r18 68r59 75r18 75r64 82r18 82r58 92r37
-8V13*Crear{6R9} 9>7 10>7 11>7 12>7 13>7 21|13b13 40t7
-9i7 fecha{2|42I9} 21|14b7 23r22
-10a7 patente{string} 21|15b7 24r10 25r42
-11i7 dni_cliente{integer} 21|16b7 30r28
-12i7 dni_mecanico{integer} 21|17b7 32r29
-13a7 motivo{string} 21|18b7 34r10 35r41
-15V13*getMotivo{string} 15>24 21|42b13 45l8 45t17
-15r24 T{6R9} 21|42b24 44r38
-16V13*getMecanico{integer} 16>26 21|47b13 50l8 50t19
-16r26 T{6R9} 21|47b26 49r14
-17V13*getCliente{integer} 17>25 21|62b13 65l8 65t18
-17r25 T{6R9} 21|62b25 64r14
-18V13*getPatente{string} 18>25 21|52b13 55l8 55t18
-18r25 T{6R9} 21|52b25 54r14
-19V13*getFecha{2|42I9} 19>23 21|57b13 60l8 60t16
-19r23 T{6R9} 21|57b23 59r14
-21V13*cambiarMecanico{6R9} 22=7 22>29 21|67b13 72t7
-22r7 T{6R9} 21|68b7 70m7 71r14
-22i29 dniMecanico{integer} 21|68b29 70r25
-24V13*cambiarFecha{6R9} 25=7 25>29 21|74b13 79l8 79t20
-25r7 T{6R9} 21|75b7 77m7 78r14
-25i29 fechaNueva{2|42I9} 21|75b29 77r18
-27V13*cambiarMotivo{6R9} 28=7 28>29 21|81b13 90l8 90t21
-28r7 T{6R9} 21|82b7 84r32 85m10 85r50 89r14
-28a29 motivoNuevo{string} 21|82b29 84r10 85r37
-30V13*compararDniCliente{boolean} 30>33 30>48 21|92b13 95l8 95t26
-30r33 T{6R9} 21|92b33 94r14
-30i48 DNI{integer} 21|92b48 94r30
-32X4*DatoIncorrecto 21|27r16 37r16 87r16
-35N4 Max_Long_Patente 40r35
-36N4 Max_Long_Motivo 42r35
-39i7*fecha{2|42I9} 21|23m13 59r16 77m9
-40a7*patente{string} 21|24r34 25m16 25r57 54r16
-41i7*dni_cliente{integer} 21|30m13 64r16 94r16
-42a7*motivo{string} 21|34r33 35m16 35r55 44r40 84r34 85m12 85r52
-43i7*dni_mecanico{integer} 21|32m13 49r16 70m9
+3K9*turno 34E4 45l5 45e10 21|4b14 103l5 103t10
+5R9*TipoTurno 12r40 14r28 15r30 16r29 17r29 18r27 21r14 21r55 24r14 24r60
+. 27r14 27r54 29r37 37c9 43e14 21|17r40 19r15 41r28 46r30 51r29 56r27 61r29
+. 67r14 67r55 69r13 76r14 76r60 78r13 85r14 85r54 87r13 97r37 98r13
+7V13*Crear{5R9} 8>7 9>7 10>7 11>7 12>7 21|12b13 39t7
+8i7 fecha{2|42I9} 21|13b7 22r22
+9a7 patente{string} 21|14b7 23r10 24r42
+10i7 dni_cliente{integer} 21|15b7 29r28
+11i7 dni_mecanico{integer} 21|16b7 31r29
+12a7 motivo{string} 21|17b7 33r10 34r41
+14V13*getMotivo{string} 14>24 21|41b13 44l8 44t17
+14r24 T{5R9} 21|41b24 43r38
+15V13*getMecanico{integer} 15>26 21|46b13 49l8 49t19
+15r26 T{5R9} 21|46b26 48r14
+16V13*getCliente{integer} 16>25 21|61b13 64l8 64t18
+16r25 T{5R9} 21|61b25 63r14
+17V13*getPatente{string} 17>25 21|51b13 54l8 54t18
+17r25 T{5R9} 21|51b25 53r14
+18V13*getFecha{2|42I9} 18>23 21|56b13 59l8 59t16
+18r23 T{5R9} 21|56b23 58r14
+20V13*cambiarMecanico{5R9} 21>7 21>25 21|66b13 73t7
+21r7 T{5R9} 21|67b7 69r26
+21i25 dniMecanico{integer} 21|67b25 71r27
+23V13*cambiarFecha{5R9} 24>7 24>25 21|75b13 82l8 82t20
+24r7 T{5R9} 21|76b7 78r26
+24i25 fechaNueva{2|42I9} 21|76b25 80r20
+26V13*cambiarMotivo{5R9} 27>7 27>25 21|84b13 95l8 95t21
+27r7 T{5R9} 21|85b7 87r26 89r32
+27a25 motivoNuevo{string} 21|85b25 89r10 90r39
+29V13*compararDniCliente{boolean} 29>33 29>48 21|97b13 101l8 101t26
+29r33 T{5R9} 21|97b33 98r26
+29i48 DNI{integer} 21|97b48 100r32
+31X4*DatoIncorrecto 21|26r16 36r16 92r16
+34N4 Max_Long_Patente 39r35
+35N4 Max_Long_Motivo 41r35
+38i7*fecha{2|42I9} 21|22m13 58r16 80m11
+39a7*patente{string} 21|23r34 24m16 24r57 53r16
+40i7*dni_cliente{integer} 21|29m13 63r16 100r18
+41a7*motivo{string} 21|33r33 34m16 34r55 43r40 89r34 90m14 90r56
+42i7*dni_mecanico{integer} 21|31m13 48r16 71m11
 X 21 turno.adb
-7V13 ajustarString{string} 7b13 7>28 7>44 11t7 25s27 35s26 85s22
-7a28 texto{string} 10r14 10r39
-7i44 longitud{positive} 10r28
-20r7 turno{20|6R9} 23m7 24r28 25m10 25r51 30m7 32m7 34r27 35m10 35r49 39r14
+6V13 ajustarString{string} 6b13 6>28 6>44 10t7 24s27 34s26 90s24
+6a28 texto{string} 9r14 9r39
+6i44 longitud{positive} 9r28
+19r7 turno{20|5R9} 22m7 23r28 24m10 24r51 29m7 31m7 33r27 34m10 34r49 38r14
+69r7 Aux{20|5R9} 71m7 72r14
+78r7 Aux{20|5R9} 80m7 81r14
+87r7 Aux{20|5R9} 90m10 90r52 94r14
+98r7 aux{20|5R9} 100r14
 
