@@ -1,10 +1,13 @@
 with Ada.Calendar;
 with Ada.Text_IO, ada.Integer_Text_IO;
+use ada.Text_IO;
 with Calendar;
 with Lista;
 with Mecanico;
 with Reparacion;
 with turno;
+with Ada.Strings.Unbounded;         use Ada.Strings.Unbounded;
+with Ada.Strings.Unbounded.Text_IO; use Ada.Strings.Unbounded.Text_IO;
 
 procedure Main is
    use Ada.Text_IO;
@@ -20,7 +23,7 @@ procedure Main is
       minutos : Integer;
    begin
 
-      Ada.Calendar.Split (tiempo, anio, mes, dia, segundos_dia);
+      Ada.Calendar.Split (fecha, anio, mes, dia, segundos_dia);
       horas := Integer (segundos_dia) / 3600;
       minutos := (Integer (segundos_dia) mod 3600) / 60;
 
@@ -89,7 +92,8 @@ procedure Main is
    end pruebasTurno;
 
    procedure pruebaMecanico is
-      package listaMecanicos is new Lista (Mecanico.Tipomecanico, Natural, Mecanico.compararDniMecanico);
+      package listaMecanicos is new
+        Lista (Mecanico.Tipomecanico, Natural, Mecanico.compararDniMecanico);
       unaLista   : listaMecanicos.TipoLista;
       unMecanico : mecanico.Tipomecanico;
    begin
@@ -114,12 +118,47 @@ procedure Main is
       Put_Line (mecanico.Obtenernombre (unMecanico));
       Put_Line (Mecanico.Obtenerespecialidad (unMecanico));
       ada.Integer_Text_IO.Put (Mecanico.Obtenerdni (unMecanico));
+      New_Line;
 
    end pruebaMecanico;
+
+   procedure leerArchivo is
+      archivPrueba : File_Type;
+      type arregloStrings is array (1 .. 9) of Unbounded_String;
+      arreglo      : arregloStrings;
+      unTurno      : turno.TipoTurno;
+      fecha        : calendar.Time;
+   begin
+
+      Put_Line ("ejemplo de carga de un turno mediante archivo");
+      Open (archivPrueba, In_File, "data.txt");
+
+      for j in 1 .. 9 loop
+         arreglo (j) := To_Unbounded_String (Get_Line (archivPrueba));
+      end loop;
+      Put_Line (arreglo (3));
+      fecha :=
+        cargarFecha
+          (integer'Value (To_String (arreglo (4))),
+           integer'Value (To_String (arreglo (5))),
+           integer'Value (To_String (arreglo (6))),
+           integer'Value (To_String (arreglo (7))),
+           integer'Value (To_String (arreglo (8))));
+      unTurno :=
+        turno.Crear
+          (fecha,
+           To_String (arreglo (1)),
+           integer'Value (to_string (arreglo (2))),
+           integer'Value (to_string (arreglo (3))),
+           To_String (arreglo (9)));
+      Put_Line (turno.getMotivo (unTurno));
+
+   end;
 
 begin
 
    pruebasTurno;
    pruebaMecanico;
+   leerArchivo;
 
 end Main;
