@@ -136,7 +136,6 @@ procedure Main is
       for j in 1 .. 9 loop
          arreglo (j) := To_Unbounded_String (Get_Line (archivPrueba));
       end loop;
-      Put_Line (arreglo (3));
       fecha :=
         cargarFecha
           (integer'Value (To_String (arreglo (4))),
@@ -151,9 +150,12 @@ procedure Main is
            integer'Value (to_string (arreglo (2))),
            integer'Value (to_string (arreglo (3))),
            To_String (arreglo (9)));
-      Put_Line (turno.getMotivo (unTurno));
+      Put_Line ("Se cargo un turno exitosamente");
+      Put_Line ("Motivo del turno:" & turno.getMotivo (unTurno));
+      Put_Line ("Fecha del turno:");
+      imprimirFecha (turno.getFecha (unTurno));
 
-   end;
+   end leerArchivo;
 
 begin
 
