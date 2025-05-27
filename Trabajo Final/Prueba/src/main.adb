@@ -75,18 +75,24 @@ procedure Main is
 
       -- busco un turno especifico por dni
       unTurno := listaTurnos.Buscar (unaLista, 39436870);
+      Put_Line
+        ("Se crearon varios turnos, busco en la lista el turno con el dni 39436870");
 
       -- imprimo datos del turno
-      Put_Line (turno.getMotivo (unTurno));
+      Put_Line ("Motivo del turno: " & turno.getMotivo (unTurno));
+      Put ("DNI del cliente");
       ada.Integer_Text_IO.put (turno.getCliente (unTurno));
+      New_Line;
+      Put ("Fecha del turno: ");
+      imprimirFecha (turno.getFecha (unTurno));
+
       New_Line;
 
       -- cambio el motivo
-      unTurno := turno.cambiarMotivo (unTurno, "nuevo motivo: pintura");
-
+      unTurno := turno.cambiarMotivo (unTurno, "pintura");
+      Put_Line ("Se cambio el motivo del turno");
       -- imprimo el turno modificado
-      Put_Line (turno.getMotivo (unTurno));
-      imprimirFecha (turno.getFecha (unTurno));
+      Put_Line ("Nuevo motivo: " & turno.getMotivo (unTurno));
       New_Line;
       New_Line;
    end pruebasTurno;
@@ -115,9 +121,12 @@ procedure Main is
       -- realizo busqueda en la lista
       Put_Line ("Busco el mecanico con el dni 40123123 e imprimo sus datos");
       unMecanico := listaMecanicos.Buscar (unaLista, 40123123);
-      Put_Line (mecanico.Obtenernombre (unMecanico));
-      Put_Line (Mecanico.Obtenerespecialidad (unMecanico));
+      Put_Line ("Nombre: " & mecanico.Obtenernombre (unMecanico));
+      Put_Line ("Especialidad:" & Mecanico.Obtenerespecialidad (unMecanico));
+      Put ("DNI: ");
       ada.Integer_Text_IO.Put (Mecanico.Obtenerdni (unMecanico));
+      New_Line;
+      New_Line;
       New_Line;
 
    end pruebaMecanico;
@@ -131,6 +140,7 @@ procedure Main is
    begin
 
       Put_Line ("ejemplo de carga de un turno mediante archivo");
+      New_Line;
       Open (archivPrueba, In_File, "data.txt");
 
       for j in 1 .. 9 loop
