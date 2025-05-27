@@ -136,7 +136,9 @@ procedure Main is
       type arregloStrings is array (1 .. 9) of Unbounded_String;
       arreglo      : arregloStrings;
       unTurno      : turno.TipoTurno;
-      fecha        : calendar.Time;
+      Fecha        : Calendar.Time;
+      Linea: String(1..250);
+      Longitud: natural;
    begin
 
       Put_Line ("ejemplo de carga de un turno mediante archivo");
@@ -144,11 +146,12 @@ procedure Main is
       Open (archivPrueba, In_File, "data.txt");
 
       for j in 1 .. 9 loop
-         arreglo (j) := To_Unbounded_String (Get_Line (archivPrueba));
+        -- arreglo (j) := To_Unbounded_String (Get_Line (archivPrueba));
+        Text_IO.Get_Line(archivPrueba, linea, longitud);
+      arreglo(j) := To_Unbounded_String(linea(1 .. longitud));
       end loop;
       fecha :=
-        cargarFecha
-          (integer'Value (To_String (arreglo (4))),
+        cargarFecha(integer'Value (To_String (arreglo (4))),
            integer'Value (To_String (arreglo (5))),
            integer'Value (To_String (arreglo (6))),
            integer'Value (To_String (arreglo (7))),
