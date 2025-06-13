@@ -10,10 +10,8 @@ procedure main is
 
    type alumno is record
       --registro de alumnos
-
       apellido : string (1 .. 30);
       promedio : integer;
-
    end record;
    procedure put (x : in alumno) is
       -- imprime un alumno
