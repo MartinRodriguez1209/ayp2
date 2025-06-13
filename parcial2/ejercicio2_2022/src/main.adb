@@ -1,5 +1,6 @@
 with ada.Text_IO; use ada.Text_IO;
 with Ada.Wide_Text_IO;
+with ColaPrioridad;
 with HashingLista;
 
 procedure main is
