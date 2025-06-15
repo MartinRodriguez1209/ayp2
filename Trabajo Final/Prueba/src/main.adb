@@ -180,9 +180,13 @@ procedure Main is
       data.cargarMecanicos (listaMecanicos);
       data.cargarReparaciones (listaReparaciones);
       data.cargarTurnos (listaTurnos);
+      data.guardarTurnos (listaTurnos);
+      data.guardarMecanicos (listaMecanicos);
+      data.guardarReparaciones (listaReparaciones);
+      data.guardarClientes (listaClientes);
+
    end pruebaTadData;
 
 begin
    pruebaTadData;
-   Put_Line ("ASSAA");
 end Main;

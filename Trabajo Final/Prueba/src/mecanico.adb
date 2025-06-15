@@ -98,4 +98,8 @@ package body Mecanico is
       return M.Dni = dni;
    end compararDniMecanico;
 
+   function obtenerEstado (M : Tipomecanico) return boolean is
+   begin
+      return M.estado;
+   end obtenerEstado;
 end Mecanico;

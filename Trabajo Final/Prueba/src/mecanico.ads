@@ -22,7 +22,7 @@ package Mecanico is
    function Obtenerespecialidad (M : Tipomecanico) return String;
    function Obtenerdni (M : Tipomecanico) return Natural;
    function Obtenertareas (M : Tipomecanico) return Tipocola;
-
+   function obtenerEstado (M : Tipomecanico) return boolean;
    function compararDniMecanico
      (M : Tipomecanico; dni : Natural) return Boolean;
 

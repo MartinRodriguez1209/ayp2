@@ -34,6 +34,15 @@ package Reparacion is
    function BuscarReparacion
      (R : in TipoReparacion; patente : in String) return Boolean;
 
+   function getPatente (R : TipoReparacion) return string;
+   function getDniMecanico (R : TipoReparacion) return natural;
+   function getCosasReparadas (R : TipoReparacion) return string;
+   function getPartesReemp (R : TipoReparacion) return String;
+   function getFecha (R : TipoReparacion) return Calendar.Time;
+   function getHoras (R : TipoReparacion) return float;
+   function getPrecio (R : TipoReparacion) return Float;
+   function getEstado (R : TipoReparacion) return Boolean;
+
 private
    subtype String50 is String (1 .. 50);
 

@@ -18,6 +18,7 @@ package data is
    package listaM is new
      lista (Mecanico.Tipomecanico, integer, mecanico.compararDniMecanico);
 
+   -- PROCEDIMIENTOS DE LECTURA DE ARCHIVOS
    procedure cargarTurnos (listaFinal : out listat.TipoLista);
 
    procedure cargarClientes (listaFinal : out listaC.TipoLista);
@@ -25,5 +26,15 @@ package data is
    procedure cargarMecanicos (listaFinal : out listaM.TipoLista);
 
    procedure cargarReparaciones (listaFinal : out listaR.TipoLista);
+
+   --PROCEDIMIENTOS DE ESCRITURA DE ARCHIVOS
+
+   procedure guardarTurnos (listaFinal : in listat.TipoLista);
+
+   procedure guardarClientes (listaFinal : in listac.TipoLista);
+
+   procedure guardarMecanicos (listafinal : in listaM.TipoLista);
+
+   procedure guardarReparaciones (listaFinal : in listaR.TipoLista);
 
 end data;

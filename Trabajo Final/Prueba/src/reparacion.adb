@@ -95,5 +95,44 @@ package body Reparacion is
       r.FechaIngreso := nuevaFecha;
    end modificarFecha;
 
+   function getPatente (R : TipoReparacion) return String is
+   begin
+      return R.Patente;
+   end getPatente;
+
+   function getDniMecanico (R : TipoReparacion) return Natural is
+   begin
+      return R.dniMecanico;
+   end getDniMecanico;
+
+   function getCosasReparadas (R : TipoReparacion) return String is
+   begin
+      return R.CosasReparadas;
+   end getCosasReparadas;
+
+   function getPartesReemp (R : TipoReparacion) return String is
+   begin
+      return R.PartesReemplazadas;
+   end getPartesReemp;
+
+   function getFecha (R : TipoReparacion) return Calendar.Time is
+   begin
+      return R.FechaIngreso;
+   end getFecha;
+
+   function getHoras (R : TipoReparacion) return Float is
+   begin
+      return R.HorasTrabajo;
+   end getHoras;
+
+   function getPrecio (R : TipoReparacion) return Float is
+   begin
+      return R.Precio;
+   end getPrecio;
+
+   function getEstado (R : TipoReparacion) return Boolean is
+   begin
+      return R.Estado;
+   end getEstado;
    ------------------------------------------------------------------------------------------
 end Reparacion;

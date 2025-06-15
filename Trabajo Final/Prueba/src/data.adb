@@ -2,10 +2,13 @@ with ada.Text_IO;                   use ada.Text_IO;
 with ada.Strings.Unbounded;         use ada.Strings.Unbounded;
 with Ada.Strings.Unbounded.Text_IO; use Ada.Strings.Unbounded.Text_IO;
 with Calendar;
+with data;
 with turno;
 with Clientes;
 with Mecanico;
 with Reparacion;
+with ada.Float_Text_IO;
+with ada.Strings.Fixed;
 
 package body data is
 
@@ -79,6 +82,7 @@ package body data is
 
          end if;
       end loop;
+      close (archivo);
    end cargarTurnos;
 
    procedure cargarClientes (listaFinal : out listaC.TipoLista) is
@@ -118,7 +122,7 @@ package body data is
 
          end if;
       end loop;
-
+      close (archivo);
    end cargarClientes;
 
    procedure cargarMecanicos (listaFinal : out listaM.TipoLista) is
@@ -159,55 +163,238 @@ package body data is
 
          end if;
       end loop;
+      close (archivo);
    end cargarMecanicos;
 
    procedure cargarReparaciones (listaFinal : out listaR.TipoLista) is
       archivo       : File_Type;
-      linea         : String (1 .. 50);
+      linea         : String (1 .. 100);  -- más largo por si acaso
       longitud      : Natural;
       type arregloStrings is array (1 .. 10) of Unbounded_String;
       arreglo       : arregloStrings;
       unaReparacion : Reparacion.TipoReparacion;
       fecha         : Calendar.Time;
+
+      -- Función auxiliar para evitar errores por líneas vacías
+      function Leer_Linea_Valida return Unbounded_String is
+      begin
+         loop
+            exit when End_Of_File (archivo);
+            Get_Line (archivo, linea, longitud);
+            if longitud > 0 then
+               return To_Unbounded_String (linea (1 .. longitud));
+            end if;
+            -- si es línea vacía, la ignora y sigue
+         end loop;
+         return To_Unbounded_String (""); -- nunca debería llegar
+      end Leer_Linea_Valida;
+
    begin
       open (archivo, In_File, "reparaciones.txt");
 
       while not End_Of_File (archivo) loop
-         -- recorro todo el archivo
-
          for j in 1 .. 10 loop
-            -- leo 10 lineas que son las que contienen una reparacion completa
-            Get_Line (archivo, linea, longitud);
-            arreglo (j) := To_Unbounded_String (linea (1 .. longitud));
+            arreglo (j) := Leer_Linea_Valida;
          end loop;
 
+         -- armar la fecha
          fecha :=
            cargarFecha
-             (integer'Value (To_String (arreglo (5))),
-              integer'Value (To_String (arreglo (6))),
-              integer'Value (To_String (arreglo (7))),
+             (Integer'Value (To_String (arreglo (5))),
+              Integer'Value (To_String (arreglo (6))),
+              Integer'Value (To_String (arreglo (7))),
               12,
               00);
-         -- creo la reparacion
-         Reparacion.Altareparacion
+
+         -- crear la reparación
+         Reparacion.AltaReparacion
            (unaReparacion,
-            To_String (arreglo (1)), -- patente
-            integer'value (to_string (arreglo (2))), -- dni mecanico
-            to_string (arreglo (3)), -- cosas reparadas
-            To_String (arreglo (4)), -- partes reemplazadas
+            To_String (arreglo (1)),
+            Integer'Value (To_String (arreglo (2))),
+            To_String (arreglo (3)),
+            To_String (arreglo (4)),
             fecha,
-            float'value (To_String (arreglo (8))),
-            float'value (To_String (arreglo (9))));
-         -- guardo la reparacion en la lista
+            Float'Value (To_String (arreglo (8))),
+            Float'Value (To_String (arreglo (9))));
+
+         -- insertar en la lista
          listaR.Insertar (listaFinal, unaReparacion);
+
+         -- leer línea separadora (vacía), si queda
          if not End_Of_File (archivo) then
-            Get_Line
-              (archivo,
-               linea,
-               longitud);  -- linea vacia que separa reparaciones
+            Get_Line (archivo, linea, longitud);
+         -- puede ignorarla, incluso si es vacía
 
          end if;
       end loop;
+
+      close (archivo);
    end cargarReparaciones;
+
+   --PROCEDIMIENTOS DE ESCRITURA DE ARCHIVOS
+
+   function Sin_Espacio (n : Integer) return String is
+   begin
+      return Integer'Image (n) (2 .. Integer'Image (n)'Length);
+   end Sin_Espacio;
+   procedure guardarTurnos (listaFinal : in listaT.TipoLista) is
+      ptr      : listaT.TipoLista := listaFinal;
+      archivo  : File_Type;
+      turnoAux : turno.TipoTurno;
+      fecha    : Calendar.Time;
+      anio     : Calendar.Year_Number;
+      mes      : Calendar.Month_Number;
+      dia      : Calendar.Day_Number;
+      segundos : Calendar.Day_Duration;
+      horas    : Integer;
+      minutos  : Integer;
+   begin
+      open (archivo, Out_File, "turnos.txt");
+
+      while not listaT.Vacia (ptr) loop
+         turnoAux := listaT.Info (ptr);
+
+         Put_Line (archivo, turno.getPatente (turnoAux));  --escribo la patente
+         Put_Line (archivo, Sin_Espacio (turno.getCliente (turnoAux)));
+         Put_Line (archivo, Sin_Espacio (turno.getMecanico (turnoAux)));
+         -- separo la fecha por campos
+         fecha := turno.getFecha (turnoAux);
+         Calendar.Split (fecha, anio, mes, dia, segundos);
+         horas := Integer (segundos) / 3600;
+         minutos := (Integer (segundos) mod 3600) / 60;
+
+         --escribo la fecha
+         Put_Line (archivo, Sin_Espacio (dia));
+         Put_Line (archivo, Sin_Espacio (mes));
+         Put_Line (archivo, Sin_Espacio (anio));
+         Put_Line (archivo, Sin_Espacio (horas));
+         Put_Line (archivo, Sin_Espacio (minutos));
+         Put_Line (archivo, turno.getMotivo (turnoAux)); -- escribo el motivo
+
+         New_Line (archivo);  -- separa los turnos con un espacio
+
+         ptr :=
+           listaT.Sig (ptr); --muevo el puntero para buscar el siguiente turno
+      end loop;
+      close (archivo);
+
+   end guardarTurnos;
+
+   procedure guardarClientes (listaFinal : in listaC.TipoLista) is
+      ptr        : listaC.TipoLista := listaFinal;
+      archivo    : File_Type;
+      clienteAux : clientes.TipoCliente;
+
+      -- función auxiliar para sacar espacios
+      function Trim (S : String) return String is
+
+      begin
+         return ada.Strings.Fixed.Trim (S, Ada.Strings.Both);
+      end Trim;
+
+   begin
+      open (archivo, Out_File, "clientes.txt");
+
+      while not listaC.Vacia (ptr) loop
+         clienteAux := listaC.Info (ptr);
+
+         Put_Line (archivo, Trim (clientes.getnombre (clienteAux)));
+         Put_Line (archivo, Trim (clientes.getapellido (clienteAux)));
+         Put_Line
+           (archivo,
+            Integer'Image
+              (clientes.getdni (clienteAux))); -- sin Sin_Espacio, mejor esto
+         Put_Line (archivo, Trim (clientes.getpatente (clienteAux)));
+
+         if clientes.getestado (clienteAux) then
+            Put_Line (archivo, "TRUE");
+         else
+            Put_Line (archivo, "FALSE");
+         end if;
+
+         New_Line (archivo);  -- línea en blanco entre clientes
+         ptr := listaC.Sig (ptr);
+      end loop;
+
+      close (archivo);
+   end guardarClientes;
+
+   procedure guardarMecanicos (listafinal : in listaM.TipoLista) is
+      ptr         : listaM.TipoLista := listaFinal;
+      archivo     : File_Type;
+      mecanicoAux : mecanico.Tipomecanico;
+   begin
+      open (archivo, Out_File, "mecanicos.txt");
+      while not listaM.Vacia (ptr) loop
+         mecanicoAux := listaM.Info (ptr);
+         Put_Line (archivo, Mecanico.Obtenernombre (mecanicoAux));
+         Put_Line (archivo, mecanico.Obtenerapellido (mecanicoAux));
+         Put_Line (archivo, mecanico.Obtenerespecialidad (mecanicoAux));
+         Put_Line (archivo, Sin_Espacio (mecanico.Obtenerdni (mecanicoAux)));
+         if mecanico.obtenerEstado (mecanicoAux) then
+            Put_Line (archivo, "TRUE");
+         else
+            Put_Line (archivo, "FALSE");
+         end if;
+         New_Line (archivo);  -- separa los mecanicos con un espacio
+         ptr := listaM.Sig (ptr);
+      end loop;
+      close (archivo);
+   end guardarMecanicos;
+
+   procedure guardarReparaciones (listaFinal : in listaR.TipoLista) is
+      ptr           : listaR.TipoLista := listaFinal;
+      archivo       : File_Type;
+      reparacionAux : reparacion.TipoReparacion;
+      fecha         : Calendar.Time;
+      anio          : Calendar.Year_Number;
+      mes           : Calendar.Month_Number;
+      dia           : Calendar.Day_Number;
+      segundos      : Calendar.Day_Duration;
+      horas         : Integer;
+      minutos       : Integer;
+   begin
+      open (archivo, Out_File, "reparaciones.txt");
+      while not listaR.Vacia (ptr) loop
+
+         reparacionAux := data.listaR.Info (ptr);
+         Put_Line (archivo, Reparacion.getPatente (reparacionAux));
+         Put_Line
+           (archivo, Sin_Espacio (reparacion.getDniMecanico (reparacionAux)));
+         Put_Line (archivo, Reparacion.getCosasReparadas (reparacionAux));
+         Put_Line (archivo, Reparacion.getPartesReemp (reparacionAux));
+         fecha := Reparacion.getFecha (reparacionAux);
+         Calendar.Split (fecha, anio, mes, dia, segundos);
+         horas := Integer (segundos) / 3600;
+         minutos := (Integer (segundos) mod 3600) / 60;
+
+         --escribo la fecha
+         Put_Line (archivo, Sin_Espacio (dia));
+         Put_Line (archivo, Sin_Espacio (mes));
+         Put_Line (archivo, Sin_Espacio (anio));
+         ada.Float_Text_IO.Put
+           (archivo,
+            reparacion.getHoras (reparacionAux),
+            Fore => 1,
+            Aft  => 2,
+            Exp  => 0);
+         New_Line (archivo);
+         ada.Float_Text_IO.Put
+           (archivo,
+            reparacion.getPrecio (reparacionAux),
+            Fore => 1,
+            Aft  => 2,
+            Exp  => 0);
+         New_Line (archivo);
+         ptr := listaR.Sig (ptr);
+         if reparacion.getEstado (reparacionAux) then
+            Put_Line (archivo, "TRUE");
+         else
+            Put_Line (archivo, "FALSE");
+         end if;
+         New_Line (archivo);  -- separa las reparaciones con un espacio
+      end loop;
+      close (archivo);
+   end guardarReparaciones;
 
 end data;
