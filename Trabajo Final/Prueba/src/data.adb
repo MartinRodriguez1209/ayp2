@@ -5,6 +5,7 @@ with Calendar;
 with turno;
 with Clientes;
 with Mecanico;
+with Reparacion;
 
 package body data is
 
@@ -32,7 +33,7 @@ package body data is
       return Calendar.Time_Of (anio, mes, dia, segundos);
    end cargarFecha;
 
-   procedure cargarTurnos (listaFinal : out lista.TipoLista) is
+   procedure cargarTurnos (listaFinal : out listaT.TipoLista) is
 
       archivo  : File_Type;
       linea    : String (1 .. 250);
@@ -71,7 +72,7 @@ package body data is
               integer'Value (to_string (arreglo (3))),
               To_String (arreglo (9)));
          -- guardo el turno en la lista
-         lista.Insertar (listaFinal, unTurno);
+         listaT.Insertar (listaFinal, unTurno);
          if not End_Of_File (archivo) then
             Get_Line
               (archivo, linea, longitud);  -- linea vacia que separa turnos
@@ -80,7 +81,7 @@ package body data is
       end loop;
    end cargarTurnos;
 
-   procedure cargarClientes (listaFinal : out lista.TipoLista) is
+   procedure cargarClientes (listaFinal : out listaC.TipoLista) is
 
       archivo   : File_Type;
       linea     : String (1 .. 40);
@@ -110,7 +111,7 @@ package body data is
               To_String (arreglo (4)), --patente
               toBoolean (To_String (arreglo (5)))); --estado
          -- guardo el turno en la lista
-         lista.Insertar (listaFinal, uncliente);
+         listaC.Insertar (listaFinal, uncliente);
          if not End_Of_File (archivo) then
             Get_Line
               (archivo, linea, longitud);  -- linea vacia que separa clientes
@@ -120,7 +121,7 @@ package body data is
 
    end cargarClientes;
 
-   procedure cargarMecanicos (listaFinal : out lista.TipoLista) is
+   procedure cargarMecanicos (listaFinal : out listaM.TipoLista) is
 
       archivo    : File_Type;
       linea      : String (1 .. 40);
@@ -137,12 +138,12 @@ package body data is
          -- recorro todo el archivo
 
          for j in 1 .. 5 loop
-            -- leo 5 lineas que son las que contienen un cliente completo
+            -- leo 5 lineas que son las que contienen un mecanico completo
             Get_Line (archivo, linea, longitud);
             arreglo (j) := To_Unbounded_String (linea (1 .. longitud));
          end loop;
 
-         -- creo el cliente
+         -- creo el mecanico
          unMecanico :=
            mecanico.Crearmecanico
              (To_String (arreglo (1)), --nombre
@@ -151,18 +152,62 @@ package body data is
               integer'Value (To_String (arreglo (4))), --dni
               toBoolean (To_String (arreglo (5)))); --estado
          -- guardo el mecanico en la lista
-         lista.Insertar (listaFinal, unMecanico);
+         listaM.Insertar (listaFinal, unMecanico);
          if not End_Of_File (archivo) then
             Get_Line
-              (archivo, linea, longitud);  -- linea vacia que separa clientes
+              (archivo, linea, longitud);  -- linea vacia que separa mecanicos
 
          end if;
       end loop;
    end cargarMecanicos;
 
-   procedure cargarReparaciones (listaFinal : out lista.TipoLista) is
+   procedure cargarReparaciones (listaFinal : out listaR.TipoLista) is
+      archivo       : File_Type;
+      linea         : String (1 .. 50);
+      longitud      : Natural;
+      type arregloStrings is array (1 .. 10) of Unbounded_String;
+      arreglo       : arregloStrings;
+      unaReparacion : Reparacion.TipoReparacion;
+      fecha         : Calendar.Time;
    begin
+      open (archivo, In_File, "reparaciones.txt");
 
+      while not End_Of_File (archivo) loop
+         -- recorro todo el archivo
+
+         for j in 1 .. 10 loop
+            -- leo 10 lineas que son las que contienen una reparacion completa
+            Get_Line (archivo, linea, longitud);
+            arreglo (j) := To_Unbounded_String (linea (1 .. longitud));
+         end loop;
+
+         fecha :=
+           cargarFecha
+             (integer'Value (To_String (arreglo (5))),
+              integer'Value (To_String (arreglo (6))),
+              integer'Value (To_String (arreglo (7))),
+              12,
+              00);
+         -- creo la reparacion
+         Reparacion.Altareparacion
+           (unaReparacion,
+            To_String (arreglo (1)), -- patente
+            integer'value (to_string (arreglo (2))), -- dni mecanico
+            to_string (arreglo (3)), -- cosas reparadas
+            To_String (arreglo (4)), -- partes reemplazadas
+            fecha,
+            float'value (To_String (arreglo (8))),
+            float'value (To_String (arreglo (9))));
+         -- guardo la reparacion en la lista
+         listaR.Insertar (listaFinal, unaReparacion);
+         if not End_Of_File (archivo) then
+            Get_Line
+              (archivo,
+               linea,
+               longitud);  -- linea vacia que separa reparaciones
+
+         end if;
+      end loop;
    end cargarReparaciones;
 
 end data;

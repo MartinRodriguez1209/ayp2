@@ -2,12 +2,14 @@ with Ada.Calendar;
 with Ada.Text_IO, ada.Integer_Text_IO;
 use ada.Text_IO;
 with Calendar;
+with Clientes;
 with Lista;
 with Mecanico;
 with Reparacion;
 with turno;
 with Ada.Strings.Unbounded;         use Ada.Strings.Unbounded;
 with Ada.Strings.Unbounded.Text_IO; use Ada.Strings.Unbounded.Text_IO;
+with data;
 
 procedure Main is
    use Ada.Text_IO;
@@ -165,10 +167,22 @@ procedure Main is
       Put_Line ("Fecha del turno:");
       imprimirFecha (turno.getFecha (unTurno));
    end leerArchivo;
+
+   procedure pruebaTadData is
+
+      listaClientes     : data.listaC.TipoLista;
+      listaTurnos       : data.listaT.TipoLista;
+      listaReparaciones : data.listaR.TipoLista;
+      listaMecanicos    : data.listaM.TipoLista;
+   begin
+
+      data.cargarClientes (listaClientes);
+      data.cargarMecanicos (listaMecanicos);
+      data.cargarReparaciones (listaReparaciones);
+      data.cargarTurnos (listaTurnos);
+   end pruebaTadData;
+
 begin
-
-   pruebasTurno;
-   pruebaMecanico;
---  leerArchivo;
-
+   pruebaTadData;
+   Put_Line ("ASSAA");
 end Main;
