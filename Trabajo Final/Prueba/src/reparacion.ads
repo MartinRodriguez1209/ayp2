@@ -1,4 +1,6 @@
+with Calendar;
 with Mecanico;
+with ada.Calendar;
 
 package Reparacion is
 
@@ -12,7 +14,7 @@ package Reparacion is
       M            : in Mecanico.Tipomecanico;
       Cosas        : in String;
       Partes       : in String;
-      FechaIngreso : in String;
+      FechaIngreso : in Calendar.Time;
       Horas        : in Float;
       Precio       : in Float);
    ------------------------
@@ -27,6 +29,8 @@ package Reparacion is
    procedure ModificacionReparacion
      (R : in out TipoReparacion; Campo : in String; NuevoValor : in String);
 
+   procedure modificarFecha
+     (R : in out TipoReparacion; nuevaFecha : in Calendar.Time);
    function BuscarReparacion
      (R : in TipoReparacion; patente : in String) return Boolean;
 
@@ -39,7 +43,7 @@ private
       M                  : Mecanico.Tipomecanico;
       CosasReparadas     : String50;
       PartesReemplazadas : String50;
-      FechaIngreso       : String (1 .. 10); -- 22/03/2022
+      FechaIngreso       : Calendar.Time;
       HorasTrabajo       : Float;
       Precio             : Float;
       Estado             : Boolean := True;

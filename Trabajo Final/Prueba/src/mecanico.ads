@@ -2,17 +2,18 @@ with cola, turno;
 
 package Mecanico is
 
-   package Colatareas is new Cola(turno.Tipoturno);
+   package Colatareas is new Cola (turno.Tipoturno);
    use Colatareas;
 
    type Tipomecanico is private;
    Dni_Invalido : exception;
 
    function Crearmecanico
-     (nombre, apellido, especialidad : string; dni : natural)
+     (nombre, apellido, especialidad : string; dni : natural; estado : Boolean)
       return Tipomecanico;
    procedure Modificarmecanico
      (M : in out Tipomecanico; nuevoValor : string; rta : integer);
+
    procedure Bajamecanico (M : in out Tipomecanico);
 
    --FUNCIONES PARA OBTENER LOS DATOS DEL MECANICO
@@ -25,7 +26,7 @@ package Mecanico is
    function compararDniMecanico
      (M : Tipomecanico; dni : Natural) return Boolean;
 
-   private
+private
 
    subtype String50 is String (1 .. 50);
    type Tipomecanico is record

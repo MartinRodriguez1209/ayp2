@@ -1,3 +1,5 @@
+with ada.Calendar;
+
 package body Reparacion is
 
    --------------------------
@@ -11,7 +13,7 @@ package body Reparacion is
       M            : in Mecanico.Tipomecanico;
       Cosas        : in String;
       Partes       : in String;
-      Fechaingreso : in String;
+      Fechaingreso : in Calendar.Time;
       Horas        : in Float;
       Precio       : in Float) is
    begin
@@ -32,8 +34,7 @@ package body Reparacion is
       R.PartesReemplazadas (1 .. Partes'Length) := Partes;
 
       -- Carga fecha de ingreso
-      R.FechaIngreso := (others => ' ');
-      R.FechaIngreso (1 .. FechaIngreso'Length) := FechaIngreso;
+      R.FechaIngreso := FechaIngreso;
 
       -- Asigna horas trabajadas
       R.Horastrabajo := Horas;
@@ -72,11 +73,6 @@ package body Reparacion is
          R.PartesReemplazadas := (others => ' ');
          R.PartesReemplazadas (1 .. NuevoValor'Length) := NuevoValor;
 
-      -- Modifica la fecha de ingreso
-      elsif Campo = "fecha" then
-         R.FechaIngreso := (others => ' ');
-         R.FechaIngreso (1 .. NuevoValor'Length) := NuevoValor;
-
       -- Modifica el precio (conversion de string a float)
       elsif Campo = "precio" then
          R.Precio := Float'Value (NuevoValor);
@@ -92,6 +88,12 @@ package body Reparacion is
    begin
       return R.Patente = patente;
    end BuscarReparacion;
+
+   procedure modificarFecha
+     (R : in out TipoReparacion; nuevaFecha : in Calendar.Time) is
+   begin
+      r.FechaIngreso := nuevaFecha;
+   end modificarFecha;
 
    ------------------------------------------------------------------------------------------
 end Reparacion;

@@ -3,7 +3,7 @@ with turno;
 package body Mecanico is
 
    function Crearmecanico
-     (nombre, apellido, especialidad : string; dni : natural)
+     (nombre, apellido, especialidad : string; dni : natural; estado : Boolean)
       return Tipomecanico
    is
       M : Tipomecanico;
@@ -33,6 +33,7 @@ package body Mecanico is
       m.apellido (1 .. apellido'length) := apellido;
       M.Especialidad (1 .. Especialidad'length) := Especialidad;
       m.dni := dni;
+      m.estado := estado;
 
       return M;
    end Crearmecanico;
@@ -81,12 +82,12 @@ package body Mecanico is
    function obtenerTareas (M : Tipomecanico) return TipoCola is
       aux   : TipoCola := m.Cantidadtarea;
       Cola2 : Tipocola;
-      tarea: turno.Tipoturno;
+      tarea : turno.Tipoturno;
    begin
       Crear (cola2);
       while not Vacia (aux) loop
-         Suprimir(Aux, tarea);
-         Insertar(cola2,tarea); 
+         Suprimir (Aux, tarea);
+         Insertar (cola2, tarea);
       end loop;
       return cola2;
    end obtenerTareas;
