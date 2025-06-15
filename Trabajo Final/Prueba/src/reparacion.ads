@@ -11,7 +11,7 @@ package Reparacion is
    procedure Altareparacion
      (R            : out Tiporeparacion;
       Patente      : in String;
-      M            : in Mecanico.Tipomecanico;
+      dniMecanico  : in Natural;
       Cosas        : in String;
       Partes       : in String;
       FechaIngreso : in Calendar.Time;
@@ -40,7 +40,7 @@ private
    type TipoReparacion is record
       Patente            : String (1 .. 10);
       Long_Pat           : Natural;
-      M                  : Mecanico.Tipomecanico;
+      dniMecanico        : Natural;
       CosasReparadas     : String50;
       PartesReemplazadas : String50;
       FechaIngreso       : Calendar.Time;

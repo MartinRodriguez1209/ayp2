@@ -10,7 +10,7 @@ package body Reparacion is
    procedure Altareparacion
      (R            : out Tiporeparacion;
       Patente      : in String;
-      M            : in Mecanico.Tipomecanico;
+      dniMecanico  : in Natural;
       Cosas        : in String;
       Partes       : in String;
       Fechaingreso : in Calendar.Time;
@@ -23,7 +23,7 @@ package body Reparacion is
       R.Long_Pat := Patente'Length;
 
       -- Asigna el mecanico
-      R.M := M;
+      R.dniMecanico := dniMecanico;
 
       -- Carga descricion de cosas reparadas
       R.CosasReparadas := (others => ' ');
