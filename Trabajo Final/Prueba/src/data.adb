@@ -175,7 +175,7 @@ package body data is
       unaReparacion : Reparacion.TipoReparacion;
       fecha         : Calendar.Time;
 
-      -- Función auxiliar para evitar errores por líneas vacías
+      -- función para evitar errores por líneas vacías
       function Leer_Linea_Valida return Unbounded_String is
       begin
          loop
@@ -220,10 +220,9 @@ package body data is
          -- insertar en la lista
          listaR.Insertar (listaFinal, unaReparacion);
 
-         -- leer línea separadora (vacía), si queda
+         -- leer línea separadora
          if not End_Of_File (archivo) then
             Get_Line (archivo, linea, longitud);
-         -- puede ignorarla, incluso si es vacía
 
          end if;
       end loop;
