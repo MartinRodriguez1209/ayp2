@@ -135,22 +135,40 @@ procedure Main is
    end pruebaMecanico;
 
    procedure pruebaTadData is
-
-      listaClientes     : data.listaC.TipoLista;
-      listaTurnos       : data.listaT.TipoLista;
-      listaReparaciones : data.listaR.TipoLista;
-      listaMecanicos    : data.listaM.TipoLista;
+      subtype CadenaClave is String (1 .. 10);
+      package listaC is new
+        Lista (Clientes.Tipocliente, integer, clientes.compararCliente);
+      package listaT is new
+        lista (turno.TipoTurno, Integer, turno.compararDniCliente);
+      package listaR is new
+        lista
+          (Reparacion.TipoReparacion,
+           CadenaClave,
+           Reparacion.BuscarReparacion);
+      package listaM is new
+        lista (Mecanico.Tipomecanico, integer, mecanico.compararDniMecanico);
+      package instanciaData is new
+        data
+          (Reparacion.ClaveCadena,
+           listaC => listaC,
+           listaT => listaT,
+           listaR => listaR,
+           listaM => listaM);
+      listaClientes     : listaC.TipoLista;
+      listaTurnos       : listaT.TipoLista;
+      listaReparaciones : listaR.TipoLista;
+      listaMecanicos    : listaM.TipoLista;
 
    begin
 
-      data.cargarClientes (listaClientes);
-      data.cargarMecanicos (listaMecanicos);
-      data.cargarReparaciones (listaReparaciones);
-      data.cargarTurnos (listaTurnos);
-      data.guardarTurnos (listaTurnos);
-      data.guardarMecanicos (listaMecanicos);
-      data.guardarReparaciones (listaReparaciones);
-      data.guardarClientes (listaClientes);
+      instanciaData.cargarClientes (listaClientes);
+      instanciaData.cargarMecanicos (listaMecanicos);
+      instanciaData.cargarReparaciones (listaReparaciones);
+      instanciaData.cargarTurnos (listaTurnos);
+      instanciaData.guardarTurnos (listaTurnos);
+      instanciaData.guardarMecanicos (listaMecanicos);
+      instanciaData.guardarReparaciones (listaReparaciones);
+      instanciaData.guardarClientes (listaClientes);
 
    end pruebaTadData;
 

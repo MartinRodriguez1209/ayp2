@@ -4,22 +4,25 @@ with turno;
 with Mecanico;
 with Reparacion;
 
-package data is
-   subtype CadenaClave is String (1 .. 10);
-   package listaC is new
-     Lista (Clientes.Tipocliente, integer, clientes.compararCliente);
-   package listaT is new
-     lista (turno.TipoTurno, Integer, turno.compararDniCliente);
-   package listaR is new
-     lista
-       (Reparacion.TipoReparacion,
-        CadenaClave,
-        Reparacion.BuscarReparacion);
-   package listaM is new
-     lista (Mecanico.Tipomecanico, integer, mecanico.compararDniMecanico);
+generic
 
+   type TipoClave is private;
+   with package listaC is new
+     Lista (Clientes.Tipocliente, Integer, clientes.compararCliente);
+   with package listaT is new
+     Lista (turno.TipoTurno, Integer, turno.compararDniCliente);
+   with package listaR is new
+     Lista
+       (Reparacion.TipoReparacion,
+        Reparacion.ClaveCadena,
+        Reparacion.BuscarReparacion);
+   with package listaM is new
+     Lista (Mecanico.Tipomecanico, Integer, mecanico.compararDniMecanico);
+
+package Data
+is
    -- PROCEDIMIENTOS DE LECTURA DE ARCHIVOS
-   procedure cargarTurnos (listaFinal : out listat.TipoLista);
+   procedure cargarTurnos (listaFinal : out listaT.TipoLista);
 
    procedure cargarClientes (listaFinal : out listaC.TipoLista);
 
@@ -27,14 +30,13 @@ package data is
 
    procedure cargarReparaciones (listaFinal : out listaR.TipoLista);
 
-   --PROCEDIMIENTOS DE ESCRITURA DE ARCHIVOS
+   -- PROCEDIMIENTOS DE ESCRITURA DE ARCHIVOS
+   procedure guardarTurnos (listaFinal : in listaT.TipoLista);
 
-   procedure guardarTurnos (listaFinal : in listat.TipoLista);
+   procedure guardarClientes (listaFinal : in listaC.TipoLista);
 
-   procedure guardarClientes (listaFinal : in listac.TipoLista);
-
-   procedure guardarMecanicos (listafinal : in listaM.TipoLista);
+   procedure guardarMecanicos (listaFinal : in listaM.TipoLista);
 
    procedure guardarReparaciones (listaFinal : in listaR.TipoLista);
 
-end data;
+end Data;

@@ -84,7 +84,7 @@ package body Reparacion is
    end ModificacionReparacion;
 
    function BuscarReparacion
-     (R : in TipoReparacion; patente : in String) return Boolean is
+     (R : in TipoReparacion; patente : ClaveCadena) return Boolean is
    begin
       return R.Patente = patente;
    end BuscarReparacion;

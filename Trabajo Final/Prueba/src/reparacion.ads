@@ -5,6 +5,7 @@ with ada.Calendar;
 package Reparacion is
 
    type TipoReparacion is private;
+   subtype ClaveCadena is String (1 .. 10);
    ------------------------
    -----P.altareparacion-----
    ------------------------
@@ -32,7 +33,7 @@ package Reparacion is
    procedure modificarFecha
      (R : in out TipoReparacion; nuevaFecha : in Calendar.Time);
    function BuscarReparacion
-     (R : in TipoReparacion; patente : in String) return Boolean;
+     (R : in TipoReparacion; patente : ClaveCadena) return Boolean;
 
    function getPatente (R : TipoReparacion) return string;
    function getDniMecanico (R : TipoReparacion) return natural;
