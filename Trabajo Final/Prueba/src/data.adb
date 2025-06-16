@@ -184,7 +184,7 @@ package body data is
             if longitud > 0 then
                return To_Unbounded_String (linea (1 .. longitud));
             end if;
-            -- si es línea vacía, la ignora y sigue
+            -- si es línea vacía la ignora y sigue
          end loop;
          return To_Unbounded_String (""); -- nunca debería llegar
       end Leer_Linea_Valida;
