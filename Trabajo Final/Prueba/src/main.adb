@@ -134,46 +134,13 @@ procedure Main is
 
    end pruebaMecanico;
 
-   -- La linea Get_Line (archivPrueba) esta dando problemas
-   procedure leerArchivo is
-      archivPrueba : File_Type;
-      type arregloStrings is array (1 .. 9) of Unbounded_String;
-      arreglo      : arregloStrings;
-      unTurno      : turno.TipoTurno;
-      fecha        : calendar.Time;
-   begin
-      Put_Line ("ejemplo de carga de un turno mediante archivo");
-      New_Line;
-      Open (archivPrueba, In_File, "data.txt");
-      for j in 1 .. 9 loop
-         arreglo (j) := To_Unbounded_String (Get_Line (archivPrueba));
-      end loop;
-      fecha :=
-        cargarFecha
-          (integer'Value (To_String (arreglo (4))),
-           integer'Value (To_String (arreglo (5))),
-           integer'Value (To_String (arreglo (6))),
-           integer'Value (To_String (arreglo (7))),
-           integer'Value (To_String (arreglo (8))));
-      unTurno :=
-        turno.Crear
-          (fecha,
-           To_String (arreglo (1)),
-           integer'Value (to_string (arreglo (2))),
-           integer'Value (to_string (arreglo (3))),
-           To_String (arreglo (9)));
-      Put_Line ("Se cargo un turno exitosamente");
-      Put_Line ("Motivo del turno:" & turno.getMotivo (unTurno));
-      Put_Line ("Fecha del turno:");
-      imprimirFecha (turno.getFecha (unTurno));
-   end leerArchivo;
-
    procedure pruebaTadData is
 
       listaClientes     : data.listaC.TipoLista;
       listaTurnos       : data.listaT.TipoLista;
       listaReparaciones : data.listaR.TipoLista;
       listaMecanicos    : data.listaM.TipoLista;
+
    begin
 
       data.cargarClientes (listaClientes);
