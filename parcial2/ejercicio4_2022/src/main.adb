@@ -32,10 +32,10 @@ procedure main is
    function mayor (A, B : alumno) return Boolean is
       -- compara promedio, si son iguales despues compara por apellido
    begin
-      if A.promedio > B.promedio then
-         return A.promedio > B.promedio;
-      else
+      if A.promedio = B.promedio then
          return A.apellido > B.apellido;
+      else
+         return A.promedio > B.promedio;
       end if;
 
    end;
