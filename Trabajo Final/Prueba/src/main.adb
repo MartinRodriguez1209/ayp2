@@ -47,6 +47,7 @@ procedure Main is
       minutos : in Integer) return Calendar.Time
    is
       segundos : Calendar.Day_Duration;
+
    begin
       segundos := calendar.Day_Duration ((hora * 3600) + (minutos * 60));
       return Calendar.Time_Of (anio, mes, dia, segundos);
@@ -135,7 +136,9 @@ procedure Main is
    end pruebaMecanico;
 
    procedure pruebaTadData is
-      subtype CadenaClave is String (1 .. 10);
+
+      subtype CadenaClave is
+        String (1 .. 10); -- es la clave para buscar la patente de reparaciones
       package listaC is new
         Lista (Clientes.Tipocliente, integer, clientes.compararCliente);
       package listaT is new
@@ -147,6 +150,8 @@ procedure Main is
            Reparacion.BuscarReparacion);
       package listaM is new
         lista (Mecanico.Tipomecanico, integer, mecanico.compararDniMecanico);
+
+      -- instancio el paquete data con las 4 listas creadas para hacer lectura y escritura
       package instanciaData is new
         data
           (Reparacion.ClaveCadena,
@@ -165,6 +170,7 @@ procedure Main is
       instanciaData.cargarMecanicos (listaMecanicos);
       instanciaData.cargarReparaciones (listaReparaciones);
       instanciaData.cargarTurnos (listaTurnos);
+
       instanciaData.guardarTurnos (listaTurnos);
       instanciaData.guardarMecanicos (listaMecanicos);
       instanciaData.guardarReparaciones (listaReparaciones);
