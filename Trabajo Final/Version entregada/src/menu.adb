@@ -11,42 +11,32 @@ with Ada.Strings;           use Ada.Strings;
 with Ada.Strings.Unbounded; use Ada.Strings.Unbounded;
 use Clientes;
 with Ada.Calendar;          use Ada.Calendar;
-with data;
-with Ada.Float_Text_Io;     use Ada.Float_Text_Io;
+with data; 
+with Ada.Float_Text_Io; use Ada.Float_Text_Io;
 with reportes;
 
 procedure Menu is
 
-   --Rta: Character;
-   --mecanicos: mecanico.tipomecanico; --un solo mecanico en particular
    subtype CadenaClave is
-     String (1 .. 10); -- es la clave para buscar la patente de reparaciones
-
+      String (1 .. 10); -- es la clave para buscar la patente de reparaciones
+         
    package lista_turnos is new
      lista (turno.TipoTurno, Integer, turno.compararDniCliente);
 
    package Lista_Mec is new
      lista (Mecanico.Tipomecanico, Integer, Mecanico.Comparardnimecanico);
-   --lista de mecanicos
 
    package Listaclientes is new
-     Lista (Clientes.Tipocliente, Integer, Clientes.Compararcliente);
-
+      Lista (Clientes.Tipocliente, Integer, Clientes.Compararcliente);
+      
    package lista_reparacion is new
      lista
        (Reparacion.TipoReparacion,
         CadenaClave,
         Reparacion.BuscarReparacion);
-   --package listarepara is new lista();
 
-   package lista_reportes is new
-     reportes
-       (Lista_Mec,
-        lista_turnos,
-        mecanico.Obtenernombre,
-        mecanico.Obtenerespecialidad,
-        mecanico.Obtenerapellido,
-        turno.getmotivo);
+   
+   package lista_reportes is new reportes(Lista_Mec,lista_turnos,mecanico.Obtenernombre,mecanico.Obtenerespecialidad,mecanico.Obtenerapellido,turno.getmotivo);
    use Lista_Reportes;
 
    Lista_Mecanicos : Lista_Mec.Tipolista;
@@ -54,10 +44,9 @@ procedure Menu is
    Listaturnos     : Lista_Turnos.Tipolista;
    listareparacion : lista_reparacion.TipoLista;
 
-   carga_estado : boolean := false;
+   carga_estado: boolean := false;
 
-   --Listar_Mecanicos_Por_Especialidad(Lista_Mecanicos, "soldador");
-   --
+
 
    package instanciaData is new
      data
@@ -119,9 +108,10 @@ procedure Menu is
 
    end Split;
 
+
    --------------PROCEDIMIENTOS-PARA-PROGRAMA-PRINCIPAL----------------------
    -----------------------------------------------------------------------------------------------------------
-
+   
    procedure General_Mecanicos (lismecanico : in out lista_mec.tipolista) is
 
       Lis   : Integer;
@@ -136,9 +126,8 @@ procedure Menu is
          Lnnm, Lnap, Lnesp          : Natural;
          estado                     : boolean;
       begin
-
-         Put ("----------------------------------------");
-         new_line;
+         
+         Put("----------------------------------------"); new_line;         
          Put ("Ingrese el nombre del nuevo mecanico: ");
          Get_Line (Auxnom, Lnnm);
          Nomb := (others => ' ');
@@ -176,8 +165,7 @@ procedure Menu is
 
       begin
          New_Line;
-         Put ("----------------------------------------");
-         new_line;
+         Put("----------------------------------------"); new_line;
          Put ("Ingrese el dni del mecanico a dar de baja: ");
          get (Auxdni);
 
@@ -200,7 +188,7 @@ procedure Menu is
          end loop;
 
       end Baja_Mecanicos;
-      ------------------------------------------------------------------------
+   ------------------------------------------------------------------------
       --------------------------------------------------------------------
       procedure Listado_Mecanicos (lismecanico : in lista_mec.tipolista) is
 
@@ -212,18 +200,17 @@ procedure Menu is
             auxlista : lista_mec.tipolista := x;
             Aux      : Mecanico.Tipomecanico;
 
-            --nom,ape,esp: string(1..50);
          begin
+            
 
             while not Lista_Mec.Vacia (Auxlista) loop
 
                Aux := Lista_Mec.Info (Auxlista);
 
                if Mecanico.Obtenerestado (Aux) then
-
+                  
                   new_line;
-                  Put ("----------------------------------------");
-                  new_line;
+                  Put("----------------------------------------"); new_line;
                   Put ("Nombre: ");
                   Put (Trim (ObtenerNombre (aux), Both));
                   new_line;
@@ -247,8 +234,8 @@ procedure Menu is
 
                Auxlista := Lista_Mec.Sig (Auxlista);
 
-            end loop; --fin recorrido lista
-         end Mecanico_General;
+            end loop;          
+            end Mecanico_General;
 
          --PROCEDIMIENTO-PARA-LISTADO-MECANICO-ESPECIFO--
          procedure Mecanico_especifico (x : in lista_mec.tipolista) is
@@ -322,20 +309,19 @@ procedure Menu is
          ------------------------------------------------------------------
       begin
          --Inicio de programa Listado_Mecanicos
-
-         Put ("bienvenido a la seleccion de mecanicos");
-         New_Line;
+         new_line;
+         Put ("--Bienvenido a la seleccion de mecanicos--");
+         New_Line; new_line;
          Put
-           ("Si desea tener un listado general de los mecanicos del taller, presione 1");
+           (" - Presione 1 para tener un listado general de los mecanicos del taller");
          new_line;
          put
-           ("Si desea conocer un listado de mecanicos por especialidad, presione 2");
+           (" - Presione 2 para conocer el listado de mecanicos por especialidad ingresada por el usuario");
          New_Line;
-         put ("Si desea volver al menu anterior, presione 0");
+         put (" - Presione 0 si desea volver al menu anterior");
          New_Line;
-         Put ("");
-         New_Line;
-         Put ("Ingrese opcion: ");
+         Put (""); New_Line;
+         Put("Ingrese opcion: ");
          Get (Lis);
          new_line;
          case Lis is
@@ -343,14 +329,13 @@ procedure Menu is
                return;
 
             when 1 =>
-               Mecanico_General (lismecanico);
+               Mecanico_General (lismecanico); new_line;   
 
             when 2 =>
-               Mecanico_especifico (lismecanico);
+               Mecanico_especifico (lismecanico); new_line;
 
             when others =>
-               put ("Numero equivocado");
-               new_line;
+               put ("Numero equivocado"); new_line;
          end case;
 
       end Listado_Mecanicos;
@@ -363,65 +348,56 @@ procedure Menu is
       New_Line;
 
       loop
-         put ("---------------------------------------------------------");
-         new_line;
-         Put
-           (" - Para ingresar un nuevo mecanico al sistema, ingrese el boton 1");
-         New_Line;
-         Put (" - Para bajar a un mecanico del sistema, ingrese el boton 2");
-         New_Line;
+      put("---------------------------------------------------------"); new_line;      
+      Put (" - Ingrese 1 para ingresar un nuevo mecanico al sistema");
+      New_Line;
+      Put (" - Ingrese 2 para bajar a un mecanico del sistema ");
+      New_Line;
+      
+        --Put("para modificar el dato de un mecanico en el sistema, ingrese el boton 3");
+      --New_Line;
+      Put
+        (" - Ingrese 3 para ingresar al listado de mecanicos en el sistema");  --si se hace el proc. modificar, este pasa a 4
+      New_Line; New_Line;
 
-         --Put("para modificar el dato de un mecanico en el sistema, ingrese el boton 3");
-         --New_Line;
-         Put
-           (" - Para ingresar al listado de mecanicos en el sistema, ingrese el boton 3");  --si se hace el proc. modificar este pasa a 4
-         New_Line;
-         New_Line;
+      Put (" - Ingrese 0 para regresar al menu principal");
+         New_Line;         
+         Put (""); New_Line;
+      put("Ingrese opcion: ");   
+      
+      Get (Lis);
+      Skip_Line;
 
-         Put (" - Para regresar al menu principal, ingrese el boton 0");
-         New_Line;
-         Put ("");
-         New_Line;
-         put ("Ingrese opcion: ");
+      case Lis is
 
-         Get (Lis);
-         Skip_Line;
-
-         case Lis is
-
-            when 0 =>
+            when 0 =>               
                new_line;
                exit;
-
+               
             when 1 =>
                new_line;
-               Alta_Mecanicos (N_Mec);
-               Lista_Mec.Insertar (Lismecanico, N_Mec);
-               new_line;
+            Alta_Mecanicos (N_Mec);
+            Lista_Mec.Insertar (Lismecanico, N_Mec); new_line;
 
-            when 2 =>
-               new_line;
-               Baja_Mecanicos (Lismecanico);
-               new_line;
-               --when 3 =>
+         when 2 => new_line;
+            Baja_Mecanicos (Lismecanico); new_line;
+            --when 3 =>
 
-            when 3 =>
-               new_line;
-               Listado_Mecanicos (lismecanico);
-               new_line;
+         when 3 => new_line;
+            Listado_Mecanicos (lismecanico); new_line;
 
             when others =>
                new_line;
-               Put ("Ingreso incorrecto");
-               new_line;
-         end case;
+            Put ("Ingreso incorrecto"); new_line;
+      end case;
 
-      end loop;
+   end loop;
 
    end General_Mecanicos;
 
    -----------------------------------------------------------------------------
    ---------MENU-DE-CLIENTES----------------------------------------------------
+   -----------------------------------------------------------------------------
 
    procedure Clientes_General (liscliente : in out Listaclientes.Tipolista) is
 
@@ -436,12 +412,11 @@ procedure Menu is
          auxpat                 : String (1 .. 10);
          Dni                    : Natural;
          Lnnm, Lnap, Lnpat      : Natural;
-         estado                 : boolean;
+         estado: boolean;
 
       begin
          new_line;
-         put ("--------------------------------------------------");
-         new_line;
+         put("--------------------------------------------------"); new_line;
          Put ("Ingrese el nombre del nuevo cliente a ingresar: ");
          Get_Line (Auxnom, Lnnm);
          Nombre_Cl := (others => ' ');
@@ -463,13 +438,7 @@ procedure Menu is
          put ("Nuevo cliente creado");
          New_Line;
          estado := true;
-         X :=
-           clientes.crear
-             (Nombre_Cl (1 .. lnnm),
-              Apellido_Cl (1 .. Lnap),
-              Dni,
-              Patente (1 .. Lnpat),
-              estado);
+         X := clientes.crear (Nombre_Cl(1..lnnm), Apellido_Cl(1..Lnap), Dni, Patente(1..Lnpat), estado);
          New_Line;
          Carga_Estado := true;
       end Alta_Cliente;
@@ -479,12 +448,12 @@ procedure Menu is
          Auxdni   : Natural;
          Auxlista : Listaclientes.Tipolista := lista;
          Auxcl    : clientes.tipocliente;
-
+         bandera : Boolean := True;
+         
       begin
          New_Line;
-         put ("--------------------------------------------");
-         new_line;
-         Put ("ingrese el dni del cliente a dar de baja: ");
+         put("--------------------------------------------"); new_line;
+         Put ("Ingrese el dni del cliente a dar de baja: ");
          get (Auxdni);
 
          while not Listaclientes.Vacia (Auxlista) loop
@@ -499,14 +468,19 @@ procedure Menu is
                Listaclientes.Suprimir (lista, Listaclientes.Info (Auxlista));
                Listaclientes.Insertar (lista, Auxcl);
                Put ("Cliente dado de baja");
-               new_line;
-               new_line;
+               bandera := false;
+               new_line; new_line;
 
                exit;
             end if;
 
             Auxlista := Listaclientes.sig (Auxlista);
          end loop;
+
+         if  Bandera then
+            new_line;
+            put("no se encontro el DNI del cliente"); new_line;  
+         end if;
 
       end Baja_cliente;
 
@@ -516,7 +490,7 @@ procedure Menu is
          Auxdni   : Natural;
          Auxlista : Listaclientes.Tipolista := Lista;
          Auxcl    : Clientes.Tipocliente;
-
+         bandera : boolean := true;
          procedure N_Nombre (client : out Clientes.Tipocliente) is
             Nom, auxnm : String (1 .. 40);
             Ln_Nm      : Natural;
@@ -530,35 +504,35 @@ procedure Menu is
          end N_Nombre;
          ---------
          procedure N_Apellido (Client : out Clientes.Tipocliente) is
-
-            Ape, Auxap : String (1 .. 30);
+            
+            Ape, Auxap : String (1 .. 30);         
             Ln_Ap      : Natural;
-            C_caso     : Natural;
-         begin
-            new_line;
-            Put ("Ingrese un nuevo apellido (max 25 caracteres): ");
-
+            C_caso    : Natural;                       
+         begin  
+            new_line;          
+            Put ("Ingrese un nuevo apellido: ");
+            
             Get_Line (Auxap, Ln_Ap);
-
+            
             Ape := (others => ' ');
-
+                      
             if Ln_Ap > Ape'Length then
-
-               C_caso := Ape'Length;
+               
+               C_caso := Ape'Length;               
             else
-               C_caso := Ln_Ap;
+               C_caso := Ln_Ap;               
             end if;
             Ape (1 .. C_caso) := Auxap (1 .. C_caso);
             Client := Clientes.Cambiarapellido (Auxcl, Ape);
-
+            
          end N_Apellido;
-
+         
          ---------
-
+         
          procedure N_dni (Client : out Clientes.Tipocliente) is
             dni_cl : Natural;
          begin
-            Put ("ingrese un nuevo dni: ");
+            Put ("Ingrese un nuevo dni: ");
             Get (Dni_Cl);
             Skip_Line;
             Client := Clientes.Cambiardni (Auxcl, Dni_Cl);
@@ -593,60 +567,60 @@ procedure Menu is
                   Put
                     ("Cliente encontrado, que dato de este desea modificar?");
                   New_Line;
-                  Put (" - Pulse tecla 1 para cambiar nombre");
+                  Put (" - Pulse 1 para cambiar nombre");
                   New_Line;
-                  Put (" - Pulse tecla 2 para cambiar apellido");
+                  Put (" - Pulse 2 para cambiar apellido");
                   New_Line;
-                  Put (" - Pulse tecla 3 Para cambiar dni");
+                  Put (" - Pulse 3 Para cambiar dni");
                   New_Line;
-                  Put (" - Pulse tecla 4 Para cambiar patente del vehiculo");
+                  Put (" - Pulse 4 Para cambiar patente del vehiculo");
                   New_Line;
                   Put (" - Pulse 0 para salir");
-                  new_line;
-                  new_line;
-                  Put ("Ingrese opcion: ");
-                  Get (opc);
+                  new_line; new_line;
+                  Put("Ingrese opcion: ");
+                     Get (opc);
                   skip_line;
 
                   case Opc is
                      when 0 =>
                         new_line;
-                        Put ("Ha salido de las opciones");
+                        --Put ("Ha salido de las opciones");
                         new_line;
                         exit;
 
                      when 1 =>
-                        N_Nombre (auxcl);
-                        new_line;
+                        N_Nombre (auxcl); new_line;
 
                      when 2 =>
-                        N_Apellido (auxcl);
-                        new_line;
+                        N_Apellido (auxcl); new_line;
 
                      when 3 =>
-                        N_dni (auxcl);
-                        new_line;
+                        N_dni (auxcl); new_line; 
 
                      when 4 =>
-                        N_Patente (auxcl);
-                        new_line;
+                        N_Patente (auxcl); new_line; 
 
                      when others =>
-                        put ("numero incorrecto, revise nuevamente el texto");
-                        new_line;
+                        put ("Numero incorrecto, revise nuevamente el texto"); new_line;
                   end case;
 
                   Listaclientes.Suprimir
                     (Lista, Listaclientes.Info (Auxlista));
                   Listaclientes.Insertar (Lista, Auxcl);
-                  Put ("Cliente modificado");
-                  New_line;
-                  new_line;
+                  Put("Cliente modificado");
+                  New_Line; New_Line;
+                  bandera := false;
                   return;
                end if;
             end if;
             auxlista := listaclientes.sig (auxlista);
          end loop;
+
+         if  Bandera then
+            new_line;
+            put("no se encontro el DNI del cliente"); new_line;  
+         end if;
+         
 
       end Modificar_Cliente;
 
@@ -663,9 +637,8 @@ procedure Menu is
             Aux := listaclientes.Info (Auxlista);
 
             if clientes.getestado (Aux) then
-
-               put ("-----------------------------");
-               new_line;
+            
+               put("-----------------------------"); new_line;
                Put ("Nombre: ");
                Put (Trim (getnombre (aux), Both));
                new_line;
@@ -696,54 +669,48 @@ procedure Menu is
       Put ("Has ingresado a la gestion de clientes del taller");
       New_Line;
       loop
-         put ("----------------------------------------------------");
-         new_line;
-         Put (" - Ingrese 1 para ingresar un nuevo cliente al sistema");
+         put("----------------------------------------------------"); new_line;
+      Put (" - Ingrese 1 para ingresar un nuevo cliente al sistema");
+      New_Line;
+      Put (" - Ingrese 2 para bajar a un cliente del sistema");
+      New_Line;
+      Put (" - Ingrese 3 para modificar algo de un cliente");
+      New_Line;
+      Put
+        (" - Ingrese 4 para ingresar al listado de clientes en el sistema");
+      New_Line; new_line;
+      Put (" - Ingrese 0 para volver al menu principal");
          New_Line;
-         Put (" - Ingrese 2 para bajar a un cliente del sistema");
-         New_Line;
-         Put (" - Ingrese 3 para modificar algo de un cliente");
-         New_Line;
-         Put
-           (" - Ingrese 4 para ingresar al listado de clientes en el sistema");
-         New_Line;
-         new_line;
-         Put (" - Ingrese 0 para volver al menu principal");
-         New_Line;
-         put ("Ingresar opcion: ");
-         Get (Opcion_Cl);
-         skip_line;
+         put("Ingresar opcion: ");
+      Get (Opcion_Cl);
+      skip_line;
 
-         case Opcion_Cl is
+      case Opcion_Cl is
 
-            when 0 =>
-               new_line;
-               exit;
+         when 0 => new_line;
+            exit; 
 
-            when 1 =>
-               Alta_Cliente (R_cl);
-               listaclientes.insertar (liscliente, r_cl);
-               new_line;
+         when 1 =>
+            Alta_Cliente (R_cl);
+            listaclientes.insertar (liscliente, r_cl); new_line;
 
-            when 2 =>
-               Baja_Cliente (Liscliente);
-               new_line;
 
-            when 3 =>
-               Modificar_Cliente (Liscliente);
-               new_line;
+         when 2 =>
+            Baja_Cliente (Liscliente); new_line;
 
-            when 4 =>
-               Listado_Clientes (Liscliente);
-               new_line;
+         when 3 =>
+            Modificar_Cliente (Liscliente); new_line;
 
-            when others =>
-               Put ("Ingreso incorrecto");
-               new_line;
+         when 4 =>
+            Listado_Clientes (Liscliente); new_line;
 
-         end case;
+         when others =>
+            Put ("Ingreso incorrecto");
+            new_line;
 
-      end loop;
+      end case;
+
+   end loop;
 
    end Clientes_General;
 
@@ -814,8 +781,8 @@ procedure Menu is
          Motivo (1 .. Ln_Mtv) := Auxmot (1 .. Ln_Mtv);
          aux := turno.crear (fecha, Pat, dni_cl, dni_mec, motivo);
          Lista_Turnos.Insertar (Lturno, Aux);
-         Carga_Estado := True;
-         Put ("Nuevo turno ingresado");
+         Carga_Estado:= True;
+         Put("Nuevo turno ingresado");
          new_line;
       end Alta_Turno;
 
@@ -825,7 +792,7 @@ procedure Menu is
          dni      : Natural;
          auxturno : turno.TipoTurno;
          Auxlista : Lista_Turnos.Tipolista := Lturno;
-
+         bandera : boolean := true;
       begin
 
          Put
@@ -842,13 +809,19 @@ procedure Menu is
 
                Lista_Turnos.Suprimir (Lturno, Auxturno);
                Put ("Turno eliminado");
+               bandera := false;
                New_Line;
 
                exit;
 
             end if;
-            Auxlista := Lista_Turnos.sig (Auxlista);
+         Auxlista := Lista_Turnos.sig(Auxlista);
          end loop;
+         
+      if  Bandera then
+            new_line;
+            put("no se encontro el DNI del cliente"); new_line;  
+         end if;
 
       end Baja_Turno;
 
@@ -857,17 +830,17 @@ procedure Menu is
          Dni      : Natural;
          Auxlista : Lista_Turnos.Tipolista := Lturno;
          Auxturno : Turno.Tipoturno;
-         opc      : natural;
-
-         procedure N_mec (client : in out turno.TipoTurno) is
+         Opc      : Natural;
+         
+         procedure N_Mec (Client : in out Turno.Tipoturno) is
+            
             dninuevo : Natural;
          begin
             Put ("ingrese el nuevo dni del nuevo mecanico: ");
             Get (dninuevo);
             Skip_Line;
             Client := Turno.Cambiarmecanico (Client, Dninuevo);
-            put ("nuevo mecanico ingresado");
-            new_line;
+            put("nuevo mecanico ingresado"); new_line;
 
          end N_mec;
          ---------
@@ -893,8 +866,7 @@ procedure Menu is
             New_Line;
             Nuevafecha := Cargarfecha (Dia, Mes, Anio, Hora, Min);
             Client := Cambiarfecha (Client, Nuevafecha);
-            put ("nueva fecha ingresada");
-            new_line;
+            put("nueva fecha ingresada"); new_line;
 
          end N_fecha;
          ---------
@@ -908,8 +880,7 @@ procedure Menu is
             motivo := (others => ' ');
             motivo (1 .. Ln_mtv) := Auxmot (1 .. Ln_mtv);
             Client := Turno.Cambiarmotivo (Client, Motivo);
-            put ("nuevo turno ingresado");
-            new_line;
+            put("nuevo turno ingresado"); new_line;
 
          end N_motivo;
 
@@ -923,8 +894,7 @@ procedure Menu is
             patente := (others => ' ');
             patente (1 .. Ln_pat) := Auxpat (1 .. Ln_pat);
             Client := turno.cambiarMotivo (client, patente);
-            put ("nueva patente ingresada");
-            new_line;
+            put("nueva patente ingresada"); new_line;
 
          end N_patente;
 
@@ -939,15 +909,14 @@ procedure Menu is
 
             if Getcliente (Auxturno) = Dni then
 
-               Put ("cliente encontrado, elija que parte desea modificar");
-               new_line;
+               Put ("Cliente encontrado, elija que parte desea modificar"); new_line; new_line;
                Put ("Para cambiar mecanico, pulse tecla 1");
                New_Line;
                Put ("Para cambiar la fecha, pulse tecla 2");
                New_Line;
                Put ("Para cambiar el motivo, pulse tecla 3");
                New_Line;
-               put ("Para modificar la patente, pulse tecla 4");
+               put("Para modificar la patente, pulse tecla 4");
                Put ("pulse 0 para salir al menu principal");
                New_Line;
                Get (Opc);
@@ -955,7 +924,7 @@ procedure Menu is
 
                case Opc is
                   when 0 =>
-                     Put ("ha salido de las opciones");
+                     Put ("Ha salido de las opciones");
                      new_line;
                      exit;
 
@@ -972,13 +941,15 @@ procedure Menu is
                      N_Patente (auxturno); --hecho
 
                   when others =>
-                     put ("numero incorrecto, revise nuevamente el texto");
+                     put ("Numero incorrecto, revise nuevamente el texto");
                end case;
                Lista_Turnos.Suprimir (Lturno, Lista_Turnos.Info (Auxlista));
                Lista_Turnos.Insertar (Lturno, Auxturno);
+               else put("DNI no encontrado"); new_line;
             end if;
-            Auxlista := Lista_Turnos.sig (Auxlista);
+         Auxlista := Lista_Turnos.sig(Auxlista);
          end loop;
+            
 
       end Modificar_Turno;
       -----------------------------------------------------------------------
@@ -1000,20 +971,17 @@ procedure Menu is
 
             Auxclilista : Listaclientes.Tipolista := Lista;
             Cli         : Clientes.Tipocliente;
-            n_ap        : Unbounded_String;
+            n_ap: Unbounded_String;
          begin
             while not Listaclientes.Vacia (Auxclilista) loop
                Cli := Listaclientes.Info (Auxclilista);
                if Clientes.Getdni (Cli) = Dni then
-                  n_ap :=
-                    To_Unbounded_String
-                      (Trim (Clientes.Getnombre (Cli), Ada.Strings.Right))
-                    & To_Unbounded_String (" ")
-                    & To_Unbounded_String
-                        (Trim (Clientes.Getapellido (Cli), Ada.Strings.Right));
-                  return To_String (n_ap);
-               end if;
-
+                  n_ap := To_Unbounded_String(Trim(Clientes.Getnombre(Cli), Ada.Strings.Right))
+                            & To_Unbounded_String(" ")
+                            & To_Unbounded_String(Trim(Clientes.Getapellido(Cli), Ada.Strings.Right));
+                  return To_String(n_ap); 
+                  end if;
+                  
                Auxclilista := Listaclientes.Sig (Auxclilista);
             end loop;
             return "No encontrado";
@@ -1048,30 +1016,13 @@ procedure Menu is
             Seg            : Duration;
 
             M_Fecha : unbounded_String;
-
+                           
          begin
-
+            
             split (Fecha, Anio, Mes, Dia, seg);
 
-            --Ada.Calendar.Split(
-            --Fecha,
-            --Year => Anio,
-            --Month => Mes,
-            --Day => Dia,
-            --Hour => Hora,
-            --Minute => Min,
-            --Seconds => Seg);
 
-            M_Fecha :=
-              To_unbounded_String
-                (Integer'Image (Dia)
-                 & "/"
-                 & Integer'Image (mes)
-                 & "/"
-                 & Integer'Image (anio));
-
-            --M_Fecha(1..f_str'Length) := f_str;
-
+            M_Fecha := To_unbounded_String (Integer'Image (Dia) & "/" & Integer'Image (mes) & "/" & Integer'Image (anio));
             return to_string (M_Fecha);
 
          end Mostrar_Fecha;
@@ -1091,15 +1042,6 @@ procedure Menu is
               ("------------------------------------------------------------");
             new_line;
             Put ("nombre y apellido: ");
-            --declare
-            --Linea : Unbounded_String;
-            --begin
-
-            --Linea := To_Unbounded_String(Obtenernombrecliente(Getcliente(Turnoaux), Liscliente));
-
-            --Put_Line(To_String(Linea));
-
-            --end;
 
             Put (ObtenerNombreCliente (getCliente (turnoaux), Liscliente));
             new_line;
@@ -1113,16 +1055,15 @@ procedure Menu is
             Put (getMecanico (Turnoaux));
             New_Line;
             Put ("Fecha del turno: ");
-            --Put(Mostrar_Fecha(Getfecha(Turnoaux)));
-            --Fechastr := Mostrar_Fecha (Fechaturno);
+
             declare
                Resultado : constant String := Mostrar_Fecha (Fechaturno);
-            begin
-               Fechastr := (others => ' ');
-               Fechastr (1 .. Resultado'Length) := Resultado;
+            begin               
+               Fechastr := (others => ' ');               
+               Fechastr (1 .. Resultado'Length) := Resultado;               
             end;
             Put (Fechastr);
-
+            
             new_line;
             Put ("patente: ");
             put (getPatente (Turnoaux));
@@ -1148,477 +1089,450 @@ procedure Menu is
         ("Bienvenido al menu de turnos, indique con tecla numerica a donde quiere ir");
       New_Line;
 
-      Put ("para agregar un nuevo turno, presione la tecla 1");
+      loop
+
+      Put (" - Presione 1 para agregar un nuevo turno");
       New_Line;
-      Put ("para eliminar un turno, presione la tecla 2");
+      Put (" - Presione 2 para eliminar un turno");
       New_Line;
-      Put ("para modificar un turno, presione la tecla 3");
+      Put (" - Presione 3 para modificar un turno");
       New_Line;
-      Put ("para ver la lista de los turnos disponibles, presione la tecla 4");
-      New_Line;
-      Put ("para volver al menu principal, presione la tecla 0");
-      New_Line;
+      Put (" - Presione 4 para ver la lista de los turnos disponibles");
+      New_Line; new_line;
+      Put (" - presione 0 para volver al menu principal");
+         New_Line;
+         put("ingresar opcion: ");
       Get (Opcion);
       Skip_Line;
 
       case Opcion is
 
-         when 0 =>
-            return;
+         when 0 => new_line;
 
-         when 1 =>
-            Alta_Turno (Listurno);
+            exit;
+         when 1 =>new_line;
 
-         when 2 =>
-            Baja_Turno (Listurno);
+            Alta_Turno (Listurno); new_line;
 
-         when 3 =>
-            Modificar_Turno (Listurno);
+         when 2 => new_line;
 
-         when 4 =>
-            Listar_Turnos (Listurno, Lista_Clientes, Lista_Mecanicos);
+            Baja_Turno (Listurno); new_line;
+
+         when 3 => new_line;
+            Modificar_Turno (Listurno); new_line;
+
+
+         when 4 => new_line;
+            Listar_Turnos (Listurno, Lista_Clientes, Lista_Mecanicos); new_line;
 
          when others =>
             put
-              ("numero mal ingresado, asegurese de leer el texto con las indicaciones");
+              ("numero mal ingresado, asegurese de leer el texto con las indicaciones"); new_line;
+      end case;
+   end loop;
+   end Turnos_General;
+   
+         -----------------------------------------------------------------------------
+         ---------------------- GENERAL REPARACION------------------------------------
+         -----------------------------------------------------------------------------
+   procedure General_Reparaciones (Lista_Repar : in out lista_reparacion.Tipolista) is
+   --Lista_Reparaciones : lista_reparacion.Tipolista;
+   R : Reparacion.TipoReparacion;
+    Lis : Integer;
+             -------------------------
+             -----ALTA REPARACION-----
+             -------------------------
+    procedure Alta_Reparacion(X: out Reparacion.Tiporeparacion) is
+       
+       -- Variables auxiliares para entrada de datos
+      
+      Patente_Str, Cosas_Str, Partes_Str: String(1..50);
+      AuxPat, AuxCosas, AuxPartes : String(1..50);
+      LPat, LCosas, LPartes : Natural;
+      dniMec : Natural;
+      Fecha_Ing : ada.Calendar.Time;
+      Horas_Trab : Float;
+      Precio_Rep : Float;
+      Fecha_Str : String(1..20);
+       Lfecha : Natural;
+       
+   begin
+      Put("Ingrese patente: ");
+      Get_Line(AuxPat, LPat);
+      Patente_Str := (others => ' ');
+      Patente_Str(1..LPat) := AuxPat(1..LPat);
+      New_Line;
+
+      Put("Ingrese DNI mecanico: ");
+      Get(dniMec);
+      Skip_Line;
+      New_Line;
+
+      
+      Put("Ingrese cosas reparadas: ");
+      Get_Line(AuxCosas, LCosas);
+      Cosas_Str := (others => ' ');
+      Cosas_Str(1..LCosas) := AuxCosas(1..LCosas);
+      New_Line;
+
+      Put("Ingrese partes reemplazadas: ");
+      Get_Line(AuxPartes, LPartes);
+      Partes_Str := (others => ' ');
+      Partes_Str(1..LPartes) := AuxPartes(1..LPartes);
+      New_Line;
+
+      -- Pedir fecha ingreso (simplificado a fecha actual)
+      Put("Ingrese fecha ingreso (YYYY-MM-DD HH:MM:SS): ");
+      Get_Line(Fecha_Str, Lfecha);
+      
+      -- Para simplicidad, uso fecha actual
+      Fecha_Ing := ada.Calendar.Clock;
+      New_Line;
+
+      Put("Ingrese horas trabajadas: ");
+      Get(Horas_Trab);
+      Skip_Line;
+      New_Line;
+
+      Put("Ingrese precio: ");
+      Get(Precio_Rep);
+      Skip_Line;
+      New_Line;
+
+      declare
+         
+         Patente_Actual : String(1 .. Lpat) := Patente_Str(1 .. Lpat);         
+         Cosas_Actual   : String(1 .. Lcosas) := Cosas_Str(1 .. Lcosas);         
+         Partes_Actual  : String(1 .. Lpartes) := Partes_Str(1 .. Lpartes);
+         
+      begin
+      -- Llamar a AltaReparacion
+         Reparacion.Altareparacion(
+            X,
+            Patente_Actual,
+            Dnimec,
+            Cosas_Actual,
+            Partes_Actual,
+            Fecha_Ing,
+            Horas_Trab,
+            Precio_Rep);
+            
+      end;
+      carga_estado:= true;
+      Put_Line("Reparacion dada de alta correctamente.");
+      New_Line;
+   end Alta_Reparacion;
+            --------------------
+            ---BAJA REPARACION--
+            --------------------
+---------------------------------------------------------------------------------------------------------           
+   procedure Baja_Reparacion(L: in out lista_reparacion.Tipolista) is
+      Patente_Buscar : String(1..10);
+      AuxPat : String(1..10);
+      LPat : Natural;
+      Nodo_Encontrado : lista_reparacion.Tipolista;
+      Auxlista : Lista_Reparacion.Tipolista := L;
+      rep: reparacion.tiporeparacion;
+   begin
+      Put("Ingrese patente a dar de baja: ");
+      Get_Line(AuxPat, LPat);
+      Patente_Buscar := (others => ' ');
+      Patente_Buscar(1..LPat) := AuxPat(1..LPat);
+      New_Line;
+
+      ------- Buscar nodo con patente
+      while not lista_reparacion.Vacia(AuxLista) loop
+         declare
+            RepAux : Reparacion.TipoReparacion := lista_reparacion.Info(AuxLista);
+            Patente_Rep : String := Reparacion.getPatente(RepAux);
+         begin
+            if Patente_Rep = Patente_Buscar(1..LPat) then
+               Nodo_Encontrado := AuxLista;
+               exit;
+            end if;
+         end;
+         AuxLista := lista_reparacion.Sig(AuxLista);
+      end loop;
+
+      if lista_reparacion.Vacia(Nodo_Encontrado) then
+         Put_Line("No se encontro reparacion con esa patente.");
+      else
+         rep := lista_reparacion.Info(Nodo_Encontrado);
+         Reparacion.Bajareparacion(rep);
+         Put_Line("Reparacion dada de baja correctamente.");
+      end if;
+      New_Line;
+   end Baja_Reparacion;
+-----------------------------------------------------------------------------------------------------------------
+            -----------------------------
+            ---MODIFICACION REPARACION---
+            -----------------------------
+------------------------------------------------------------------------------------------------------------------
+   procedure Modificacion_Reparacion(L: in out lista_reparacion.Tipolista) is
+      Patente_Mod : String(1..10);
+      AuxPat : String(1..10);
+      LPat : Natural;
+      Campo : String(1..20);
+      AuxCampo : String(1..20);
+      LCampo : Natural;
+      NuevoValor : String(1..50);
+      AuxValor : String(1..50);
+      LValor : Natural;
+      Nodo_Encontrado : lista_reparacion.Tipolista;
+      Auxlista : Lista_Reparacion.Tipolista := L;
+      rep: reparacion.TipoReparacion;
+   begin
+            Put("Ingrese patente de reparacion a modificar: ");
+      Get_Line(AuxPat, LPat);
+      Patente_Mod := (others => ' ');
+      Patente_Mod(1..LPat) := AuxPat(1..LPat);
+      New_Line;
+
+      -- Buscar nodo con patente
+      while not lista_reparacion.Vacia(AuxLista) loop
+         declare
+            RepAux : Reparacion.TipoReparacion := lista_reparacion.Info(AuxLista);
+            Patente_Rep : String := Reparacion.getPatente(RepAux);
+         begin
+            if Patente_Rep = Patente_Mod(1..LPat) then
+               Nodo_Encontrado := AuxLista;
+               exit;
+            end if;
+         end;
+         AuxLista := lista_reparacion.Sig(AuxLista);
+      end loop;
+
+      if lista_reparacion.vacia(Nodo_Encontrado) then
+         Put_Line("No se encontro reparacion con esa patente");
+      else
+         Put("Ingrese campo a modificar (Patente, Partes reparadas, partes, precio, horas): ");
+         Get_Line(AuxCampo, LCampo);
+         Campo := (others => ' ');
+         Campo(1..LCampo) := AuxCampo(1..LCampo);
+         New_Line;
+
+         Put("Ingrese nuevo valor: ");
+         Get_Line(AuxValor, LValor);
+         NuevoValor := (others => ' ');
+         NuevoValor(1..LValor) := AuxValor(1..LValor);
+         New_Line;
+         rep := lista_reparacion.Info(Nodo_Encontrado);
+         Reparacion.Modificacionreparacion(rep,Campo(1..LCampo),NuevoValor(1..LValor));
+
+         Put_Line("Reparacion modificada correctamente");
+      end if;
+      New_Line;
+   end Modificacion_Reparacion;
+---------------------------------------------------------------------------------------------------------------------------
+         ----------------------------------------------
+         ------------LISTADO DE REPARACIONES-----------
+         ----------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------
+   procedure Listado_Reparaciones(L: in Lista_Reparacion.Tipolista) is
+      package Float_IO is new Ada.Text_IO.Float_IO(Float);
+      AuxLista : lista_reparacion.Tipolista := L;
+      R : Reparacion.Tiporeparacion;
+      
+   function Fecha_A_String(T : Ada.Calendar.Time) return String is
+   Year  : Integer;
+   Month : Integer;
+   Day   : Integer;
+   Sec   : duration;
+begin
+   Ada.Calendar.Split(T, Year, Month, Day, Sec);
+   return Integer'Image(Day) & "/" &
+          Integer'Image(Month) & "/" &
+          Integer'Image(Year);
+   end Fecha_A_String;
+   
+
+
+   begin
+      Put_Line("Listado de reparaciones activas:");
+      new_line;
+      while not lista_reparacion.Vacia(AuxLista) loop
+         R := Lista_Reparacion.Info(Auxlista);
+         
+         if Reparacion.Getestado(R) then
+            
+
+            Put("------------------------------");
+            new_line;
+            Put("Patente: " ) ;
+            Put(Reparacion.Getpatente(R));                       
+            New_Line;   
+                  
+            Put("DNI Mecanico: ");
+            Put(Natural'Image(Reparacion.Getdnimecanico(R)));
+            New_Line;
+            
+            Put_Line("Partes Reparadas: " & Reparacion.getCosasReparadas(R));
+            
+            Put_Line("Partes Reemplazadas: " & Reparacion.getPartesReemp(R));
+            Put_Line("Fecha Ingreso: " & Fecha_A_String(Reparacion.GetFecha(R)));
+            
+            Put("Horas Trabajo: ");
+            Float_IO.Put(Reparacion.Gethoras(R), Fore => 1, Aft => 2, Exp => 0); put(" horas"); new_line;          
+            
+            Put("Precio: ") ;               
+            Put(Reparacion.Getprecio(R), Fore => 1, Aft => 2, Exp => 0); Put(" ARS");
+            new_line;
+            Put_Line("------------------------------");
+            
+         end if;
+         AuxLista := lista_reparacion.Sig(AuxLista);
+      end loop;
+      New_Line;
+   end Listado_Reparaciones;
+-------------------------------------------------------------------------------------------------------------------------------------
+      ---- cuerpo General_Reparaciones-----
+begin
+   loop
+      Put_Line("Menu gestion de reparaciones:");
+      Put_Line("1 - Alta de reparacion");
+      Put_Line("2 - Baja de reparacion");
+      Put_Line("3 - Modificacion de reparacion");
+      Put_Line("4 - Listado de reparaciones");
+      Put_Line("0 - Salir");
+      Put("Ingrese opcion: ");
+      Get(Lis);
+      Skip_Line;
+
+      case Lis is
+         when 0 => exit;
+         when 1 =>Alta_Reparacion(R);
+  lista_reparacion.Insertar(Lista_Repar, R);
+         when 2 =>
+            Baja_Reparacion(Lista_Repar);
+         when 3 =>
+            Modificacion_Reparacion(Lista_Repar);
+         when 4 =>
+            Listado_Reparaciones(Lista_Repar);
+         when others =>
+            Put_Line("Opcion invalida. Intente nuevamente.");
+      end case;
+   end loop;
+end General_Reparaciones; 
+
+   ------------------------------------------------------------------------------------------
+   -----------------------------------------------------------------------------------------
+   
+procedure General_Reportes (ListaMec : in lista_mec.Tipolista;ListaMot : in ListaMotivos.Tipolista) is
+
+   Opcion : Integer; 
+   
+   ---------------------------------------------
+   --  Reporte de mecánicos por especialidad  --
+   ---------------------------------------------
+   
+      procedure Reporte_Mecanicos_Por_Especialidad is
+   AuxEsp           : String(1..30);
+   LEsp             : Natural;
+begin
+   Put("Ingrese especialidad a buscar: ");
+   Get_Line(AuxEsp, LEsp);
+
+   New_Line;
+
+   Lista_Reportes.Listar_Mecanicos_Por_Especialidad(ListaMec, AuxEsp(1..LEsp));
+end Reporte_Mecanicos_Por_Especialidad;
+   
+   ---------------------------------------------
+      -- Reporte de causas más frecuentes --
+   ---------------------------------------------
+   procedure Reporte_Problemas_Frecuentes is
+   begin
+      lista_reportes.Listar_problemas(ListaMot);
+   end Reporte_Problemas_Frecuentes;
+
+begin
+   loop
+      Put_Line("---------------------------------------------------");
+      Put_Line("-------------- MENU DE REPORTES -------------------");
+      Put_Line("1 - Listar mecanicos por especialidad");
+      Put_Line("2 - Listar causas mas frecuentes");
+      Put_Line("0 - Salir");
+      Put_Line("---------------------------------------------------");
+      Put("Ingrese opcion: ");
+      Get(Opcion);
+      Skip_Line;
+      New_Line;
+
+      case Opcion is
+         when 0 =>
+            exit;
+         when 1 =>
+            Reporte_Mecanicos_Por_Especialidad;
+         when 2 =>
+            Reporte_Problemas_Frecuentes;
+         when others =>
+            Put_Line("Opción invalida. Intente nuevamente.");
       end case;
 
-   end Turnos_General;
-
-   -----------------------------------------------------------------------------
-   ---------------------- GENERAL REPARACION------------------------------------
-   -----------------------------------------------------------------------------
-   procedure General_Reparaciones
-     (Lista_Repar : in out lista_reparacion.Tipolista)
-   is
-      --Lista_Reparaciones : lista_reparacion.Tipolista;
-      R   : Reparacion.TipoReparacion;
-      Lis : Integer;
-      -------------------------
-      -----ALTA REPARACION-----
-      -------------------------
-      procedure Alta_Reparacion (X : out Reparacion.Tiporeparacion) is
-
-         -- Variables auxiliares para entrada de datos
-
-         Patente_Str, Cosas_Str, Partes_Str : String (1 .. 50);
-         AuxPat, AuxCosas, AuxPartes        : String (1 .. 50);
-         LPat, LCosas, LPartes              : Natural;
-         dniMec                             : Natural;
-         Fecha_Ing                          : ada.Calendar.Time;
-         Horas_Trab                         : Float;
-         Precio_Rep                         : Float;
-         Fecha_Str                          : String (1 .. 20);
-         Lfecha                             : Natural;
-
-      begin
-         Put ("Ingrese patente: ");
-         Get_Line (AuxPat, LPat);
-         Patente_Str := (others => ' ');
-         Patente_Str (1 .. LPat) := AuxPat (1 .. LPat);
-         New_Line;
-
-         Put ("Ingrese DNI mecanico: ");
-         Get (dniMec);
-         Skip_Line;
-         New_Line;
-
-         Put ("Ingrese cosas reparadas: ");
-         Get_Line (AuxCosas, LCosas);
-         Cosas_Str := (others => ' ');
-         Cosas_Str (1 .. LCosas) := AuxCosas (1 .. LCosas);
-         New_Line;
-
-         Put ("Ingrese partes reemplazadas: ");
-         Get_Line (AuxPartes, LPartes);
-         Partes_Str := (others => ' ');
-         Partes_Str (1 .. LPartes) := AuxPartes (1 .. LPartes);
-         New_Line;
-
-         -- Pedir fecha ingreso (simplificado a fecha actual)
-         Put ("Ingrese fecha ingreso (YYYY-MM-DD HH:MM:SS): ");
-         Get_Line (Fecha_Str, Lfecha);
-
-         -- Para simplicidad, uso fecha actual
-         Fecha_Ing := ada.Calendar.Clock;
-         New_Line;
-
-         Put ("Ingrese horas trabajadas: ");
-         Get (Horas_Trab);
-         Skip_Line;
-         New_Line;
-
-         Put ("Ingrese precio: ");
-         Get (Precio_Rep);
-         Skip_Line;
-         New_Line;
-
-         declare
-
-            Patente_Actual : String (1 .. Lpat) := Patente_Str (1 .. Lpat);
-            Cosas_Actual   : String (1 .. Lcosas) := Cosas_Str (1 .. Lcosas);
-            Partes_Actual  : String (1 .. Lpartes) :=
-              Partes_Str (1 .. Lpartes);
-
-         begin
-            -- Llamar a AltaReparacion
-            Reparacion.Altareparacion
-              (X,
-               Patente_Actual,
-               Dnimec,
-               Cosas_Actual,
-               Partes_Actual,
-               Fecha_Ing,
-               Horas_Trab,
-               Precio_Rep);
-
-         end;
-         carga_estado := true;
-         Put_Line ("Reparacion dada de alta correctamente.");
-         New_Line;
-      end Alta_Reparacion;
-      --------------------
-      ---BAJA REPARACION--
-      --------------------
-      ---------------------------------------------------------------------------------------------------------           
-      procedure Baja_Reparacion (L : in out lista_reparacion.Tipolista) is
-         Patente_Buscar  : String (1 .. 10);
-         AuxPat          : String (1 .. 10);
-         LPat            : Natural;
-         Nodo_Encontrado : lista_reparacion.Tipolista;
-         Auxlista        : Lista_Reparacion.Tipolista := L;
-         rep             : reparacion.tiporeparacion;
-      begin
-         Put ("Ingrese patente a dar de baja: ");
-         Get_Line (AuxPat, LPat);
-         Patente_Buscar := (others => ' ');
-         Patente_Buscar (1 .. LPat) := AuxPat (1 .. LPat);
-         New_Line;
-
-         ------- Buscar nodo con patente
-         while not lista_reparacion.Vacia (AuxLista) loop
-            declare
-               RepAux      : Reparacion.TipoReparacion :=
-                 lista_reparacion.Info (AuxLista);
-               Patente_Rep : String := Reparacion.getPatente (RepAux);
-            begin
-               if Patente_Rep = Patente_Buscar (1 .. LPat) then
-                  Nodo_Encontrado := AuxLista;
-                  exit;
-               end if;
-            end;
-            AuxLista := lista_reparacion.Sig (AuxLista);
-         end loop;
-
-         if lista_reparacion.Vacia (Nodo_Encontrado) then
-            Put_Line ("No se encontro reparacion con esa patente.");
-         else
-            rep := lista_reparacion.Info (Nodo_Encontrado);
-            Reparacion.Bajareparacion (rep);
-            Put_Line ("Reparacion dada de baja correctamente.");
-         end if;
-         New_Line;
-      end Baja_Reparacion;
-      -----------------------------------------------------------------------------------------------------------------
-      -----------------------------
-      ---MODIFICACION REPARACION---
-      -----------------------------
-      ------------------------------------------------------------------------------------------------------------------
-      procedure Modificacion_Reparacion (L : in out lista_reparacion.Tipolista)
-      is
-         Patente_Mod     : String (1 .. 10);
-         AuxPat          : String (1 .. 10);
-         LPat            : Natural;
-         Campo           : String (1 .. 20);
-         AuxCampo        : String (1 .. 20);
-         LCampo          : Natural;
-         NuevoValor      : String (1 .. 50);
-         AuxValor        : String (1 .. 50);
-         LValor          : Natural;
-         Nodo_Encontrado : lista_reparacion.Tipolista;
-         Auxlista        : Lista_Reparacion.Tipolista := L;
-         rep             : reparacion.TipoReparacion;
-      begin
-         Put ("Ingrese patente de reparacion a modificar: ");
-         Get_Line (AuxPat, LPat);
-         Patente_Mod := (others => ' ');
-         Patente_Mod (1 .. LPat) := AuxPat (1 .. LPat);
-         New_Line;
-
-         -- Buscar nodo con patente
-         while not lista_reparacion.Vacia (AuxLista) loop
-            declare
-               RepAux      : Reparacion.TipoReparacion :=
-                 lista_reparacion.Info (AuxLista);
-               Patente_Rep : String := Reparacion.getPatente (RepAux);
-            begin
-               if Patente_Rep = Patente_Mod (1 .. LPat) then
-                  Nodo_Encontrado := AuxLista;
-                  exit;
-               end if;
-            end;
-            AuxLista := lista_reparacion.Sig (AuxLista);
-         end loop;
-
-         if lista_reparacion.vacia (Nodo_Encontrado) then
-            Put_Line ("No se encontro reparacion con esa patente");
-         else
-            Put
-              ("Ingrese campo a modificar (patente, cosas, partes, precio, horas): ");
-            Get_Line (AuxCampo, LCampo);
-            Campo := (others => ' ');
-            Campo (1 .. LCampo) := AuxCampo (1 .. LCampo);
-            New_Line;
-
-            Put ("Ingrese nuevo valor: ");
-            Get_Line (AuxValor, LValor);
-            NuevoValor := (others => ' ');
-            NuevoValor (1 .. LValor) := AuxValor (1 .. LValor);
-            New_Line;
-            rep := lista_reparacion.Info (Nodo_Encontrado);
-            Reparacion.Modificacionreparacion
-              (rep, Campo (1 .. LCampo), NuevoValor (1 .. LValor));
-
-            Put_Line ("Reparacion modificada correctamente");
-         end if;
-         New_Line;
-      end Modificacion_Reparacion;
-      ---------------------------------------------------------------------------------------------------------------------------
-      ----------------------------------------------
-      ------------LISTADO DE REPARACIONES-----------
-      ----------------------------------------------
-      ---------------------------------------------------------------------------------------------------------------------------
-      procedure Listado_Reparaciones (L : in Lista_Reparacion.Tipolista) is
-         package Float_IO is new Ada.Text_IO.Float_IO (Float);
-         AuxLista : lista_reparacion.Tipolista := L;
-         R        : Reparacion.Tiporeparacion;
-
-         function Fecha_A_String (T : Ada.Calendar.Time) return String is
-            Year  : Integer;
-            Month : Integer;
-            Day   : Integer;
-            Sec   : duration;
-         begin
-            Ada.Calendar.Split (T, Year, Month, Day, Sec);
-            return
-              Integer'Image (Day)
-              & "/"
-              & Integer'Image (Month)
-              & "/"
-              & Integer'Image (Year);
-         end Fecha_A_String;
-
-      begin
-         Put_Line ("Listado de reparaciones activas:");
-         new_line;
-         while not lista_reparacion.Vacia (AuxLista) loop
-            R := Lista_Reparacion.Info (Auxlista);
-
-            if Reparacion.Getestado (R) then
-
-               Put ("------------------------------");
-               new_line;
-               Put ("Patente: ");
-               Put (Reparacion.Getpatente (R));
-               New_Line;
-
-               Put ("DNI Mecanico: ");
-               Put (Natural'Image (Reparacion.Getdnimecanico (R)));
-               New_Line;
-
-               Put_Line
-                 ("Cosas Reparadas: " & Reparacion.getCosasReparadas (R));
-
-               Put_Line
-                 ("Partes Reemplazadas: " & Reparacion.getPartesReemp (R));
-               Put_Line
-                 ("Fecha Ingreso: "
-                  & Fecha_A_String (Reparacion.GetFecha (R)));
-
-               Put ("Horas Trabajo: ");
-               Float_IO.Put
-                 (Reparacion.Gethoras (R), Fore => 1, Aft => 2, Exp => 0);
-               put (" horas");
-               new_line;
-
-               Put ("Precio: ");
-               Put (Reparacion.Getprecio (R), Fore => 1, Aft => 2, Exp => 0);
-               Put (" ARS");
-               new_line;
-               Put_Line ("------------------------------");
-
-            end if;
-            AuxLista := lista_reparacion.Sig (AuxLista);
-         end loop;
-         New_Line;
-      end Listado_Reparaciones;
-      -------------------------------------------------------------------------------------------------------------------------------------
-      ---- cuerpo General_Reparaciones-----
-   begin
-      loop
-         Put_Line ("Menu gestion de reparaciones:");
-         Put_Line ("1 - Alta de reparacion");
-         Put_Line ("2 - Baja de reparacion");
-         Put_Line ("3 - Modificacion de reparacion");
-         Put_Line ("4 - Listado de reparaciones");
-         Put_Line ("0 - Salir");
-         Put ("Ingrese opcion: ");
-         Get (Lis);
-         Skip_Line;
-
-         case Lis is
-            when 0 =>
-               exit;
-
-            when 1 =>
-               Alta_Reparacion (R);
-               lista_reparacion.Insertar (Lista_Repar, R);
-
-            when 2 =>
-               Baja_Reparacion (Lista_Repar);
-
-            when 3 =>
-               Modificacion_Reparacion (Lista_Repar);
-
-            when 4 =>
-               Listado_Reparaciones (Lista_Repar);
-
-            when others =>
-               Put_Line ("Opcion invalida. Intente nuevamente.");
-         end case;
-      end loop;
-   end General_Reparaciones;
+      New_Line;
+   end loop;
+end General_Reportes;
+   
 
    ------------------------------------------------------------------------------------------
    -----------------------------------------------------------------------------------------
-
-   procedure General_Reportes
-     (ListaMec : in lista_mec.TipoLista; ListaMot : in lista_turnos.Tipolista)
-   is
-
-      Opcion : Integer;
-
-      ---------------------------------------------
-      --  Reporte de mecï¿½nicos por especialidad  --
-      ---------------------------------------------
-
-      procedure Reporte_Mecanicos_Por_Especialidad is
-         AuxEsp : String (1 .. 30);
-         LEsp   : Natural;
-      begin
-         Put ("Ingrese especialidad a buscar: ");
-         Get_Line (AuxEsp, LEsp);
-         --Especialidad_Ing := (others => ' ');
-
-         --Especialidad_Ing(1..LEsp) := AuxEsp(1..LEsp);
-         New_Line;
-
-         Lista_Reportes.Listar_Mecanicos_Por_Especialidad
-           (ListaMec, AuxEsp (1 .. LEsp));
-      end Reporte_Mecanicos_Por_Especialidad;
-
-      ---------------------------------------------
-      -- Reporte de causas mï¿½s frecuentes --
-      ---------------------------------------------
-      procedure Reporte_Problemas_Frecuentes is
-      begin
-         lista_reportes.Listar_problemas (ListaMot);
-      end Reporte_Problemas_Frecuentes;
-
+procedure Datos_General is
+   
+opc: natural;
+   
+   procedure guardarListas
+     (Lista_Mecanicos : in out Lista_Mec.TipoLista;
+      Lista_Clientes  : in out Listaclientes.TipoLista;
+      Listaturnos     : in out lista_turnos.TipoLista;
+      listareparacion : in out lista_reparacion.TipoLista) is
    begin
-      loop
-         Put_Line ("---------------------------------------------------");
-         Put_Line ("-------------- MENU DE REPORTES -------------------");
-         Put_Line ("1 - Listar mecanicos por especialidad");
-         Put_Line ("2 - Listar causas mas frecuentes");
-         Put_Line ("0 - Salir");
-         Put_Line ("---------------------------------------------------");
-         Put ("Ingrese opcion: ");
-         Get (Opcion);
-         Skip_Line;
-         New_Line;
+      instanciaData.guardarClientes (Lista_Clientes);
+      instanciaData.guardarMecanicos (Lista_Mecanicos);
+      instanciaData.guardarReparaciones (listareparacion);
+      instanciaData.guardarTurnos (listaTurnos);
+   end;
 
-         case Opcion is
-            when 0 =>
-               exit;
 
-            when 1 =>
-               Reporte_Mecanicos_Por_Especialidad;
-
-            when 2 =>
-               Reporte_Problemas_Frecuentes;
-
-            when others =>
-               Put_Line ("Opciï¿½n invalida. Intente nuevamente.");
-         end case;
-
-         New_Line;
-      end loop;
-   end General_Reportes;
-
-   ------------------------------------------------------------------------------------------
-   -----------------------------------------------------------------------------------------
-   procedure Datos_General is
-
-      opc : natural;
-
-      procedure guardarListas
-        (Lista_Mecanicos : in out Lista_Mec.TipoLista;
-         Lista_Clientes  : in out Listaclientes.TipoLista;
-         Listaturnos     : in out lista_turnos.TipoLista;
-         listareparacion : in out lista_reparacion.TipoLista) is
-      begin
-         instanciaData.guardarClientes (Lista_Clientes);
-         instanciaData.guardarMecanicos (Lista_Mecanicos);
-         instanciaData.guardarReparaciones (listareparacion);
-         instanciaData.guardarTurnos (listaTurnos);
-      end;
-
-   begin
-
-      Put ("---menu de datos---");
+begin
+   
+   Put("---menu de datos---"); New_Line;
+   
+   Put
+        (" - Presione 1 para cargar archivos");
       New_Line;
-
-      Put (" - Presione 1 para cargar archivos");
-      New_Line;
-      Put (" - Presione 2 para guardar archivos");
-      New_Line;
-      new_line;
-      Put ("Presione 0 para salir del menu");
+      Put
+        (" - Presione 2 para guardar archivos");
+   New_Line; new_line;
+   Put ("Presione 0 para salir del menu");
       New_Line;
       Put ("");
       New_Line;
 
-      put ("Ingresar opcion: ");
-      Get (opc);
+   put("Ingresar opcion: ");
+   Get (opc);
       Skip_Line;
       case opc is
 
-         when 0 =>
-            return;
-
-         when 1 =>
-            new_line;
+      when 0 =>
+         return;
+         
+         when 1 => new_line;
             cargarListas
-              (Lista_Mecanicos, Lista_Clientes, Listaturnos, Listareparacion);
+            (Lista_Mecanicos, Lista_Clientes, Listaturnos, Listareparacion);
             Carga_Estado := true;
-            Put ("Informacion cargada");
+            Put("Informacion cargada");
             new_line;
-
-         when 2 =>
+         when 2 => new_line;
+            Guardarlistas(Lista_Mecanicos, Lista_Clientes, Listaturnos, Listareparacion);
+            Put("Informacion nueva guardada");
             new_line;
-            Guardarlistas
-              (Lista_Mecanicos, Lista_Clientes, Listaturnos, Listareparacion);
-            Put ("Informacion nueva guardada");
-            new_line;
-
          when others =>
             put
-              ("numero mal ingresado, asegurese de leer el texto con las indicaciones");
+              ("Numero mal ingresado, asegurese de leer el texto con las indicaciones"); new_line;
 
       end case;
-
-   end Datos_General;
+      
+end Datos_General;
 
    ---------------------------------------------------------
 
@@ -1629,14 +1543,13 @@ begin
    new_line;
 
    loop
-
-      if not Carga_Estado then
-         put
-           ("LISTAS VACIAS, ASEGURESE DE CARGAR LOS DATOS O DE HACER LA ALTA DE ALGUNA FUNCION");
-         New_Line;
-         put ("");
-      end if;
-
+      
+   if not Carga_Estado then
+      put("LISTAS VACIAS, ASEGURESE DE CARGAR LOS DATOS O DE HACER LA ALTA DE ALGUNA FUNCION");   
+      New_Line;
+      put("");
+   end if;
+   
       Put
         ("------------------------------------------------------------------------------");
       new_line;
@@ -1663,7 +1576,7 @@ begin
       Put ("");
       New_Line;
 
-      put ("ingrese opcion: ");
+      put("ingrese opcion: ");
       Get (Opciones);
       new_line;
       Skip_Line;
@@ -1672,25 +1585,19 @@ begin
          when 0 =>
             put ("Usted ha salido del menu");
             exit;
-
          when 1 =>
             General_Mecanicos (Lista_Mecanicos);
-
          when 2 =>
             Clientes_General (Lista_Clientes);
-
          when 3 =>
             Turnos_General (Listaturnos);
-
-         when 4 =>
-            General_Reparaciones (listareparacion);
-
-         when 5 =>
-            General_Reportes (Lista_Mecanicos, Listaturnos);
-
+         when 4 => 
+            General_Reparaciones(listareparacion );
+         when 5 => 
+            General_Reportes(Lista_Mecanicos,Listaturnos);
          when 6 =>
-            Datos_General;
-
+            Datos_General;            
+            
          when others =>
             put
               ("numero mal ingresado, asegurese de leer el texto con las indicaciones");
