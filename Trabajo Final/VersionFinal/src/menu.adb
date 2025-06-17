@@ -1493,8 +1493,7 @@ procedure Menu is
    -----------------------------------------------------------------------------------------
 
    procedure General_Reportes
-     (ListaMec : in reportes.ListaMecanico.Tipolista;
-      ListaMot : in reportes.ListaMotivos.Tipolista)
+     (ListaMec : in lista_mec.TipoLista; ListaMot : in lista_turnos.Tipolista)
    is
 
       Opcion : Integer;
