@@ -19,7 +19,7 @@ RV NO_DYNAMIC_SIZED_OBJECTS
 RV NO_IMPLEMENTATION_PRAGMAS
 RV NO_IMPLICIT_LOOPS
 
-U main%b		main.adb		b2e2c72c NE OO SU
+U main%b		main.adb		1175f837 NE OO SU
 W ada%s			ada.ads			ada.ali
 W ada.characters%s	a-charac.ads		a-charac.ali
 W ada.characters.handling%s  a-chahan.adb	a-chahan.ali
@@ -62,11 +62,11 @@ D a-tiinio.ads		20210520051130 390edddb ada.text_io.integer_io%s
 D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
 D interfac.ads		20210520051132 edec285f interfaces%s
 D i-cstrea.ads		20210520051132 e53d8b8e interfaces.c_streams%s
-D main.adb		20250415203528 58b32938 main%b
-D packagecola.ads	20250415203528 14d0b365 packagecola%s
-D packagecola.adb	20250415203528 1a6313bf packagecola%b
-D packagepila.ads	20250415203528 be0839e1 packagepila%s
-D packagepila.adb	20250415203528 111dd8ed packagepila%b
+D main.adb		20250827195018 fb241623 main%b
+D packagecola.ads	20250428224824 14d0b365 packagecola%s
+D packagecola.adb	20250428224824 1a6313bf packagecola%b
+D packagepila.ads	20250428224824 be0839e1 packagepila%s
+D packagepila.adb	20250428224824 111dd8ed packagepila%b
 D system.ads		20210520051136 2ffa5114 system%s
 D s-conca2.ads		20210520051132 02a0d7d0 system.concat_2%s
 D s-conca3.ads		20210520051132 0b705ca5 system.concat_3%s
@@ -94,105 +94,105 @@ D s-valuns.ads		20210520051134 dac7b45d system.val_uns%s
 D s-valueu.ads		20210520051134 7b8fccf5 system.value_u%s
 D s-wchcon.ads		20210520051136 1b7d22d2 system.wch_con%s
 D unchconv.ads		20210520051136 ca2f9e18 unchecked_conversion%s
-D vector.ads		20250415203528 4ebb6ee6 vector%s
-D vector.adb		20250415203528 7ca51872 vector%b
+D vector.ads		20250428224824 4ebb6ee6 vector%s
+D vector.adb		20250428224824 7ca51872 vector%b
 G a e
-G c Z b b [main standard 10 11 none]
-G r i none [main standard 10 11 none] [vector standard 13 9 none]
-G r i none [main standard 10 11 none] [packagepila standard 5 9 none]
-G r i none [main standard 10 11 none] [packagecola standard 4 9 none]
+G c Z b b [main standard 15 11 none]
+G r i none [main standard 15 11 none] [vector standard 13 9 none]
+G r i none [main standard 15 11 none] [packagepila standard 5 9 none]
+G r i none [main standard 15 11 none] [packagecola standard 4 9 none]
 X 1 ada.ads
-16K9*Ada 20e8 22|1r6 2r6 2r27 2r62 4r6 5r5 5r26 5r61 5r75 32r33
+16K9*Ada 20e8 22|1r6 2r6 3r6 4r6 6r6 7r5 8r5 9r5 10r5 37r33
 X 2 a-charac.ads
-16K13*Characters 18e19 22|2r66 5r79
+16K13*Characters 18e19 22|4r10 10r9
 X 3 a-chahan.ads
-36K24*Handling 160e28 22|2w77 5r90
-68V13*To_Upper{character} 22|98s16 121s16
+36K24*Handling 160e28 22|4w21 10r20
+68V13*To_Upper{character} 22|106s17 130s17
 X 5 a-inteio.ads
-18K13*Integer_Text_IO[18|46] 22|2w10 5r9
+18K13*Integer_Text_IO[18|46] 22|2w10 7r9
 X 7 a-numeri.ads
-16K13*Numerics 35e17 22|2r31 4r10 5r30 32r37
+16K13*Numerics 35e17 22|3r10 6r10 8r9 37r37
 X 8 a-nudira.ads
-44k22*Discrete_Random 81e33 22|4w19 32r46
-50R9 Generator<39|65R9> 22|34r13[32]
-52V13 Random{integer} 22|37s23[32]
-61U14 Reset<39|103p14> 22|36s7[32]
+44k22*Discrete_Random 81e33 22|6w19 37r46
+50R9 Generator<39|65R9> 22|39r13[37]
+52V13 Random{integer} 22|42s23[37]
+61U14 Reset<39|103p14> 22|41s7[37]
 X 9 a-nudira.adb
-53V16 Random[39|86]{integer} 40|402b13[22|32]
-65V16 Random[39|86]{integer} 40|402b13[22|32]
+53V16 Random[39|86]{integer} 40|402b13[22|37]
+65V16 Random[39|86]{integer} 40|402b13[22|37]
 X 10 a-nuelfu.ads
-18K22*Elementary_Functions[11|39] 22|2w40 5r39
+18K22*Elementary_Functions[11|39] 22|3w19 8r18
 X 11 a-ngelfu.ads
-52V13*Sqrt{float} 22|17s14[10|18]
+52V13*Sqrt{float} 22|22s14[10|18]
 X 17 a-textio.ads
-58K13*Text_IO 725e16 22|1w10 5r65
-262U14*New_Line 22|81s7 146s4 150s4
-271U14*Skip_Line 22|76s10
-379U14*Get 22|97s10 120s10
-463U14*Put 22|74s10 80s7 147s4
-506U14*Put_Line 22|96s10 119s10 135s4 144s4
+58K13*Text_IO 725e16 22|1w10 9r9
+262U14*New_Line 22|89s7 153s4 157s4
+271U14*Skip_Line 22|84s10
+379U14*Get 22|105s10 129s10
+463U14*Put 22|88s7 154s4
+506U14*Put_Line 22|79s10 104s10 128s10 142s4 151s4
 X 18 a-tiinio.ads
-59U14*Get 22|27s7[5|18] 75s10[5|18]
-80U14*Put 22|22s7[5|18]
+59U14*Get 22|32s7[5|18] 83s10[5|18]
+80U14*Put 22|27s7[5|18]
 X 20 interfac.ads
 79M9*Unsigned_32
 82M9*Unsigned_64
 X 22 main.adb
-10U11*Main 10b11 152l5 152t9
-12I12 rango_vector{integer} 44r9 73r16
-13i4 MAX{integer} 63r39 66r39 99r45 122r42
-15V13 Raiz{float} 15b13 15>19 18l8 18t12 50r9
-15i19 A{integer} 17r27
-20U14 putelement 20b14 20>26 23l8 23t18 51r9
-20i26 A{integer} 22r12
-25U14 getelement 25b14 25<26 28l8 28t18 52r9
-25i26 A{integer} 27m12
-30V13 Random_Integer{integer} 30b13 38l8 38t22
-31I15 rango_aleatorio{integer} 32r63
-32K15 Random_Int[8|44] 33r11
-34r7 Gen{8|50R9[32]} 36r14 37r31
-41K12 vectorInt[54|13] 53r8 54r26 57r37 143r4 145r4
-54A12 VectorType{54|15A9[41]}<integer> 70r41 86r71 109r35 131r25
-57K12 pila[25|5] 58r8 63r24 94r10 117r10 142r4
-63R12 pilaType{25|6R9[57]} 64r37 86r45 108r35 130r25
-64K12 cola[23|4] 65r8 66r24 116r10 141r4
-66R12 colaType{23|5R9[64]} 107r32 129r25
-70U14 llenarVector 70b14 70<28 82l8 82t20 93s10
-70a28 vector{54A12} 77m10
-71i4 elemento{integer} 75m14 77r24
-73i11 j{12I12} 74r76 77r18
-86U14 llenarPila 86b14 86<26 86=55 102l8 102t18 115s10
-86r26 pila_vectores{63R12} 94m21
-86a55 vector{54A12} 93m24 94r36
-88i4 contador{integer} 95m10 95r22 99r34
-89e4 rta{character} 97m14 98m10 98r25 99r20
-106U14 llenarCola 106b14 107<7 108=7 109=7 124l8 124t18 138s4
-107r7 cola_pila_vectores{66R12} 116m25
-108r7 pila_vectores{63R12} 115m22 116r45 117m24
-109a7 vector{54A12} 115m37
-111e7 rta{character} 120m14 121m10 121r25 122r17
-112i7 contador{integer} 118m10 118r21 122r31
-129r4 cola_pila_vectores{66R12} 138m16 141m19 141r19
-130r4 pila_vectores{63R12} 138m36 138r36 141m39 142m16 142r16
-131a4 vector{54A12} 138m51 138r51 142m31 143r21 145r24
-132i4 posicion{integer} 143m29 149r24
+15U11*Main 15b11 159l5 159t9
+17I12 rango_vector{integer} 49r9 78r16
+18i4 MAX{integer} 68r39 71r39 107r45 131r45
+20V13 Raiz{float} 20b13 20>19 23l8 23t12 55r9
+20i19 A{integer} 22r27
+25U14 putelement 25b14 25>26 28l8 28t18 56r9
+25i26 A{integer} 27r12
+30U14 getelement 30b14 30<26 33l8 33t18 57r9
+30i26 A{integer} 32m12
+35V13 Random_Integer{integer} 35b13 43l8 43t22
+36I15 rango_aleatorio{integer} 37r63
+37K15 Random_Int[8|44] 38r11
+39r7 Gen{8|50R9[37]} 41r14 42r31
+46K12 vectorInt[54|13] 58r8 59r26 62r37 150r4 152r4
+59A12 VectorType{54|15A9[46]}<integer> 75r41 93r53 117r35 138r25
+62K12 pila[25|5] 63r8 68r24 102r10 126r10 149r4
+68R12 pilaType{25|6R9[62]} 69r37 93r27 116r35 137r25
+69K12 cola[23|4] 70r8 71r24 125r10 148r4
+71R12 colaType{23|5R9[69]} 115r32 136r25
+75U14 llenarVector 75b14 75<28 90l8 90t20 101s10
+75a28 vector{59A12} 85m10
+76i7 elemento{integer} 83m15 85r24
+78i11 j{17I12} 81r30 85r18
+92U14 llenarPila 92b14 93<7 93=37 110l8 110t18 124s10
+93r7 pila_vectores{68R12} 102m22
+93a37 vector{59A12} 101m24 102r37
+96i7 contador{integer} 103m10 103r22 107r34
+97e7 rta{character} 105m15 106m10 106r27 107r20
+114U14 llenarCola 114b14 115<7 116=7 117=7 133l8 133t18 145s4
+115r7 cola_pila_vectores{71R12} 125m25
+116r7 pila_vectores{68R12} 124m22 125r45 126m24
+117a7 vector{59A12} 124m37
+120e7 rta{character} 129m15 130m10 130r27 131r20
+121i7 contador{integer} 127m10 127r22 131r34
+136r4 cola_pila_vectores{71R12} 145m16 148m19 148r19
+137r4 pila_vectores{68R12} 145m36 145r36 148m39 149m16 149r16
+138a4 vector{59A12} 145m51 145r51 149m31 150r21 152r24
+139i4 posicion{integer} 150m29 156r24
 X 23 packagecola.ads
-4k9*packageCola 22|3w27 64r24 23|26e16
-5R9 TipoCola 22|66r29[64]
-8U14 Insertar 22|116s15[64]
-10U14 Suprimir 22|141s9[64]
+4k9*packageCola 22|5w27 69r24 23|26e16
+5R9 TipoCola 22|71r29[69]
+8U14 Insertar 22|125s15[69]
+10U14 Suprimir 22|148s9[69]
 X 25 packagepila.ads
-5k9*packagePila 22|3w14 57r24 25|20e16
-6R9 TipoPila 22|63r29[57]
-8U14 Limpiar 22|117s15[57]
-11U14 Meter 22|94s15[57]
-12U14 Sacar 22|142s9[57]
+5k9*packagePila 22|5w14 62r24 25|20e16
+6R9 TipoPila 22|68r29[62]
+8U14 Limpiar 22|126s15[62]
+11U14 Meter 22|102s15[62]
+12U14 Sacar 22|149s9[62]
 X 39 s-rannum.ads
 77V13*Random{20|79M9} 40|224i21
 78V13*Random{20|82M9} 40|224i21
 X 54 vector.ads
-13k9*Vector 22|3w6 42r6 54|26e11
-15A9 VecGeneric(integer)<integer> 22|54r36[41] 57r47[41]
-17U14 Imprimir 22|145s14[41]
-25U14 mayor 22|143s14[41]
+13k9*Vector 22|5w6 47r6 54|26e11
+15A9 VecGeneric(integer)<integer> 22|59r36[46] 62r47[46]
+17U14 Imprimir 22|152s14[46]
+25U14 mayor 22|150s14[46]
 

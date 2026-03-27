@@ -1,8 +1,13 @@
 with Ada.Text_IO;
-with Ada.Integer_Text_IO, ada.Numerics.Elementary_Functions, ada.Characters.Handling;
+with Ada.Integer_Text_IO,
+     ada.Numerics.Elementary_Functions,
+     ada.Characters.Handling;
 with vector, packagePila, packageCola;
 with Ada.Numerics.Discrete_Random;
-use ada.Integer_Text_IO, ada.Numerics.Elementary_Functions, Ada.Text_IO,  ada.Characters.Handling;
+use ada.Integer_Text_IO,
+    ada.Numerics.Elementary_Functions,
+    Ada.Text_IO,
+    ada.Characters.Handling;
 --  9. Definir la estructura cola de pila de vectores (5 elementos) y escribir el programa que permita:
 --  a) Obtener la posición (dentro del vector) del elemento mayor del vector que se encuentra
 --  en la cabeza de la pila, que está en el frente de la cola. 
@@ -33,7 +38,7 @@ procedure Main is
       use Random_Int;
       Gen : Generator;
    begin
-      Reset (Gen); -- inicializa el generador 
+      Reset (Gen); -- inicializa el generador
       return Integer (Random (Gen)); -- devuelvo el numero aleatorio
    end Random_Integer;
    --instancio mi vectore de enteros
@@ -68,34 +73,37 @@ procedure Main is
    --procedimiento que llena un vector de numeros aleatorios
 
    procedure llenarVector (vector : out VectorType) is
-   elemento: Integer;
+      elemento : Integer;
    begin
       for j in rango_vector loop
-         Put ("Inserte el valor del vector en la posicion" & Integer'Image(j) & " :" );
-         get(elemento);
+         Put
+           ("Inserte el valor del vector en la posicion"
+            & Integer'Image (j)
+            & " :");
+         get (elemento);
          Skip_Line;
          vector (j) := elemento;
       end loop;
-      
-      put("Se completo la insercion de elementos en el vector");
+
+      put ("Se completo la insercion de elementos en el vector");
       New_Line;
    end llenarVector;
 
+   procedure llenarPila
+     (pila_vectores : out pilaType; vector : in out VectorType)
+   is
 
-
-   procedure llenarPila (pila_vectores: out pilaType; vector: in  out VectorType) is
-   
-   contador: integer:= 0;
-   rta: Character;
+      contador : integer := 0;
+      rta      : Character;
    begin
 
       loop
          llenarVector (vector);
-         pila.Meter(pila_vectores, vector);
+         pila.Meter (pila_vectores, vector);
          contador := contador + 1;
-         Put_Line("Desea seguir ingresando mas vectores a la pila? :");
-         get(rta);
-         rta:= To_Upper(rta);
+         Put_Line ("Desea seguir ingresando mas vectores a la pila? :");
+         get (rta);
+         rta := To_Upper (rta);
          exit when rta /= 'S' or contador = max;
       end loop;
 
@@ -106,24 +114,23 @@ procedure Main is
    procedure llenarCola
      (cola_pila_vectores : out colaType;
       pila_vectores      : in out pilaType;
-      vector             : in out VectorType) is
+      vector             : in out VectorType)
+   is
 
-      rta: Character;
-      contador: Integer:= 0;
+      rta      : Character;
+      contador : Integer := 0;
    begin
       loop
          llenarPila (pila_vectores, vector);
          cola.Insertar (cola_pila_vectores, pila_vectores);
          pila.Limpiar (pila_vectores);
-         contador:= contador + 1;
-         Put_Line("Desea seguir ingresando mas pilas a la cola? :");
-         get(rta);
-         rta:= To_Upper(rta);
-      exit when rta /= 'S' or contador = max-1;
+         contador := contador + 1;
+         Put_Line ("Desea seguir ingresando mas pilas a la cola? :");
+         get (rta);
+         rta := To_Upper (rta);
+         exit when rta /= 'S' or contador = max - 1;
       end loop;
    end llenarCola;
-
-
 
    --variables
    cola_pila_vectores : colaType;
